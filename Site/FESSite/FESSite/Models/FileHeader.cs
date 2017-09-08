@@ -9,17 +9,24 @@ namespace FESSite.Models
         public List<ClaimHeader> lsdch;
         public List<Field> lsFields;
         private string m_Source;
+        private FESSiteContext db = new FESSiteContext();
 
-        public FileHeader()
+        public FileHeader(string sSource)
         {
-            lsdch = new List<ClaimHeader>();
-            lsFields = new List<Field>();
-            Field f = new Field { Name = "NUMBER_OF_CLAIMS", Format = "TEXT 3", StartPOS = 1, EndPOS = 3, Description = "Number of claim in the file." };
-            lsFields.Add(f);
-            f = new Field { Name = "Version", Format = "TEXT 2", StartPOS = 4, EndPOS = 5, Description = "Current Version"};
-            lsFields.Add(f);
+            if(sSource.Length<6)
+            {
+                throw new Exception("File Layout Appears Invlaid.  FileHeader record appears too short.");
+            }
+            Source = sSource;
+            string sSourceFileVersion = Source.Substring(3, 2);
+            if(!db.Fields.Where(x=>x.FileVersion== sSourceFileVersion && x.RecordType == RecordType.FileHeader).Any())
+            {
+                throw new Exception("File Version is " + sSourceFileVersion +".  There are no FileHeader Fields setup for this version.");
+            }
+            lsFields = db.Fields.Where(x => x.FileVersion == sSourceFileVersion && x.RecordType== RecordType.FileHeader).ToList();
 
         }
+
         public int NumberofClaims
         {
             get
@@ -47,9 +54,9 @@ namespace FESSite.Models
             iMaxPosition = GetMaxPosition();
             if(Source.Length<iMaxPosition)
             {
-                return;
+                throw new Exception("File Layout Appears Invlaid.  FileHeader record appears too short.");
             }
-            foreach(Field f in lsFields)
+            foreach (Field f in lsFields)
             {
                 f.Value = Source.Substring(f.StartPOS - 1, f.EndPOS - f.StartPOS+1);
             }
@@ -58,8 +65,7 @@ namespace FESSite.Models
             string sWorkingSource = Source.Substring(iClaimStartPos);
             for (int x=0; x<iClaimsCount; x++)
             {
-                ClaimHeader ch = new ClaimHeader();
-                ch.Source = sWorkingSource;
+                ClaimHeader ch = new ClaimHeader(sWorkingSource,Version);
                 sWorkingSource=ch.ParseSource();
                 AddClaimHeader(ch);
             }

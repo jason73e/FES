@@ -13,7 +13,7 @@ namespace FESSite.Models
 
     public enum RecordType
     {
-        FileHeader = 1,ClaimHeader=2,PaperHeader=3,ClaimDetail=4,PaperDetail=5
+        FileHeader=1,ClaimHeader=2,PaperHeader=3,ClaimDetail=4,PaperDetail=5
     }
     public class Field
     {

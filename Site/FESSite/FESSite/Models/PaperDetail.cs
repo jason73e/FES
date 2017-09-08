@@ -9,7 +9,11 @@ namespace FESSite.Models
     {
         public List<Field> lsFields;
         private string m_Source;
+        private string m_FileVersion;
+        private FESSiteContext db = new FESSiteContext();
+
         public string Source { get { return m_Source; } set { m_Source = value; } }
+        public string FileVersion { get { return m_FileVersion; } set { m_FileVersion = value; } }
 
         public void ParseSource()
         {
@@ -32,14 +36,15 @@ namespace FESSite.Models
             retValue = lsFields.Max(x => x.EndPOS);
             return retValue;
         }
-        public PaperDetail()
+        public PaperDetail(string sSource,string sVersion)
         {
-            lsFields = new List<Field>();
-            Field f = new Field();
-            f = new Field { Name = "RECORD_ID", Format = "TEXT 2", StartPOS = 1, EndPOS = 2, Description = "value \"PD\"" };
-            lsFields.Add(f);
-            f = new Field { Name = "FK_DATA_ENTRY_EOB_EOPS_CODE", Format = "TEXT 5", StartPOS = 3, EndPOS = 7, Description = "EOB entered by data entry clerk" };
-            lsFields.Add(f);
+            Source = sSource;
+            FileVersion = sVersion;
+            if (!db.Fields.Where(x => x.FileVersion == FileVersion && x.RecordType == RecordType.PaperDetail).Any())
+            {
+                throw new Exception("File Version is " + FileVersion + ".  There are no Paper Detail Fields setup for this version.");
+            }
+            lsFields = db.Fields.Where(x => x.FileVersion == FileVersion && x.RecordType == RecordType.PaperDetail).ToList();
         }
     }
 }

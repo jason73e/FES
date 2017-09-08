@@ -18,12 +18,11 @@ namespace FESSite.Models
         private FileHeader fh;
         public ClaimFile()
         {
-            fh = new FileHeader();
         }
 
         public FileHeader Parse(string sSource)
         {
-            fh.Source = sSource;
+            fh = new FileHeader(sSource);
             fh.ParseSource();
             return fh;
         }
