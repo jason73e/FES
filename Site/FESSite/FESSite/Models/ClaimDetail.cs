@@ -11,23 +11,32 @@ namespace FESSite.Models
         private string m_Source;
         private string m_FileVersion;
         private FESSiteContext db = new FESSiteContext();
+        public ClaimLayoutType cltLayout;
 
         public string Source { get { return m_Source; } set { m_Source = value; } }
         public string FileVersion { get { return m_FileVersion; } set { m_FileVersion = value; } }
+        public PaperDetail pd;
 
-
-        public void ParseSource()
+        public string ParseSource()
         {
             int iMaxPosition = 0;
+            string sWorkingSource = Source;
             iMaxPosition = GetMaxPosition();
             if (Source.Length < iMaxPosition)
             {
-                return;
+                throw new Exception("File Layout Appears Invlaid.  Claim Detail record appears too short.");
+            }
+            if (!Source.StartsWith("ID"))
+            {
+                throw new Exception("File Layout Appears Invlaid.  Claim Detail record appears does not start with ID.");
             }
             foreach (Field f in lsFields)
             {
-                f.Value = Source.Substring(f.StartPOS - 1, f.EndPOS - f.StartPOS + 1);
+                f.Value = sWorkingSource.Substring(f.StartPOS - 1, f.EndPOS - f.StartPOS + 1);
             }
+            pd = new PaperDetail(sWorkingSource.Substring(iMaxPosition), FileVersion,cltLayout);
+            sWorkingSource = pd.ParseSource();
+            return sWorkingSource;
 
         }
 
@@ -38,15 +47,16 @@ namespace FESSite.Models
             return retValue;
         }
 
-        public ClaimDetail(string sSource, string sVersion)
+        public ClaimDetail(string sSource, string sVersion , ClaimLayoutType clt)
         {
             Source = sSource;
+            cltLayout = clt;
             FileVersion = sVersion;
-            if (!db.Fields.Where(x => x.FileVersion == FileVersion && x.RecordType == RecordType.ClaimDetail).Any())
+            if (!db.Fields.Where(x => x.FileVersion == FileVersion && x.RecordType == RecordType.ClaimDetail && x.ClaimType == cltLayout).Any())
             {
                 throw new Exception("File Version is " + FileVersion + ".  There are no Claim Detail Fields setup for this version.");
             }
-            lsFields = db.Fields.Where(x => x.FileVersion == FileVersion && x.RecordType == RecordType.ClaimDetail).ToList();
+            lsFields = db.Fields.Where(x => x.FileVersion == FileVersion && x.RecordType == RecordType.ClaimDetail && x.ClaimType == cltLayout).ToList();
 
         }
     }

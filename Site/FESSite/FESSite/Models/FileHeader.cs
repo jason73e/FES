@@ -19,11 +19,11 @@ namespace FESSite.Models
             }
             Source = sSource;
             string sSourceFileVersion = Source.Substring(3, 2);
-            if(!db.Fields.Where(x=>x.FileVersion== sSourceFileVersion && x.RecordType == RecordType.FileHeader).Any())
+            if(!db.Fields.Where(x=>x.FileVersion== sSourceFileVersion && x.RecordType == RecordType.FileHeader && x.ClaimType == ClaimLayoutType.All).Any())
             {
                 throw new Exception("File Version is " + sSourceFileVersion +".  There are no FileHeader Fields setup for this version.");
             }
-            lsFields = db.Fields.Where(x => x.FileVersion == sSourceFileVersion && x.RecordType== RecordType.FileHeader).ToList();
+            lsFields = db.Fields.Where(x => x.FileVersion == sSourceFileVersion && x.RecordType== RecordType.FileHeader && x.ClaimType == ClaimLayoutType.All).ToList();
 
         }
 
@@ -34,11 +34,11 @@ namespace FESSite.Models
                 return Convert.ToInt32(lsFields.Find(x => x.Name == "NUMBER_OF_CLAIMS").Value);
             }
         }
-        public string Version
+        public string FileVersion
         {
             get
             {
-                return lsFields.Find(x => x.Name == "Version").Value;
+                return lsFields.Find(x => x.Name == "VERSION").Value;
             }
         }
 
@@ -65,7 +65,7 @@ namespace FESSite.Models
             string sWorkingSource = Source.Substring(iClaimStartPos);
             for (int x=0; x<iClaimsCount; x++)
             {
-                ClaimHeader ch = new ClaimHeader(sWorkingSource,Version);
+                ClaimHeader ch = new ClaimHeader(sWorkingSource,FileVersion);
                 sWorkingSource=ch.ParseSource();
                 AddClaimHeader(ch);
             }

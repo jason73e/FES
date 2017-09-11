@@ -21,27 +21,35 @@ namespace FESSite.Models
                 switch(lsFields.Find(x => x.Name == "STD_BATCH_TYPE_CODE").Value)
                 {
                     case "001":
+                        cltLayout = ClaimLayoutType.UB04;
                         return "UB04 Inpatient";
 
                     case "002":
+                        cltLayout = ClaimLayoutType.UB04;
                         return "UB04 Outpatient";
 
                     case "003":
+                        cltLayout = ClaimLayoutType.Dental;
                         return "Dental";
 
                     case "004":
+                        cltLayout = ClaimLayoutType.HCFA;
                         return "HCFA";
 
                     case "005":
+                        cltLayout = ClaimLayoutType.UB04;
                         return "UB04 Outpatient Crossover/Advantage";
 
                     case "006":
+                        cltLayout = ClaimLayoutType.UB04;
                         return "UB04 Inpatient Crossover/Advantage";
 
                     case "007":
-                        return "HCFA Advantage/Crossover";
+                        cltLayout = ClaimLayoutType.HCFA;
+                        return "HCFA Crossover/Advantage";
 
                     case "008":
+                        cltLayout = ClaimLayoutType.FamilyPlanning;
                         return "Family Planning";
 
                     default:
@@ -49,6 +57,7 @@ namespace FESSite.Models
                 }
             }
         }
+        public ClaimLayoutType cltLayout;
 
         public int NumberofDetails
         {
@@ -65,9 +74,8 @@ namespace FESSite.Models
         public string ParseSource()
         {
             int iMaxPosition = 0;
-            int iWorkingPosition = 0;
+            string sWorkingSource = Source;
             iMaxPosition = GetMaxPosition();
-            iWorkingPosition = iMaxPosition;
             if (Source.Length < iMaxPosition)
             {
                 throw new Exception("File Layout Appears Invlaid.  ClaimHeader record appears too short.");
@@ -80,12 +88,90 @@ namespace FESSite.Models
             {
                 f.Value = Source.Substring(f.StartPOS - 1, f.EndPOS - f.StartPOS + 1);
             }
-            ph = new PaperHeader(Source.Substring(iWorkingPosition), FileVersion);
-            ph.ParseSource();
+            RemoveExtraFields();
+            ph = new PaperHeader(sWorkingSource.Substring(iMaxPosition), FileVersion,cltLayout);
+            sWorkingSource = ph.ParseSource();
+            for(int x =0;x<NumberofDetails;x++)
+            {
+                ClaimDetail cd = new ClaimDetail(sWorkingSource, FileVersion,cltLayout);
+                sWorkingSource = cd.ParseSource();
+                lscd.Add(cd);
+            }
 
 
-            return Source.Substring(iWorkingPosition);
+            return sWorkingSource;
 
+        }
+
+        private void RemoveExtraFields()
+        {
+            List<Field> lsNewList = new List<Field>();
+            string thisClaimType = ClaimType;
+            switch (thisClaimType)
+            {
+                case "UB04 Inpatient":
+                case "UB04 Outpatient":
+                    foreach (Field f in lsFields)
+                    {
+                        if ((f.ClaimType == ClaimLayoutType.UB04))
+                        {
+                            lsNewList.Add(f);
+                        }
+                    }
+                    lsFields = lsNewList;
+                    break;
+                case "Dental":
+                    foreach (Field f in lsFields)
+                    {
+                        if ((f.ClaimType == ClaimLayoutType.Dental))
+                        {
+                            lsNewList.Add(f);
+                        }
+                    }
+                    lsFields = lsNewList;
+                    break;
+                case "HCFA":
+                    foreach (Field f in lsFields)
+                    {
+                        if ((f.ClaimType == ClaimLayoutType.HCFA))
+                        {
+                            lsNewList.Add(f);
+                        }
+                    }
+                    lsFields = lsNewList;
+                    break;
+                case "Family Planning":
+                    foreach (Field f in lsFields)
+                    {
+                        if ((f.ClaimType == ClaimLayoutType.FamilyPlanning))
+                        {
+                            lsNewList.Add(f);
+                        }
+                    }
+                    lsFields = lsNewList;
+                    break;
+                case "UB04 Outpatient Crossover/Advantage":
+                case "UB04 Inpatient Crossover/Advantage":
+                    foreach (Field f in lsFields)
+                    {
+                        if (((f.ClaimType == ClaimLayoutType.UB04Advantage)|| (f.ClaimType == ClaimLayoutType.UB04Crossover)))
+                        {
+                            lsNewList.Add(f);
+                        }
+                    }
+                    lsFields = lsNewList;
+                    break;
+                case "HCFA Crossover/Advantage":
+                    foreach (Field f in lsFields)
+                    {
+                        if (((f.ClaimType == ClaimLayoutType.HCFAAdvantage) || (f.ClaimType == ClaimLayoutType.HCFACrossover)))
+                        {
+                            lsNewList.Add(f);
+                        }
+                    }
+                    lsFields = lsNewList;
+                    break;
+            }
         }
 
         public int GetMaxPosition()

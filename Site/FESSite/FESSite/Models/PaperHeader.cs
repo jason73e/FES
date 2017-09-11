@@ -13,6 +13,7 @@ namespace FESSite.Models
 
         public string Source { get { return m_Source; } set { m_Source = value; } }
         public string FileVersion { get { return m_FileVersion; } set { m_FileVersion = value; } }
+        public ClaimLayoutType cltLayout;
 
 
         public string ParseSource()
@@ -41,15 +42,16 @@ namespace FESSite.Models
             retValue = lsFields.Max(x => x.EndPOS);
             return retValue;
         }
-        public PaperHeader(string sSource,string sVersion)
+        public PaperHeader(string sSource,string sVersion,ClaimLayoutType clt)
         {
             Source = sSource;
             FileVersion = sVersion;
-            if (!db.Fields.Where(x => x.FileVersion == FileVersion && x.RecordType == RecordType.PaperHeader).Any())
+            cltLayout = clt;
+            if (!db.Fields.Where(x => x.FileVersion == FileVersion && x.RecordType == RecordType.PaperHeader && x.ClaimType == cltLayout).Any())
             {
                 throw new Exception("File Version is " + FileVersion + ".  There are no Paper Header Fields setup for this version.");
             }
-            lsFields = db.Fields.Where(x => x.FileVersion == FileVersion && x.RecordType == RecordType.PaperHeader).ToList();
+            lsFields = db.Fields.Where(x => x.FileVersion == FileVersion && x.RecordType == RecordType.PaperHeader && x.ClaimType == cltLayout).ToList();
 
         }
     }
