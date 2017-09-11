@@ -241,8 +241,6 @@
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="Views\ClaimFiles\Create.cshtml" />
     <Content Include="Views\ClaimFiles\Delete.cshtml" />
-    <Content Include="Views\ClaimFiles\Details.cshtml" />
-    <Content Include="Views\ClaimFiles\Edit.cshtml" />
     <Content Include="Views\ClaimFiles\Index.cshtml" />
     <Content Include="Views\ClaimFiles\Parse.cshtml" />
     <Content Include="Views\Fields\Create.cshtml" />

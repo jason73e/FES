@@ -21,21 +21,6 @@ namespace FESSite.Controllers
             return View(db.ClaimFiles.ToList());
         }
 
-        // GET: ClaimFiles/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ClaimFile claimFile = db.ClaimFiles.Find(id);
-            if (claimFile == null)
-            {
-                return HttpNotFound();
-            }
-            return View(claimFile);
-        }
-
         // GET: ClaimFiles/Create
         public ActionResult Create()
         {
@@ -74,58 +59,35 @@ namespace FESSite.Controllers
 
         }
 
-        // GET: ClaimFiles/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ClaimFile claimFile = db.ClaimFiles.Find(id);
-            if (claimFile == null)
-            {
-                return HttpNotFound();
-            }
-            return View(claimFile);
-        }
-
         // Parse: ClaimFiles/Parse/5
         public ActionResult Parse(int? id)
         {
-            ParsedViewModel pvm = new ParsedViewModel();
-            if (id == null)
+            try
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ClaimFile claimFile = db.ClaimFiles.Find(id);
-            if (claimFile == null)
-            {
-                return HttpNotFound();
-            }
-            string _FileName = claimFile.Filename;
-            string _path = Path.Combine(Server.MapPath("~/UploadedFiles"), _FileName);
-            string sSource = System.IO.File.ReadAllText(_path);
-            pvm.cf = claimFile;
-            pvm.fh = claimFile.Parse(sSource);
+                ParsedViewModel pvm = new ParsedViewModel();
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                ClaimFile claimFile = db.ClaimFiles.Find(id);
+                if (claimFile == null)
+                {
+                    return HttpNotFound();
+                }
+                string _FileName = claimFile.Filename;
+                string _path = Path.Combine(Server.MapPath("~/UploadedFiles"), _FileName);
+                string sSource = System.IO.File.ReadAllText(_path);
+                pvm.cf = claimFile;
+                pvm.fh = claimFile.Parse(sSource);
 
-            return View(pvm);
+                return View(pvm);
+            }
+            catch(Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "ClaimFiles", "Index"));
+            }
         }
 
-        // POST: ClaimFiles/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "FileID,Filename,FileSize")] ClaimFile claimFile)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(claimFile).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(claimFile);
-        }
 
         // GET: ClaimFiles/Delete/5
         public ActionResult Delete(int? id)
@@ -147,10 +109,20 @@ namespace FESSite.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ClaimFile claimFile = db.ClaimFiles.Find(id);
-            db.ClaimFiles.Remove(claimFile);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                ClaimFile claimFile = db.ClaimFiles.Find(id);
+                db.ClaimFiles.Remove(claimFile);
+                db.SaveChanges();
+                string _FileName = claimFile.Filename;
+                string _path = Path.Combine(Server.MapPath("~/UploadedFiles"), _FileName);
+                System.IO.File.Delete(_path);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "ClaimFiles", "Index"));
+            }
         }
 
         protected override void Dispose(bool disposing)
