@@ -12,6 +12,8 @@ namespace FESSite.Models
         private string m_FileVersion;
         private FESSiteContext db = new FESSiteContext();
         public ClaimLayoutType cltLayout;
+        public string ClaimDetailNumber { get { return lsFields.Find(x => x.Name == "SEQUECNE NUMBER").Value; } }
+
 
         public string Source { get { return m_Source; } set { m_Source = value; } }
         public string FileVersion { get { return m_FileVersion; } set { m_FileVersion = value; } }

@@ -6,7 +6,7 @@ namespace FESSite.Models
 {
     public class FileHeader
     {
-        public List<ClaimHeader> lsdch;
+        public List<ClaimHeader> lsdch = new List<ClaimHeader>();
         public List<Field> lsFields;
         private string m_Source;
         private FESSiteContext db = new FESSiteContext();

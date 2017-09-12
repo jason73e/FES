@@ -13,6 +13,7 @@ namespace FESSite.Models
 
         public string Source { get { return m_Source; } set { m_Source = value; } }
         public string FileVersion { get { return m_FileVersion; } set { m_FileVersion = value; } }
+        public string ClaimDCN { get { return lsFields.Find(x => x.Name == "ENDORSEMENT NUMBER").Value; } }
         public ClaimLayoutType cltLayout;
 
 
