@@ -1,0 +1,156 @@
+﻿@model FESSite.Models.ParsedViewModel
+
+@{
+    ViewBag.Title = "Parse";
+}
+
+
+<h2>Parse</h2>
+
+
+@using (Html.BeginForm())
+{
+    int x = 1;
+    int y = 1;
+    @Html.AntiForgeryToken()
+    <div class="form-inline">
+        <h4>Claim File</h4>
+        <hr />
+        @Html.HiddenFor(model => model.cf.FileID)
+
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.cf.Filename, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-6">
+                @Html.DisplayFor(model => model.cf.Filename, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.cf.FileSize, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-6">
+                @Html.DisplayFor(model => model.cf.FileSize, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+    </div>
+    <br />
+    <div class="form-inline">
+        <h4>File Header</h4>
+        <hr />
+        @foreach (var field in Model.fh.lsFields)
+        {
+            <div class="form-group col-md-6">
+                <label class="control-label col-md-6">@Html.DisplayFor(model => field.DisplayName): </label>
+                <div class="col-md-6">
+                    @Html.DisplayFor(model => field.Value, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        }
+    </div>
+    <br />
+    <hr />
+    <div>
+                @foreach (var claim in Model.fh.lsdch)
+                {
+                        <div class="panel-group" id="ClaimHeader">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#ClaimHeader" href="#ClaimHeader-@x">
+                                            Claim Header @claim.ClaimSEQNumber @claim.ClaimType @claim.ph.ClaimDCN
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="ClaimHeader-@x" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div class="form-inline">
+                                            @foreach (var field in claim.lsFields)
+                                            {
+                                                <div class="form-group col-md-6">
+                                                    <label class="control-label col-md-6">@Html.DisplayFor(model => field.DisplayName):</label>
+                                                    <div class="col-md-6">
+                                                        @Html.DisplayFor(model => field.Value, new { htmlAttributes = new { @class = "form-control" } })
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+                                        <div class="row"></div>
+                                        <hr />
+                                        <div class="form-inline">
+                                            <h4>Paper Header</h4>
+                                            <hr />
+                                            @foreach (var field in claim.ph.lsFields)
+                                            {
+                                                <div class="form-group col-md-6">
+                                                    <label class="control-label col-md-6">@Html.DisplayFor(model => field.DisplayName): </label>
+                                                    <div class="col-md-6">
+                                                        @Html.DisplayFor(model => field.Value, new { htmlAttributes = new { @class = "form-control" } })
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+                                        <div class="row"></div>
+                                        <hr />
+                                        @foreach (var claimdetail in claim.lscd)
+                                        {
+                                            <div class="panel-group" id="ClaimDetail">
+                                                <div class="panel panel-primary">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#ClaimDetail" href="#ClaimDetail-@y">
+                                                                Claim Detail @claimdetail.ClaimDetailNumber
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="ClaimDetail-@y" class="panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                            @foreach (var field in claimdetail.lsFields)
+                                                            {
+                                                                <div class="form-group col-md-6">
+                                                                    <label class="control-label col-md-6">@Html.DisplayFor(model => field.DisplayName): </label>
+                                                                    <div class="col-md-6">
+                                                                        @Html.DisplayFor(model => field.Value, new { htmlAttributes = new { @class = "form-control" } })
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                            <div class="row"></div>
+                                                            <hr />
+                                                            <div class="form-inline">
+                                                                <h4>Paper Detail</h4>
+                                                                <hr />
+                                                                @foreach (var field in claimdetail.pd.lsFields)
+                                                                {
+                                                                    <div class="form-group col-md-6">
+                                                                        <label class="control-label col-md-6">@Html.DisplayFor(model => field.DisplayName): </label>
+                                                                        <div class="col-md-6">
+                                                                            @Html.DisplayFor(model => field.Value, new { htmlAttributes = new { @class = "form-control" } })
+                                                                        </div>
+                                                                    </div>
+                                                                }
+                                                            </div>
+                                                            <div class="row"></div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            y++;
+                                        }                                        
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                    x++;
+                }
+        </div>
+}
+
+                                    <div>
+                                        @Html.ActionLink("Back to List", "Index")
+                                    </div>
+
+                                    @section Scripts {
+                                        @Scripts.Render("~/bundles/jqueryval")
+                                    }
+
+

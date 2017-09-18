@@ -1,0 +1,38 @@
+﻿@model IEnumerable<FESSite.Models.ClaimFile>
+
+@{
+    ViewBag.Title = "File Listing";
+}
+
+<h2>File Listing</h2>
+
+<p>
+    @Html.ActionLink("Upload New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Filename)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileSize)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Filename)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileSize)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.FileID }) |
+            @Html.ActionLink("Parse", "Parse", new { id = item.FileID })
+        </td>
+    </tr>
+}
+
+</table>
