@@ -15,6 +15,11 @@ namespace FESSite.Models
     {
         FileHeader=1,ClaimHeader=2,PaperHeader=3,ClaimDetail=4,PaperDetail=5
     }
+
+    public enum FormGrouping
+    {
+        HeaderInfo=1,SubscriberInfo=2,PayerInfo=3,PatientInfo=4,OtherPayerInfo=5,ServiceRecord=6,Authorizations=7,TreatmentInfo=8,BillingInfo=9,TreatmentLocationInfo=10,AmbulanceInfo=11,ProviderInfo=12
+    }
     public class Field
     {
         private string m_Value;
@@ -48,6 +53,8 @@ namespace FESSite.Models
         public DateTime ts { get; set; }
         public string Value { get { return m_Value; } set { m_Value = value; } }
 
+        public bool IsDisplayed { get; set; }
+        public FormGrouping FormGroup { get; set; }
         public Field()
         {
 
