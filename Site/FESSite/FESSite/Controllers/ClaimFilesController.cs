@@ -18,6 +18,17 @@ namespace FESSite.Controllers
         // GET: ClaimFiles
         public ActionResult Index()
         {
+            db.Database.ExecuteSqlCommand("Truncate Table ClaimFiles");
+            string _path = Server.MapPath("~/UploadedFiles");
+            DirectoryInfo di = new DirectoryInfo(_path);
+            foreach(FileInfo f in di.GetFiles())
+            {
+                ClaimFile c = new ClaimFile();
+                c.Filename = f.Name;
+                c.FileSize = f.Length.ToString();
+                db.ClaimFiles.Add(c);
+                db.SaveChanges();
+            }
             return View(db.ClaimFiles.ToList());
         }
 
@@ -42,11 +53,6 @@ namespace FESSite.Controllers
                     string _FileName = Path.GetFileName(file.FileName);
                     string _path = Path.Combine(Server.MapPath("~/UploadedFiles"), _FileName);
                     file.SaveAs(_path);
-                    claimFile.Filename = _FileName;
-                    claimFile.FileSize = file.ContentLength.ToString();
-                    db.ClaimFiles.Add(claimFile);
-                    db.SaveChanges();
-
                 }
                 ViewBag.Message = "File Uploaded Successfully!!";
                 return View();
@@ -112,8 +118,6 @@ namespace FESSite.Controllers
             try
             {
                 ClaimFile claimFile = db.ClaimFiles.Find(id);
-                db.ClaimFiles.Remove(claimFile);
-                db.SaveChanges();
                 string _FileName = claimFile.Filename;
                 string _path = Path.Combine(Server.MapPath("~/UploadedFiles"), _FileName);
                 System.IO.File.Delete(_path);

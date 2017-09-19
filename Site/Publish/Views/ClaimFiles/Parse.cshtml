@@ -37,7 +37,7 @@
     <div class="form-inline">
         <h4>File Header</h4>
         <hr />
-        @foreach (var field in Model.fh.lsFields.Where(f => f.Value.Trim().Length>0))
+        @foreach (var field in Model.fh.lsFields)
         {
             <div class="form-group col-md-6">
                 <label class="control-label col-md-6">@Html.DisplayFor(model => field.DisplayName): </label>
@@ -57,17 +57,17 @@
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
                                         <a data-toggle="collapse" data-parent="#ClaimHeader" href="#ClaimHeader-@x">
-                                            Claim Header @claim.ClaimSEQNumber @claim.ClaimType @claim.ph.ClaimDCN
+                                            Claim Header @x @claim.ClaimType @claim.ph.ClaimDCN
                                         </a>
                                     </h4>
                                 </div>
                                 <div id="ClaimHeader-@x" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <div class="form-inline">
-                                            @foreach (var field in claim.lsFields.Where(f=>f.Value.Trim().Length>0))
+                                            @foreach (var field in claim.lsFields)
                                             {
                                                 <div class="form-group col-md-6">
-                                                    <label class="control-label col-md-6" title="@field.PseudoCode" >@Html.DisplayFor(model => field.DisplayName):</label>
+                                                    <label class="control-label col-md-6">@Html.DisplayFor(model => field.DisplayName):</label>
                                                     <div class="col-md-6">
                                                         @Html.DisplayFor(model => field.Value, new { htmlAttributes = new { @class = "form-control" } })
                                                     </div>
@@ -79,7 +79,7 @@
                                         <div class="form-inline">
                                             <h4>Paper Header</h4>
                                             <hr />
-                                            @foreach (var field in claim.ph.lsFields.Where(f => f.Value.Trim().Length>0))
+                                            @foreach (var field in claim.ph.lsFields)
                                             {
                                                 <div class="form-group col-md-6">
                                                     <label class="control-label col-md-6">@Html.DisplayFor(model => field.DisplayName): </label>
@@ -104,7 +104,7 @@
                                                     </div>
                                                     <div id="ClaimDetail-@y" class="panel-collapse collapse">
                                                         <div class="panel-body">
-                                                            @foreach (var field in claimdetail.lsFields.Where(f => f.Value.Trim().Length>0))
+                                                            @foreach (var field in claimdetail.lsFields)
                                                             {
                                                                 <div class="form-group col-md-6">
                                                                     <label class="control-label col-md-6">@Html.DisplayFor(model => field.DisplayName): </label>
@@ -118,7 +118,7 @@
                                                             <div class="form-inline">
                                                                 <h4>Paper Detail</h4>
                                                                 <hr />
-                                                                @foreach (var field in claimdetail.pd.lsFields.Where(f => f.Value.Trim().Length>0))
+                                                                @foreach (var field in claimdetail.pd.lsFields)
                                                                 {
                                                                     <div class="form-group col-md-6">
                                                                         <label class="control-label col-md-6">@Html.DisplayFor(model => field.DisplayName): </label>
