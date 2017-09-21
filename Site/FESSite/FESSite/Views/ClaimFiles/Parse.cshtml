@@ -260,27 +260,27 @@
                                             </div>
                                         </div>
                                         <div class="row"><br /></div>
-                                            <div class="panel panel-primary">
-                                                <div class="panel-heading">
-                                                    <h4 class="panel-title">
-                                                        Patient Information
-                                                    </h4>
-                                                </div>
-                                                <div class="panel-body">
-                                                    <div class="form-inline">
-                                                        @foreach (var field in claim.lsFields.Where(f => f.IsDisplayed == true && f.FormGroup == FESSite.Models.FormGrouping.PatientInfo && f.Value.Trim().Length > 0))
-                                                        {
-                                                            <div class="form-group col-md-6">
-                                                                <label class="control-label col-md-6">@Html.DisplayFor(model => field.DisplayName):</label>
-                                                                <div class="col-md-6">
-                                                                    @Html.DisplayFor(model => field.Value, new { htmlAttributes = new { @class = "form-control" } })
-                                                                </div>
+                                        <div class="panel panel-primary">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    Patient Information
+                                                </h4>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="form-inline">
+                                                    @foreach (var field in claim.lsFields.Where(f => f.IsDisplayed == true && f.FormGroup == FESSite.Models.FormGrouping.PatientInfo && f.Value.Trim().Length > 0))
+                                                    {
+                                                        <div class="form-group col-md-6">
+                                                            <label class="control-label col-md-6">@Html.DisplayFor(model => field.DisplayName):</label>
+                                                            <div class="col-md-6">
+                                                                @Html.DisplayFor(model => field.Value, new { htmlAttributes = new { @class = "form-control" } })
                                                             </div>
-                                                        }
-                                                    </div>
+                                                        </div>
+                                                    }
                                                 </div>
                                             </div>
-                                            <div class="row"><br /></div>
+                                        </div>
+                                        <div class="row"><br /></div>
                                         <div class="panel-group" id="PatientNoData">
 
                                             <div class="panel panel-danger">
@@ -309,6 +309,153 @@
                                             </div>
                                         </div>
                                             <div class="row"><br /></div>
+                                        <div class="panel panel-primary">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    Service Record Information
+                                                </h4>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="form-inline">
+                                                    @foreach (var field in claim.lsFields.Where(f => f.IsDisplayed == true && f.FormGroup == FESSite.Models.FormGrouping.ServiceRecord && f.Value.Trim().Length > 0))
+                                                    {
+                                                        <div class="form-group col-md-6">
+                                                            <label class="control-label col-md-6">@Html.DisplayFor(model => field.DisplayName):</label>
+                                                            <div class="col-md-6">
+                                                                @Html.DisplayFor(model => field.Value, new { htmlAttributes = new { @class = "form-control" } })
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row"><br /></div>
+                                        <div class="panel-group" id="ServiceRecordNoData">
+
+                                            <div class="panel panel-danger">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#ServiceRecordNoData" href="#ServiceRecordNoData-@claim.ph.ClaimDCN">
+                                                            Service Record Information with No Data
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="ServiceRecordNoData-@claim.ph.ClaimDCN" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <div class="form-inline">
+                                                            @foreach (var field in claim.lsFields.Where(f => f.IsDisplayed == true && f.FormGroup == FESSite.Models.FormGrouping.ServiceRecord && f.Value.Trim().Length == 0))
+                                                            {
+                                                                <div class="form-group col-md-6">
+                                                                    <label class="control-label col-md-6">@Html.DisplayFor(model => field.DisplayName):</label>
+                                                                    <div class="col-md-6">
+                                                                        @Html.DisplayFor(model => field.Value, new { htmlAttributes = new { @class = "form-control" } })
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row"><br /></div>
+                                        <div class="panel panel-primary">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    Authorizations
+                                                </h4>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="form-inline">
+                                                    @foreach (var field in claim.lsFields.Where(f => f.IsDisplayed == true && f.FormGroup == FESSite.Models.FormGrouping.Authorizations && f.Value.Trim().Length > 0))
+                                                    {
+                                                        <div class="form-group col-md-6">
+                                                            <label class="control-label col-md-6">@Html.DisplayFor(model => field.DisplayName):</label>
+                                                            <div class="col-md-6">
+                                                                @Html.DisplayFor(model => field.Value, new { htmlAttributes = new { @class = "form-control" } })
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row"><br /></div>
+                                        <div class="panel-group" id="AuthorizationsNoData">
+
+                                            <div class="panel panel-danger">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#AuthorizationsNoData" href="#AuthorizationsNoData-@claim.ph.ClaimDCN">
+                                                            Authorizations Information with No Data
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="AuthorizationsNoData-@claim.ph.ClaimDCN" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <div class="form-inline">
+                                                            @foreach (var field in claim.lsFields.Where(f => f.IsDisplayed == true && f.FormGroup == FESSite.Models.FormGrouping.Authorizations && f.Value.Trim().Length == 0))
+                                                            {
+                                                                <div class="form-group col-md-6">
+                                                                    <label class="control-label col-md-6">@Html.DisplayFor(model => field.DisplayName):</label>
+                                                                    <div class="col-md-6">
+                                                                        @Html.DisplayFor(model => field.Value, new { htmlAttributes = new { @class = "form-control" } })
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row"><br /></div>
+                                        <div class="panel panel-primary">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    Treatment Information
+                                                </h4>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="form-inline">
+                                                    @foreach (var field in claim.lsFields.Where(f => f.IsDisplayed == true && f.FormGroup == FESSite.Models.FormGrouping.TreatmentInfo && f.Value.Trim().Length > 0))
+                                                    {
+                                                        <div class="form-group col-md-6">
+                                                            <label class="control-label col-md-6">@Html.DisplayFor(model => field.DisplayName):</label>
+                                                            <div class="col-md-6">
+                                                                @Html.DisplayFor(model => field.Value, new { htmlAttributes = new { @class = "form-control" } })
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row"><br /></div>
+                                        <div class="panel-group" id="TreatmentInfoNoData">
+
+                                            <div class="panel panel-danger">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#TreatmentInfoNoData" href="#TreatmentInfoNoData-@claim.ph.ClaimDCN">
+                                                            Treatment Information with No Data
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="TreatmentInfoNoData-@claim.ph.ClaimDCN" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <div class="form-inline">
+                                                            @foreach (var field in claim.lsFields.Where(f => f.IsDisplayed == true && f.FormGroup == FESSite.Models.FormGrouping.TreatmentInfo && f.Value.Trim().Length == 0))
+                                                            {
+                                                                <div class="form-group col-md-6">
+                                                                    <label class="control-label col-md-6">@Html.DisplayFor(model => field.DisplayName):</label>
+                                                                    <div class="col-md-6">
+                                                                        @Html.DisplayFor(model => field.Value, new { htmlAttributes = new { @class = "form-control" } })
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row"><br /></div>
                                         <div class="panel-group" id="FieldsNotDisplayed">
                                             <div class="panel panel-danger">
                                                 <div class="panel-heading">
