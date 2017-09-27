@@ -31,7 +31,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/02/2015 08:32:26</publishTime>
     </File>
     <File Include="bin/FESSite.dll">
-      <publishTime>09/19/2017 12:07:19</publishTime>
+      <publishTime>09/27/2017 10:20:29</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>06/27/2017 12:59:34</publishTime>
@@ -409,7 +409,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/31/2017 10:43:00</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>09/19/2017 12:09:44</publishTime>
+      <publishTime>09/27/2017 10:18:54</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
       <publishTime>09/13/2017 14:45:51</publishTime>
@@ -437,6 +437,24 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Scripts/jquery-3.1.1.slim.min.map">
       <publishTime>09/13/2017 12:18:52</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.2.1.js">
+      <publishTime>09/27/2017 10:11:32</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.2.1.min.js">
+      <publishTime>09/27/2017 10:11:32</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.2.1.min.map">
+      <publishTime>09/27/2017 10:11:32</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.2.1.slim.js">
+      <publishTime>09/27/2017 10:11:32</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.2.1.slim.min.js">
+      <publishTime>09/27/2017 10:11:32</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.2.1.slim.min.map">
+      <publishTime>09/27/2017 10:11:31</publishTime>
     </File>
     <File Include="Scripts/jquery-ui-1.12.1.js">
       <publishTime>09/13/2017 12:18:58</publishTime>
@@ -475,7 +493,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/13/2017 12:19:19</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>09/18/2017 10:29:29</publishTime>
+      <publishTime>09/27/2017 10:11:34</publishTime>
     </File>
     <File Include="Service References/Application Insights/ConnectedService.json">
       <publishTime>08/31/2017 10:44:42</publishTime>
@@ -490,7 +508,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2017 10:53:24</publishTime>
     </File>
     <File Include="Views/ClaimFiles/Parse.cshtml">
-      <publishTime>09/21/2017 13:02:45</publishTime>
+      <publishTime>09/27/2017 09:56:45</publishTime>
     </File>
     <File Include="Views/Fields/Create.cshtml">
       <publishTime>09/06/2017 11:26:32</publishTime>
@@ -529,7 +547,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/31/2017 10:43:00</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/19/2017 11:56:59</publishTime>
+      <publishTime>09/27/2017 10:20:30</publishTime>
     </File>
   </ItemGroup>
 </Project>
