@@ -98,3 +98,7 @@ C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FESSite\FESSite\bin\Micro
 C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FESSite\FESSite\bin\Microsoft.AI.Web.xml
 C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FESSite\FESSite\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FESSite\FESSite\bin\Microsoft.ApplicationInsights.xml
+C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FESSite\FESSite\bin\PagedList.dll
+C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FESSite\FESSite\bin\PagedList.Mvc.dll
+C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FESSite\FESSite\bin\PagedList.xml
+C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FESSite\FESSite\bin\PagedList.Mvc.xml

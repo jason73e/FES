@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FESSite.Models;
+using PagedList;
 
 namespace FESSite.Controllers
 {
@@ -15,9 +16,50 @@ namespace FESSite.Controllers
         private FESSiteContext db = new FESSiteContext();
 
         // GET: Fields
-        public ActionResult Index()
+        public ActionResult Index(string sCurrentFileVersion, string SearchFileVersion, ClaimLayoutType? sCurrentClaimLayoutType, ClaimLayoutType? SearchClaimLayout,  int? page, int? PageSize)
         {
-            return View(db.Fields.ToList());
+            TempData["MyFVM"] = null;
+            if (SearchFileVersion != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                SearchFileVersion = sCurrentFileVersion;
+            }
+            ViewBag.FileVersion = SearchFileVersion;
+
+            if (SearchClaimLayout != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                SearchClaimLayout = sCurrentClaimLayoutType;
+            }
+            ViewBag.ClaimLayout = SearchClaimLayout;
+
+            var fields = db.Fields.Where(x=>x.FileVersion== SearchFileVersion).ToList();
+            if(SearchClaimLayout!=null)
+            {
+                fields = fields.Where(x => x.ClaimType == SearchClaimLayout).ToList();
+            }
+            int DefaultPageSize = 10;
+            int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
+            if (PageSize != null)
+            {
+                DefaultPageSize = (int)PageSize;
+            }
+            ViewBag.PageSize = DefaultPageSize;
+            int pageNumber = (page ?? 1);
+            ViewBag.Page = page;
+            FieldsViewModel fvm = new FieldsViewModel();
+            fvm.lsFields = fields.ToPagedList(pageNumber,DefaultPageSize);
+            fvm.slFileVersions = Utility.GetFileVersions();
+            fvm.SearchFileVersion = SearchFileVersion;
+            fvm.SearchClaimLayout = SearchClaimLayout;
+            TempData["MyFVM"] = fvm;
+            return View(fvm);
         }
 
         // GET: Fields/Details/5
