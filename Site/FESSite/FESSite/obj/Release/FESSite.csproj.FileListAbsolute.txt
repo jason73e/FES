@@ -47,3 +47,7 @@ C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FESSite\FESSite\obj\Relea
 C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FESSite\FESSite\obj\Release\FESSite.csproj.GenerateResource.Cache
 C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FESSite\FESSite\obj\Release\FESSite.dll
 C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FESSite\FESSite\obj\Release\FESSite.pdb
+C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FESSite\FESSite\bin\PagedList.dll
+C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FESSite\FESSite\bin\PagedList.Mvc.dll
+C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FESSite\FESSite\bin\PagedList.xml
+C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FESSite\FESSite\bin\PagedList.Mvc.xml

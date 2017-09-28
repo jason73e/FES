@@ -16,7 +16,7 @@ namespace FESSite.Controllers
         private FESSiteContext db = new FESSiteContext();
 
         // GET: Fields
-        public ActionResult Index(string sCurrentFileVersion, string SearchFileVersion, ClaimLayoutType? sCurrentClaimLayoutType, ClaimLayoutType? SearchClaimLayout,  int? page, int? PageSize)
+        public ActionResult Index(string sCurrentFileVersion, string SearchFileVersion, ClaimLayoutType? sCurrentClaimLayoutType, ClaimLayoutType? SearchClaimLayout, RecordType? SearchRecordType, RecordType? sCurrentRecordType, FormGrouping? SearchFormGrouping, FormGrouping? sCurrentFormGrouping,  int? page, int? PageSize)
         {
             TempData["MyFVM"] = null;
             if (SearchFileVersion != null)
@@ -39,11 +39,47 @@ namespace FESSite.Controllers
             }
             ViewBag.ClaimLayout = SearchClaimLayout;
 
-            var fields = db.Fields.Where(x=>x.FileVersion== SearchFileVersion).ToList();
-            if(SearchClaimLayout!=null)
+            if (SearchRecordType != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                SearchRecordType = sCurrentRecordType;
+            }
+            ViewBag.RecordType = SearchRecordType;
+
+            if (SearchFormGrouping != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                SearchFormGrouping = sCurrentFormGrouping;
+            }
+            ViewBag.FormGrouping = SearchFormGrouping;
+
+            var fields = db.Fields.ToList();
+            
+
+            if (SearchFileVersion != null)
+            {
+                fields = fields.Where(x => x.FileVersion == SearchFileVersion).ToList();
+            }
+
+            if (SearchClaimLayout!=null)
             {
                 fields = fields.Where(x => x.ClaimType == SearchClaimLayout).ToList();
             }
+            if (SearchRecordType != null)
+            {
+                fields = fields.Where(x => x.RecordType == SearchRecordType).ToList();
+            }
+            if (SearchFormGrouping != null)
+            {
+                fields = fields.Where(x => x.FormGroup == SearchFormGrouping).ToList();
+            }
+
             int DefaultPageSize = 10;
             int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
             if (PageSize != null)
@@ -88,10 +124,11 @@ namespace FESSite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FieldID,Name,Format,StartPOS,EndPOS,Description,DisplayName,PseudoCode,FormFieldName,FormFieldPosition,WebDEFieldName,Comments,FileVersion,RecordType,ClaimType,ts,Value")] Field field)
+        public ActionResult Create([Bind(Include = "FieldID,Name,Format,StartPOS,EndPOS,Description,DisplayName,PseudoCode,FormFieldName,FormFieldPosition,WebDEFieldName,Comments,FileVersion,RecordType,ClaimType,IsDisplayed,FormGroup")] Field field)
         {
             if (ModelState.IsValid)
             {
+                field.ts = DateTime.Now;
                 db.Fields.Add(field);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -120,10 +157,11 @@ namespace FESSite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "FieldID,Name,Format,StartPOS,EndPOS,Description,DisplayName,PseudoCode,FormFieldName,FormFieldPosition,WebDEFieldName,Comments,FileVersion,RecordType,ClaimType,ts,Value")] Field field)
+        public ActionResult Edit([Bind(Include = "FieldID,Name,Format,StartPOS,EndPOS,Description,DisplayName,PseudoCode,FormFieldName,FormFieldPosition,WebDEFieldName,Comments,FileVersion,RecordType,ClaimType,IsDisplayed,FormGroup")] Field field)
         {
             if (ModelState.IsValid)
             {
+                field.ts = DateTime.Now;
                 db.Entry(field).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

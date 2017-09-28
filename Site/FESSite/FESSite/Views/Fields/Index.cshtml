@@ -1,6 +1,7 @@
 ﻿@model FESSite.Models.FieldsViewModel
 @using PagedList.Mvc;
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
 @{
     ViewBag.Title = "Field Listing";
 }
@@ -21,6 +22,7 @@
             </td>
             <td>
                 @Html.DropDownListFor(model => model.SearchFileVersion, Model.slFileVersions, "- Select a File Version -", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SearchFileVersion, "", new { @class = "text-danger" })
             </td>
             <td>
                 <label class="form-control-static">Claim Type:</label>
@@ -47,109 +49,78 @@
 @Html.PagedListPager(Model.lsFields, page => Url.Action("Index", new { page, sCurrentFileVersion = ViewBag.FileVersion,sCurrentClaimLayout = ViewBag.ClaimLayout, sCurrentRecordType = ViewBag.RecordType, sCurrentFormGrouping=ViewBag.FormGrouping, PageSize = ViewBag.PageSize }))
 
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().Format)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().StartPOS)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().EndPOS)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().DisplayName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().PseudoCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().FormFieldName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().FormFieldPosition)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().WebDEFieldName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().Comments)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().FileVersion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().RecordType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().ClaimType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().ts)
-        </th>
-        <th></th>
-    </tr>
+<table class="table-striped table-bordered">
+    <tbody>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().DisplayName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().PseudoCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().FileVersion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().RecordType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().ClaimType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().FormGroup)
+            </th>
+            <th></th>
+        </tr>
+        @if (Model.lsFields.Count > 0)
+        {
+            foreach (var item in Model.lsFields)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DisplayName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PseudoCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FileVersion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RecordType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClaimType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FormGroup)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.FieldID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.FieldID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.FieldID })
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="9">There are no Fields matching this search.</td>
+            </tr>
 
-@foreach (var item in Model.lsFields) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Format)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartPOS)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndPOS)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DisplayName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PseudoCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FormFieldName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FormFieldPosition)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.WebDEFieldName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comments)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FileVersion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RecordType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClaimType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ts)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FieldID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.FieldID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FieldID })
-        </td>
-    </tr>
-}
-
+        }
+    </tbody>
 </table>
