@@ -1,0 +1,152 @@
+﻿@model fes.Models.Field
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Field</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Format)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Format)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartPOS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartPOS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndPOS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndPOS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DisplayName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DisplayName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PseudoCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PseudoCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FormFieldName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FormFieldName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FormFieldPosition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FormFieldPosition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WebDEFieldName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebDEFieldName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileVersion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileVersion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecordType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecordType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClaimType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClaimType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Value)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Value)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
