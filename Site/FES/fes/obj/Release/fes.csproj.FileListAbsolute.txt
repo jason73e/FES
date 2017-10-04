@@ -16,7 +16,6 @@ C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FES\fes\bin\Microsoft.Asp
 C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FES\fes\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FES\fes\bin\Microsoft.AspNet.Identity.Owin.dll
 C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FES\fes\bin\Microsoft.AspNet.TelemetryCorrelation.dll
-C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FES\fes\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FES\fes\bin\Microsoft.Owin.dll
 C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FES\fes\bin\Microsoft.Owin.Host.SystemWeb.dll
 C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FES\fes\bin\Microsoft.Owin.Security.Cookies.dll
@@ -47,7 +46,6 @@ C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FES\fes\bin\Microsoft.AI.
 C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FES\fes\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FES\fes\bin\Microsoft.ApplicationInsights.xml
 C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FES\fes\bin\Microsoft.AspNet.TelemetryCorrelation.xml
-C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FES\fes\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FES\fes\bin\Microsoft.Owin.xml
 C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FES\fes\bin\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FES\fes\bin\Microsoft.Owin.Security.xml

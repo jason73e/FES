@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using fes.Models;
+using System.Configuration;
 
 namespace fes.Controllers
 {
@@ -70,6 +71,13 @@ namespace fes.Controllers
         {
             if (!ModelState.IsValid)
             {
+                return View(model);
+            }
+
+            var user = await UserManager.FindAsync(model.Email, model.Password);
+            if (user !=null && user.EmailConfirmed != true)
+            {
+                ModelState.AddModelError("", "Your account is waiting for approval.");
                 return View(model);
             }
 
@@ -152,18 +160,21 @@ namespace fes.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
-                    return RedirectToAction("Index", "Home");
+                    string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    await UserManager.SendEmailAsync(user.Id, "FES Site Account Waiting For Approval", "You will be notified when your registration is approved.");
+                    var adminuser = UserManager.FindByEmailAsync(ConfigurationManager.AppSettings["AdminUser"].ToString());                    
+                    await UserManager.SendEmailAsync(adminuser.Result.Id, "Confirm FES Site account", "Please confirm account for " + user.Email + " by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    ModelState.AddModelError("", "Registration sent for approval.  Check your Email.");
+                    return View(model);
                 }
                 AddErrors(result);
             }
@@ -181,7 +192,14 @@ namespace fes.Controllers
             {
                 return View("Error");
             }
+            var callbackUrl = Url.Action("index", "ClaimFiles",null, protocol: Request.Url.Scheme);
+
             var result = await UserManager.ConfirmEmailAsync(userId, code);
+            if (result.Succeeded)
+            {
+                await UserManager.SendEmailAsync(userId, "FES Site Account Approved", "Your registration is approved.  Click <a href=\"" + callbackUrl + "\">here</a> to login.");
+            }
+
             return View(result.Succeeded ? "ConfirmEmail" : "Error");
         }
 
@@ -211,10 +229,10 @@ namespace fes.Controllers
 
                 // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                 // Send an email with this link
-                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
-                // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
+                await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
 
             // If we got this far, something failed, redisplay form
