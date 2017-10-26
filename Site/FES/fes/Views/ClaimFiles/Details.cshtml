@@ -1,0 +1,22 @@
+﻿@model fes.Models.ParsedViewModel
+
+@{
+    ViewBag.Title = "Claim File Details";
+}
+
+
+<h2>Claim File Detail</h2>
+
+<div id="ClaimHeaderList">
+    @Html.Partial("ClaimHeaderList", Model)
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

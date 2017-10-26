@@ -18,5 +18,6 @@ namespace fes.Models
 
         public string SearchFileVersion { get; set; }
 
+        public string SearchName { get; set; }
     }
 }

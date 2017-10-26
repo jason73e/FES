@@ -17,70 +17,104 @@ namespace fes.Controllers
         private FESContext db = new FESContext();
 
         // GET: Fields
-        public ActionResult Index(string sCurrentFileVersion, string SearchFileVersion, ClaimLayoutType? sCurrentClaimLayoutType, ClaimLayoutType? SearchClaimLayout, RecordType? SearchRecordType, RecordType? sCurrentRecordType, FormGrouping? SearchFormGrouping, FormGrouping? sCurrentFormGrouping, int? page, int? PageSize)
+        public ActionResult Index(string SearchName, string SearchFileVersion, ClaimLayoutType? SearchClaimLayout, RecordType? SearchRecordType, FormGrouping? SearchFormGrouping, int? page, int? PageSize, string sortOption)
         {
             TempData["MyFVM"] = null;
-            if (SearchFileVersion != null)
-            {
-                page = 1;
-            }
-            else
-            {
-                SearchFileVersion = sCurrentFileVersion;
-            }
             ViewBag.FileVersion = SearchFileVersion;
 
-            if (SearchClaimLayout != null)
-            {
-                page = 1;
-            }
-            else
-            {
-                SearchClaimLayout = sCurrentClaimLayoutType;
-            }
+            ViewBag.SearchName = SearchName;
+
             ViewBag.ClaimLayout = SearchClaimLayout;
 
-            if (SearchRecordType != null)
-            {
-                page = 1;
-            }
-            else
-            {
-                SearchRecordType = sCurrentRecordType;
-            }
             ViewBag.RecordType = SearchRecordType;
 
-            if (SearchFormGrouping != null)
-            {
-                page = 1;
-            }
-            else
-            {
-                SearchFormGrouping = sCurrentFormGrouping;
-            }
             ViewBag.FormGrouping = SearchFormGrouping;
 
-            var fields = db.Fields.ToList();
+            ViewBag.sortOption = sortOption;
 
+            List<Field> fields = new List<Field>();
+            if (!(String.IsNullOrEmpty(SearchName) && String.IsNullOrEmpty(SearchFileVersion) && SearchClaimLayout == null && SearchRecordType == null && SearchFormGrouping == null))
+            {
+                fields = db.Fields.ToList();
 
-            if (SearchFileVersion != null)
-            {
-                fields = fields.Where(x => x.FileVersion == SearchFileVersion).ToList();
-            }
+                if (!String.IsNullOrEmpty(SearchName))
+                {
+                    fields = fields.Where(x => x.DisplayName.ToLower().Contains(SearchName.ToLower()) || x.Name.ToLower().Contains(SearchName.ToLower())).ToList();
+                }
 
-            if (SearchClaimLayout != null)
-            {
-                fields = fields.Where(x => x.ClaimType == SearchClaimLayout).ToList();
-            }
-            if (SearchRecordType != null)
-            {
-                fields = fields.Where(x => x.RecordType == SearchRecordType).ToList();
-            }
-            if (SearchFormGrouping != null)
-            {
-                fields = fields.Where(x => x.FormGroup == SearchFormGrouping).ToList();
-            }
+                if (!String.IsNullOrEmpty(SearchFileVersion))
+                {
+                    fields = fields.Where(x => x.FileVersion == SearchFileVersion).ToList();
+                }
 
+                if (SearchClaimLayout != null)
+                {
+                    fields = fields.Where(x => x.ClaimType == SearchClaimLayout).ToList();
+                }
+                if (SearchRecordType != null)
+                {
+                    fields = fields.Where(x => x.RecordType == SearchRecordType).ToList();
+                }
+                if (SearchFormGrouping != null)
+                {
+                    fields = fields.Where(x => x.FormGroup == SearchFormGrouping).ToList();
+                }
+                switch (sortOption)
+                {
+                    case "name_acs":
+                        fields = fields.OrderBy(p => p.Name).ToList();
+                        break;
+                    case "name_desc":
+                        fields = fields.OrderByDescending(p => p.Name).ToList();
+                        break;
+                    case "description_acs":
+                        fields = fields.OrderBy(p => p.Description).ToList();
+                        break;
+                    case "description_desc":
+                        fields = fields.OrderByDescending(p => p.Description).ToList();
+                        break;
+                    case "displayname_acs":
+                        fields = fields.OrderBy(p => p.DisplayName).ToList();
+                        break;
+                    case "displayname_desc":
+                        fields = fields.OrderByDescending(p => p.DisplayName).ToList();
+                        break;
+                    case "pseudocode_acs":
+                        fields = fields.OrderBy(p => p.PseudoCode).ToList();
+                        break;
+                    case "pseudocode_desc":
+                        fields = fields.OrderByDescending(p => p.PseudoCode).ToList();
+                        break;
+                    case "fileversion_acs":
+                        fields = fields.OrderBy(p => p.FileVersion).ToList();
+                        break;
+                    case "fileversion_desc":
+                        fields = fields.OrderByDescending(p => p.FileVersion).ToList();
+                        break;
+                    case "recordtype_acs":
+                        fields = fields.OrderBy(p => p.RecordType).ToList();
+                        break;
+                    case "recordtype_desc":
+                        fields = fields.OrderByDescending(p => p.RecordType).ToList();
+                        break;
+                    case "claimtype_acs":
+                        fields = fields.OrderBy(p => p.ClaimType).ToList();
+                        break;
+                    case "claimtype_desc":
+                        fields = fields.OrderByDescending(p => p.ClaimType).ToList();
+                        break;
+                    case "formgroup_acs":
+                        fields = fields.OrderBy(p => p.FormGroup).ToList();
+                        break;
+                    case "formgroup_desc":
+                        fields = fields.OrderByDescending(p => p.FormGroup).ToList();
+                        break;
+                    default:
+                        fields = fields.OrderBy(p => p.FieldID).ToList();
+                        break;
+
+                }
+            }
             int DefaultPageSize = 10;
             int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
             if (PageSize != null)
@@ -96,7 +130,9 @@ namespace fes.Controllers
             fvm.SearchFileVersion = SearchFileVersion;
             fvm.SearchClaimLayout = SearchClaimLayout;
             TempData["MyFVM"] = fvm;
-            return View(fvm);
+            return Request.IsAjaxRequest()
+                ? (ActionResult)PartialView("FieldList", fvm.lsFields)
+                : View(fvm);
         }
 
         // GET: Fields/Details/5

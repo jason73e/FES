@@ -14,8 +14,10 @@ namespace fes.Models
         public string Filename { get; set; }
         [Required]
         public string FileSize { get; set; }
+        [Required]
+        public bool Parsed { get; set; }
 
-        private FileHeader fh;
+        public FileHeader fh;
         public ClaimFile()
         {
         }

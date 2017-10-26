@@ -27,6 +27,59 @@ namespace fes.Models
 
         }
 
+        public FileHeader(int iFileID)
+        {
+            lsFields = new List<Field>();
+            var query = (from c in db.FileFieldValues
+                         join f in db.Fields on c.FieldID equals f.FieldID
+                         where c.FileID == iFileID
+                         && c.recordType == RecordType.FileHeader
+                         select new
+                         {
+                             ClaimType = f.ClaimType,
+                             Comments = f.Comments,
+                             Description = f.Description,
+                             DisplayName = f.DisplayName,
+                             EndPOS = f.EndPOS,
+                             FieldID = f.FieldID,
+                             FileVersion = f.FileVersion,
+                             Format = f.Format,
+                             FormFieldName = f.FormFieldName,
+                             FormFieldPosition = f.FormFieldPosition,
+                             FormGroup = f.FormGroup,
+                             IsDisplayed = f.IsDisplayed,
+                             Name = f.Name,
+                             PseudoCode = f.PseudoCode,
+                             RecordType = f.RecordType,
+                             StartPOS = f.StartPOS,
+                             ts = c.ts,
+                             Value = c.value,
+                             WebDEFieldName = f.WebDEFieldName
+                         });
+            var vfields = query.ToList().Select(r => new Field
+            {
+                ClaimType = r.ClaimType,
+                Comments = r.Comments,
+                Description = r.Description,
+                DisplayName = r.DisplayName,
+                EndPOS = r.EndPOS,
+                FieldID = r.FieldID,
+                FileVersion = r.FileVersion,
+                Format = r.Format,
+                FormFieldName = r.FormFieldName,
+                FormFieldPosition = r.FormFieldPosition,
+                FormGroup = r.FormGroup,
+                IsDisplayed = r.IsDisplayed,
+                Name = r.Name,
+                PseudoCode = r.PseudoCode,
+                RecordType = r.RecordType,
+                StartPOS = r.StartPOS,
+                ts = r.ts,
+                Value = r.Value,
+                WebDEFieldName = r.WebDEFieldName
+            }).ToList();
+        lsFields.AddRange(vfields);
+        }
         public int NumberofClaims
         {
             get

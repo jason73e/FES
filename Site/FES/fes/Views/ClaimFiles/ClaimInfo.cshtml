@@ -1,0 +1,33 @@
+﻿@model fes.Models.ParsedViewModel
+
+@{
+    ViewBag.Title = "Claim Info for " + Model.cf.fh.lsdch[0].ClaimType + " " + Model.cf.fh.lsdch[0].DCN;
+}
+
+
+<h2>Claim Info for @Model.cf.fh.lsdch[0].ClaimType @Model.cf.fh.lsdch[0].DCN</h2>
+
+<div id="ClaimHeaderInfo">
+    @switch (Model.cf.fh.lsdch[0].cltLayout)
+    {
+        case fes.Models.ClaimLayoutType.Dental:
+            @Html.Partial("DentalClaimHeaderInfo", Model.cf.fh.lsdch[0]);
+            break;
+        case fes.Models.ClaimLayoutType.HCFA:
+        case fes.Models.ClaimLayoutType.HCFAAdvantage:
+        case fes.Models.ClaimLayoutType.HCFACrossover:
+            @Html.Partial("HCFAClaimHeaderInfo", Model.cf.fh.lsdch[0]);
+            break;
+
+    }
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+}
+
+

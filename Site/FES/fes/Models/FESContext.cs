@@ -17,9 +17,12 @@ namespace fes.Models
 
         public FESContext() : base("name=FESSiteContext")
         {
+            Configuration.AutoDetectChangesEnabled = false;
+            Configuration.ValidateOnSaveEnabled = false;
         }
 
         public System.Data.Entity.DbSet<fes.Models.ClaimFile> ClaimFiles { get; set; }
         public System.Data.Entity.DbSet<fes.Models.Field> Fields { get; set; }
+        public System.Data.Entity.DbSet<fes.Models.FileFieldValue> FileFieldValues { get; set; }
     }
 }

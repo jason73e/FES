@@ -7,8 +7,8 @@ namespace fes.Models
 {
     public class ParsedViewModel
     {
+        public List<ClaimHeaderTableViewModel> lsCHTVM;
         public ClaimFile cf;
-        public FileHeader fh;
 
         public ParsedViewModel()
         {
