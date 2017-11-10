@@ -120,7 +120,7 @@ namespace fes.Models
                 case "UB04 Inpatient Crossover/Advantage":
                     foreach (Field f in lsFields)
                     {
-                        if (((f.ClaimType == ClaimLayoutType.UB04Advantage) || (f.ClaimType == ClaimLayoutType.UB04Crossover)))
+                        if (f.ClaimType == ClaimLayoutType.UB04)
                         {
                             lsNewList.Add(f);
                         }
@@ -130,7 +130,7 @@ namespace fes.Models
                 case "HCFA Crossover/Advantage":
                     foreach (Field f in lsFields)
                     {
-                        if (((f.ClaimType == ClaimLayoutType.HCFAAdvantage) || (f.ClaimType == ClaimLayoutType.HCFACrossover)))
+                        if (f.ClaimType == ClaimLayoutType.HCFA)
                         {
                             lsNewList.Add(f);
                         }
@@ -149,12 +149,14 @@ namespace fes.Models
         public ClaimHeader(string sSource, string sVersion)
         {
             Source = sSource;
+            string sClaimTypeCode = (Source.Substring(2, 3));
+            ClaimLayoutType ct = Utility.GetCLT(sClaimTypeCode);
             FileVersion = sVersion;
-            if (!db.Fields.Where(x => x.FileVersion == FileVersion && x.RecordType == RecordType.ClaimHeader).Any())
+            if (!db.Fields.Where(x => x.FileVersion == FileVersion && x.RecordType == RecordType.ClaimHeader && x.ClaimType == ct).Any())
             {
                 throw new Exception("File Version is " + FileVersion + ".  There are no Claim Header Fields setup for this version.");
             }
-            lsFields = db.Fields.Where(x => x.FileVersion == FileVersion && x.RecordType == RecordType.ClaimHeader).ToList();
+            lsFields = db.Fields.Where(x => x.FileVersion == FileVersion && x.RecordType == RecordType.ClaimHeader && x.ClaimType == ct).ToList();
             string s = ClaimType;
 
         }

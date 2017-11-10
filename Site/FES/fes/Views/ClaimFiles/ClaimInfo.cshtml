@@ -18,12 +18,18 @@
         case fes.Models.ClaimLayoutType.HCFACrossover:
             @Html.Partial("HCFAClaimHeaderInfo", Model.cf.fh.lsdch[0]);
             break;
-
+        case fes.Models.ClaimLayoutType.UB04:
+        case fes.Models.ClaimLayoutType.UB04Advantage:
+        case fes.Models.ClaimLayoutType.UB04Crossover:
+            @Html.Partial("UB04ClaimHeaderInfo", Model.cf.fh.lsdch[0]);
+            break;
     }
 </div>
-
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    <br />
+</div>
+<div>
+    @Html.ActionLink("Back to Claim List", "Details", new { id = Model.cf.FileID })
 </div>
 
 @section Scripts {

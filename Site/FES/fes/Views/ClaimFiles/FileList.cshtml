@@ -6,6 +6,9 @@
             @Html.DisplayNameFor(model => model.Filename)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.DocType)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.FileSize)
         </th>
         <th></th>
@@ -18,13 +21,16 @@
                 @Html.DisplayFor(modelItem => item.Filename)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.DocType)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.FileSize)
             </td>
             <td>
                 @if (!item.Parsed)
                 {
-                    @Html.ActionLink("Delete", "Delete", new { id = item.FileID }) @:| @Html.ActionLink("Parse", "Parse", new { id = item.FileID }, new { @class = "parse" })
-            }
+                    @Html.ActionLink("Delete", "Delete", new { id = item.FileID }) 
+                }
                 else
                 {
                     @Html.ActionLink("Delete", "Delete", new { id = item.FileID }) @: | @Html.ActionLink("Details", "Details", new { id = item.FileID })

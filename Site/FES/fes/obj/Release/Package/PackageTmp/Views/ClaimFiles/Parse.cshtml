@@ -39,7 +39,7 @@
         <div class="panel-heading"><h4 class="panel-title">File Header</h4></div>
         <div class="panel-body">
             <div class="form-inline">
-                @foreach (var field in Model.fh.lsFields)
+                @foreach (var field in Model.cf.fh.lsFields)
                 {
                     <div class="form-group col-md-6">
                         <label class="control-label col-md-6">@Html.DisplayFor(model => field.DisplayName): </label>
@@ -52,7 +52,7 @@
         </div>
     </div>
     <div>
-                @foreach (var claim in Model.fh.lsdch)
+                @foreach (var claim in Model.cf.fh.lsdch)
                 {
                         <div class="panel-group" id="ClaimHeader">
                             <div class="panel panel-primary">

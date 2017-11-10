@@ -1,19 +1,19 @@
 ﻿@model fes.Models.ClaimHeader
 
-<table>
+<table CellSpacing="0">
     <tr>
         <td colspan="3" style="width:50%"><b>ADA</b> American Dental Association <b>Dental Claim Form</b></td>
         <td colspan="3"></td>
     </tr>
     <tr>
-        <td colspan="3" style="border:2px solid black;border-bottom:1px solid gray">
+        <td colspan="3" style="border:2px solid black;border-bottom:1px solid gray;padding-left:0.5em;">
             <b>HEADER INFORMATION</b>
         </td>
         <td colspan="3"></td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:1px solid gray">
-            <table style="font-size:x-small">
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:1px solid gray;padding-left:0.5em;" class="hatch">
+            <table cellspacing="0" style="font-size:x-small;">
                 <tr>
                     <td style="width:50%" nowrap>
                         1. Type of Transaction (Mark all applicable boxes)
@@ -42,166 +42,166 @@
         <td colspan="3"></td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;">
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;padding-left:0.5em;">
             2. Predetermination/Preauthorization Number
         </td>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-top:2px solid black;border-bottom:1px solid gray;font-size:small">
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-top:2px solid black;border-bottom:1px solid gray;font-size:small;padding-left:0.5em;">
             <b>POLICYHOLDER/SUBSCRIBER INFORMATION</b> (For Insurance Company Named in #3)
         </td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:2px solid black;padding-left:2em;">
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:2px solid black;padding-left:3em;color:navy;font-weight:bolder;">
             @Model.lsFields.Where(x => x.Name == "FK AUTHORIZATION NUMBER").Single().Value
         </td>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small">
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:0.5em;">
             12. Policyholder/Subscriber Name (Last, First, Middle Initial, Suffix), Address, City, State, Zip Code
         </td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:1px solid gray">
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:1px solid gray;padding-left:0.5em;">
             <b>INSURANCE COMPANY/DENTAL BENEFIT PLAN INFORMATION</b>
         </td>
-        <td  colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:2em;">
-            @Model.lsFields.Where(x => x.Name == "CLIENT FIRST NAME").Single().Value @Model.lsFields.Where(x => x.Name == "CLIENT LAST NAME").Single().Value
+        <td  colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:3em;color:navy;font-weight:bolder;">
+            @Model.lsFields.Where(x => x.Name == "CLIENT LAST NAME").Single().Value, @Model.lsFields.Where(x => x.Name == "CLIENT FIRST NAME").Single().Value
         </td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;">
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;padding-left:0.5em;" class="hatch">
             3. Company/Plan Name, Address, City, State, Zip Code
         </td>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:2em;">
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:3em;color:navy;font-weight:bolder;">
             @Model.lsFields.Where(x => x.Name == "FPD ZIP CODE").Single().Value 
         </td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;">
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;padding-left:0.5em;" class="hatch">
             
         </td>
         <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:2em;"></td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;"></td>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:1px solid gray;font-size:x-small"></td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;padding-left:0.5em;" class="hatch"></td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:1px solid gray;font-size:x-small;padding-left:0.5em;"></td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;"></td>
-        <td style="font-size:x-small;">13. Date of Birth (MM/DD/CCYY)</td>
-        <td style="border-left:1px solid gray;border-right:1px solid gray;font-size:x-small">14. Gender</td>
-        <td style="border-right:2px solid black;font-size:x-small">15. Policyholder/Subscriber ID (SSN or ID#)</td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;padding-left:0.5em;" class="hatch"></td>
+        <td style="font-size:x-small;padding-left:0.5em;">13. Date of Birth (MM/DD/CCYY)</td>
+        <td style="border-left:1px solid gray;border-right:1px solid gray;font-size:x-small;padding-left:0.5em;">14. Gender</td>
+        <td style="border-right:2px solid black;font-size:x-small;padding-left:0.5em;">15. Policyholder/Subscriber ID (SSN or ID#)</td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:2px solid black"></td>
-        <td style="font-size:x-small;border-bottom:1px solid gray;padding-left:2em;">
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:2px solid black;padding-left:0.5em;" class="hatch"></td>
+        <td style="font-size:x-small;border-bottom:1px solid gray;padding-left:3em;color:navy;font-weight:bolder;">
             @Model.lsFields.Where(x => x.Name == "CLIENT DATE OF BIRTH").Single().Value.Substring(4,2)/@Model.lsFields.Where(x => x.Name == "CLIENT DATE OF BIRTH").Single().Value.Substring(6,2)/@Model.lsFields.Where(x => x.Name == "CLIENT DATE OF BIRTH").Single().Value.Substring(0,4)
         </td>
-        <td style="border-left:1px solid gray;border-right:1px solid gray;font-size:x-small;border-bottom:1px solid gray;padding-left:2em;">
+        <td style="border-left:1px solid gray;border-right:1px solid gray;font-size:x-small;border-bottom:1px solid gray;padding-left:3em;color:navy;font-weight:bolder;">
             <input type="checkbox" disabled="disabled" id="GenderM" @(Model.lsFields.Where(x => x.Name == "CLIENT SEX CODE").Single().Value=="M" ? "checked=\"checked\"" : "")/> M
             <input type="checkbox" disabled="disabled" id="GenderF" @(Model.lsFields.Where(x => x.Name == "CLIENT SEX CODE").Single().Value=="F" ? "checked=\"checked\"" : "")/> F
         </td>
-        <td style="border-right:2px solid black;font-size:x-small;border-bottom:1px solid gray;padding-left:2em;">
+        <td style="border-right:2px solid black;font-size:x-small;border-bottom:1px solid gray;padding-left:3em;color:navy;font-weight:bolder;">
             @Model.lsFields.Where(x => x.Name == "FK CLIENT PCN").Single().Value
         </td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:1px solid gray">
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:1px solid gray;padding-left:0.5em;font-size:smaller;">
             <b>OTHER COVERAGE</b> (Mark applicable box and complete items 5-11. If none, leave blank.)
         </td>
-        <td style="font-size:x-small;">
+        <td style="font-size:x-small;padding-left:0.5em;" class="hatch">
             16. Plan/Group Number
         </td>
-        <td colspan="2" style="border-left:1px solid gray;border-right:2px solid black;font-size:x-small;">
+        <td colspan="2" style="border-left:1px solid gray;border-right:2px solid black;font-size:x-small;padding-left:0.5em;" class="hatch">
             17. Employer Name
         </td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:1px solid gray">
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:1px solid gray;padding-left:0.5em;" class="hatch">
             4. <input type="checkbox" disabled="disabled" id="Dental" /> Dental?  <input type="checkbox" disabled="disabled" id="Medical" /> Medical?  (If both, complete 5-11 for dental only.)            
         </td>
-        <td style="font-size:x-small;border-bottom:2px solid black;">
+        <td style="font-size:x-small;border-bottom:2px solid black;padding-left:0.5em;" class="hatch">
         </td>
-        <td colspan="2" style="border-left:1px solid gray;border-right:2px solid black;font-size:x-small;border-bottom:2px solid black;">
+        <td colspan="2" style="border-left:1px solid gray;border-right:2px solid black;font-size:x-small;border-bottom:2px solid black;padding-left:0.5em;" class="hatch">
         </td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;">
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;padding-left:0.5em;" class="hatch">
             5. Name of Policyholder/Subscriber in # 4 (Last, First, Middle Initial, Suffix)
         </td>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:1px solid gray;">
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:1px solid gray;padding-left:0.5em;">
             <b>PATIENT INFORMATION</b>
         </td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:1px solid gray">
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:1px solid gray;padding-left:0.5em;" class="hatch">
         </td>
-        <td colspan="2" style="border-left:2px solid black;border-right:1px solid gray;font-size:x-small;">
+        <td colspan="2" style="border-left:2px solid black;border-right:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch">
             18. Relationship to Policyholder/Subscriber in #12 Above
         </td>
-        <td style="border-left:1px solid gray;border-right:2px solid black;font-size:x-small;">
+        <td style="border-left:1px solid gray;border-right:2px solid black;font-size:x-small;padding-left:0.5em;" class="hatch">
             19. Reserved For Future Use
         </td>
     </tr>
     <tr>
-        <td style="font-size:x-small;border-left:2px solid black;">6. Date of Birth (MM/DD/CCYY)</td>
-        <td style="border-left:1px solid gray;border-right:1px solid gray;font-size:x-small">7. Gender</td>
-        <td style="border-right:2px solid black;font-size:x-small">8. Policyholder/Subscriber ID (SSN or ID#)</td>
-        <td colspan="2" style="border-left:2px solid black;border-right:1px solid gray;border-bottom:1px solid gray;font-size:x-small;padding-left:2em;">
+        <td style="font-size:x-small;border-left:2px solid black;padding-left:0.5em;" class="hatch">6. Date of Birth (MM/DD/CCYY)</td>
+        <td style="border-left:1px solid gray;border-right:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch">7. Gender</td>
+        <td style="border-right:2px solid black;font-size:x-small;padding-left:0.5em;" class="hatch">8. Policyholder/Subscriber ID (SSN or ID#)</td>
+        <td colspan="2" style="border-left:2px solid black;border-right:1px solid gray;border-bottom:1px solid gray;font-size:x-small;padding-left:2em;" class="hatch">
             <input type="checkbox" disabled="disabled" id="Self" /> Self   <input type="checkbox" disabled="disabled" id="Spouse" /> Spouse   <input type="checkbox" disabled="disabled" id="DependentChild" /> Dependent Child   <input type="checkbox" disabled="disabled" id="Other" /> Other
         </td>
-        <td style="border-left:1px solid gray;border-right:2px solid black;border-bottom:1px solid gray;font-size:x-small;">
+        <td style="border-left:1px solid gray;border-right:2px solid black;border-bottom:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch">
         </td>
     </tr>
     <tr>
-        <td style="font-size:x-small;border-bottom:1px solid gray;border-left:2px solid black;padding-left:2em;">
+        <td style="font-size:x-small;border-bottom:1px solid gray;border-left:2px solid black;padding-left:2em;" class="hatch">
         </td>
-        <td style="border-left:1px solid gray;border-right:1px solid gray;font-size:x-small;border-bottom:1px solid gray;padding-left:2em;">
+        <td style="border-left:1px solid gray;border-right:1px solid gray;font-size:x-small;border-bottom:1px solid gray;padding-left:2em;" class="hatch">
             <input type="checkbox" disabled="disabled" id="GenderMOth"/> M
             <input type="checkbox" disabled="disabled" id="GenderFOth"/> F
         </td>
-        <td style="border-right:2px solid black;font-size:x-small;border-bottom:1px solid gray;padding-left:2em;">
+        <td style="border-right:2px solid black;font-size:x-small;border-bottom:1px solid gray;padding-left:2em;" class="hatch">
         </td>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;">
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:0.5em;" class="hatch">
             20. Name (Last, First, Middle Initial, Suffix), Address, City, State, Zip Code
         </td>
     </tr>
     <tr>
-        <td style="font-size:x-small;border-left:2px solid black;">9. Plan/Group Number</td>
-        <td colspan="2" style="border-right:2px solid black;font-size:x-small;border-left:1px solid gray;">10. Patient’s Relationship to Person named in #5</td>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;"></td>
+        <td style="font-size:x-small;border-left:2px solid black;padding-left:0.5em;" class="hatch">9. Plan/Group Number</td>
+        <td colspan="2" style="border-right:2px solid black;font-size:x-small;border-left:1px solid gray;padding-left:0.5em;" class="hatch">10. Patient’s Relationship to Person named in #5</td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:0.5em;" class="hatch"></td>
     </tr>
     <tr>
-        <td style="font-size:x-small;border-left:2px solid black;border-bottom:1px solid gray;"></td>
-        <td colspan="2" style="border-right:2px solid black;font-size:x-small;border-left:1px solid gray;border-bottom:1px solid gray;padding-left:2em;"><input type="checkbox" disabled="disabled" id="SelfOth" /> Self   <input type="checkbox" disabled="disabled" id="SpouseOth" /> Spouse   <input type="checkbox" disabled="disabled" id="DependentChildOth" /> Dependent Child   <input type="checkbox" disabled="disabled" id="OtherOth" /> Other</td>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;"></td>
+        <td style="font-size:x-small;border-left:2px solid black;border-bottom:1px solid gray;padding-left:0.5em;" class="hatch"></td>
+        <td colspan="2" style="border-right:2px solid black;font-size:x-small;border-left:1px solid gray;border-bottom:1px solid gray;padding-left:2em;" class="hatch"><input type="checkbox" disabled="disabled" id="SelfOth" /> Self   <input type="checkbox" disabled="disabled" id="SpouseOth" /> Spouse   <input type="checkbox" disabled="disabled" id="DependentChildOth" /> Dependent Child   <input type="checkbox" disabled="disabled" id="OtherOth" /> Other</td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:0.5em;" class="hatch"></td>
     </tr>
     <tr>
-        <td colspan="3" style="font-size:x-small;border-left:2px solid black;border-right:2px solid black;">11. Other Insurance Company/Dental Benefit Plan Name, Address, City, State, Zip Code</td>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;"></td>
+        <td colspan="3" style="font-size:x-small;border-left:2px solid black;border-right:2px solid black;padding-left:0.5em;" class="hatch">11. Other Insurance Company/Dental Benefit Plan Name, Address, City, State, Zip Code</td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:0.5em;" class="hatch"></td>
     </tr>
     <tr>
-        <td colspan="3" style="font-size:x-small;border-left:2px solid black;border-right:2px solid black;"></td>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;border-bottom:1px solid gray;"></td>
+        <td colspan="3" style="font-size:x-small;border-left:2px solid black;border-right:2px solid black;padding-left:0.5em;" class="hatch"></td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;border-bottom:1px solid gray;padding-left:0.5em;" class="hatch"></td>
     </tr>
     <tr>
-        <td colspan="3" style="font-size:x-small;border-left:2px solid black;border-right:2px solid black;"></td>
-        <td style="font-size:x-small;border-left:2px solid black;">21. Date of Birth (MM/DD/CCYY)</td>
-        <td style="border-left:1px solid gray;border-right:1px solid gray;font-size:x-small">22. Gender</td>
-        <td style="border-right:2px solid black;font-size:x-small">23. Patient ID/Account # (Assigned by Dentist)</td>
+        <td colspan="3" style="font-size:x-small;border-left:2px solid black;border-right:2px solid black;padding-left:0.5em;" class="hatch"></td>
+        <td style="font-size:x-small;border-left:2px solid black;padding-left:0.5em;" class="hatch">21. Date of Birth (MM/DD/CCYY)</td>
+        <td style="border-left:1px solid gray;border-right:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch">22. Gender</td>
+        <td style="border-right:2px solid black;font-size:x-small;padding-left:0.5em;" class="hatch">23. Patient ID/Account # (Assigned by Dentist)</td>
     </tr>
     <tr>
-        <td colspan="3" style="font-size:x-small;border-left:2px solid black;border-right:2px solid black;border-bottom:2px solid black;"></td>
-        <td style="font-size:x-small;border-bottom:2px solid black;border-left:2px solid black;padding-left:2em;"></td>
-        <td style="border-left:1px solid gray;border-right:1px solid gray;font-size:x-small;border-bottom:2px solid black;padding-left:2em;">
+        <td colspan="3" style="font-size:x-small;border-left:2px solid black;border-right:2px solid black;border-bottom:2px solid black;padding-left:0.5em;" class="hatch"></td>
+        <td style="font-size:x-small;border-bottom:2px solid black;border-left:2px solid black;padding-left:2em;" class="hatch"></td>
+        <td style="border-left:1px solid gray;border-right:1px solid gray;font-size:x-small;border-bottom:2px solid black;padding-left:2em;" class="hatch">
             <input type="checkbox" disabled="disabled" id="GenderMPatient" /> M
             <input type="checkbox" disabled="disabled" id="GenderFPatient" /> F
         </td>
-        <td style="border-right:2px solid black;font-size:x-small;border-bottom:2px solid black;padding-left:2em;"></td>
+        <td style="border-right:2px solid black;font-size:x-small;border-bottom:2px solid black;padding-left:2em;" class="hatch"></td>
     </tr>
     <tr>
-        <td colspan="6" style="border-left:2px solid black;border-right:2px solid black;"><b>RECORD OF SERVICES PROVIDED</b></td>
+        <td colspan="6" style="border-left:2px solid black;border-right:2px solid black;padding-left:0.5em;"><b>RECORD OF SERVICES PROVIDED</b></td>
     </tr>
     <tr>
         <td colspan="6" style="border-left:2px solid black;border-right:2px solid black;border-bottom:2px solid black;">
-            <table style="width:100%">
+            <table cellspacing="0" style="width:100%">
                 <tr>
                     <td style="border:1px solid gray;font-size:x-small;width:2%;text-align:center;"></td>
                     <td style="border:1px solid gray;font-size:x-small;width:20%;text-align:center;">24. Procedure Date (MM/DD/CCYY)</td>
@@ -218,8 +218,8 @@
                 @for(int x=0;x<Model.lscd.Count;x++)
                 {
                     <tr>
-                        <td style="border:1px solid gray;font-size:x-small;text-align:center;">@Model.lscd[x].ClaimDetailNumber</td>
-                        <td style="border:1px solid gray;font-size:x-small;text-align:center;">
+                        <td style="border:1px solid gray;font-size:x-small;text-align:center;color:navy;font-weight:bolder;">@Model.lscd[x].ClaimDetailNumber</td>
+                        <td style="border:1px solid gray;font-size:x-small;text-align:center;color:navy;font-weight:bolder;">
                             @if (Model.lscd[x].lsFields.Where(f => f.Name == "FROM DATE OF SERVICE").Single().Value == Model.lscd[x].lsFields.Where(f => f.Name == "THROUGH DATE OF SERVICE").Single().Value)
                             {
                                 @(Model.lscd[x].lsFields.Where(f => f.Name == "FROM DATE OF SERVICE").Single().Value.Substring(4, 2) +"/"+ Model.lscd[x].lsFields.Where(f => f.Name == "FROM DATE OF SERVICE").Single().Value.Substring(6, 2) + "/" + Model.lscd[x].lsFields.Where(f => f.Name == "FROM DATE OF SERVICE").Single().Value.Substring(0, 4));
@@ -229,15 +229,15 @@
                                 @(Model.lscd[x].lsFields.Where(f => f.Name == "FROM DATE OF SERVICE").Single().Value.Substring(4, 2) +"/" + Model.lscd[x].lsFields.Where(f => f.Name == "FROM DATE OF SERVICE").Single().Value.Substring(6, 2) + "/" + Model.lscd[x].lsFields.Where(f => f.Name == "FROM DATE OF SERVICE").Single().Value.Substring(0, 4) + " - " + Model.lscd[x].lsFields.Where(f => f.Name == "THROUGH DATE OF SERVICE").Single().Value.Substring(4, 2) + "/" + Model.lscd[x].lsFields.Where(f => f.Name == "THROUGH DATE OF SERVICE").Single().Value.Substring(6, 2) + "/" + Model.lscd[x].lsFields.Where(f => f.Name == "THROUGH DATE OF SERVICE").Single().Value.Substring(0, 4));
                             }
                         </td>
-                        <td style="border:1px solid gray;font-size:x-small;text-align:center;"></td>
-                        <td style="border:1px solid gray;font-size:x-small;text-align:center;"></td>
-                        <td style="border:1px solid gray;font-size:x-small;text-align:center;">@Model.lscd[x].lsFields.Where(f => f.Name == "DENT TOOTH NUMBER").Single().Value</td>
-                        <td style="border:1px solid gray;font-size:x-small;text-align:center;">@Model.lscd[x].lsFields.Where(f => f.Name == "DENT TOOTH SURFACE CODE").Single().Value</td>
-                        <td style="border:1px solid gray;font-size:x-small;text-align:center;">@Model.lscd[x].lsFields.Where(f => f.Name == "FK PROCEDURE CODE").Single().Value</td>
-                        <td style="border:1px solid gray;font-size:x-small;text-align:center;"></td>
-                        <td style="border:1px solid gray;font-size:x-small;text-align:center;">@(Convert.ToInt32(Model.lscd[x].lsFields.Where(f => f.Name == "BILLED_QUANTITY_HIPAA").Single().Value))</td>
-                        <td style="border:1px solid gray;font-size:x-small;text-align:center;"></td>
-                        <td style="border:1px solid gray;font-size:x-small;text-align:right;">@(string.Format("{0:C}", Convert.ToDouble(Convert.ToInt32(Model.lscd[x].lsFields.Where(f => f.Name == "BILLED_AMT_HIPAA").Single().Value))/100.00))</td>
+                        <td style="border:1px solid gray;font-size:x-small;text-align:center;" class="hatch"></td>
+                        <td style="border:1px solid gray;font-size:x-small;text-align:center;" class="hatch"></td>
+                        <td style="border:1px solid gray;font-size:x-small;text-align:center;color:navy;font-weight:bolder;">@Model.lscd[x].lsFields.Where(f => f.Name == "DENT TOOTH NUMBER").Single().Value</td>
+                        <td style="border:1px solid gray;font-size:x-small;text-align:center;color:navy;font-weight:bolder;">@Model.lscd[x].lsFields.Where(f => f.Name == "DENT TOOTH SURFACE CODE").Single().Value</td>
+                        <td style="border:1px solid gray;font-size:x-small;text-align:center;color:navy;font-weight:bolder;">@Model.lscd[x].lsFields.Where(f => f.Name == "FK PROCEDURE CODE").Single().Value</td>
+                        <td style="border:1px solid gray;font-size:x-small;text-align:center;" class="hatch"></td>
+                        <td style="border:1px solid gray;font-size:x-small;text-align:center;color:navy;font-weight:bolder;">@((Convert.ToDecimal(Model.lscd[x].lsFields.Where(f => f.Name == "BILLED_QUANTITY_HIPAA").Single().Value))/10)</td>
+                        <td style="border:1px solid gray;font-size:x-small;text-align:center;" class="hatch"></td>
+                        <td style="border:1px solid gray;font-size:x-small;text-align:right;color:navy;font-weight:bolder;">@(string.Format("{0:C}", Convert.ToDouble(Convert.ToInt32(Model.lscd[x].lsFields.Where(f => f.Name == "BILLED_AMT_HIPAA").Single().Value))/100.00))</td>
                     </tr>
                 }
             </table>
@@ -245,175 +245,175 @@
     </tr>
     <tr>
         <td colspan="6" style="border-left:2px solid black;border-right:2px solid black;border-bottom:2px solid black;">
-            <table style="width:100%">
+            <table cellspacing="0" style="width:100%">
                 <tr>
-                    <td style="border:1px solid gray;font-size:x-small;width:40%;">33. Missing Teeth Information (Place an "X" on each missing tooth.)</td>
-                    <td style="border-left:1px solid gray;border-bottom:1px solid gray;font-size:x-small;width:15%;">34. Diagnosis Code List Qualifier</td>
-                    <td style="border-bottom:1px solid gray;font-size:x-small;width:5%;">
-                        <table>
+                    <td style="border:1px solid gray;font-size:x-small;width:40%;padding-left:0.5em;" class="hatch">33. Missing Teeth Information (Place an "X" on each missing tooth.)</td>
+                    <td style="border-left:1px solid gray;border-bottom:1px solid gray;font-size:x-small;width:15%;padding-left:0.5em;">34. Diagnosis Code List Qualifier</td>
+                    <td style="border-bottom:1px solid gray;font-size:x-small;width:5%;padding-left:0.5em;">
+                        <table cellspacing="0">
                             <tr>
-                                <td style="border:1px solid gray;font-size:x-small;width:50%;">&nbsp;&nbsp;&nbsp;&nbsp;@(Model.lsFields.Where(f => f.Name == "SURG_PROC_SRC_CD_1").Single().Value)@(Model.lsFields.Where(f => f.Name == "SURG_PROC_SRC_CD_2").Single().Value)</td>
-                                <td style="border:1px solid gray;font-size:x-small;width:50%;">&nbsp;&nbsp;&nbsp;&nbsp;@(Model.lsFields.Where(f => f.Name == "SURG_PROC_SRC_CD_3").Single().Value)@(Model.lsFields.Where(f => f.Name == "SURG_PROC_SRC_CD_4").Single().Value)</td>
+                                <td style="border:1px solid gray;font-size:x-small;width:50%;color:navy;font-weight:bolder;">&nbsp;&nbsp;&nbsp;&nbsp;@(Model.lsFields.Where(f => f.Name == "SURG_PROC_SRC_CD_1").Single().Value)@(Model.lsFields.Where(f => f.Name == "SURG_PROC_SRC_CD_2").Single().Value)</td>
+                                <td style="border:1px solid gray;font-size:x-small;width:50%;color:navy;font-weight:bolder;">&nbsp;&nbsp;&nbsp;&nbsp;@(Model.lsFields.Where(f => f.Name == "SURG_PROC_SRC_CD_3").Single().Value)@(Model.lsFields.Where(f => f.Name == "SURG_PROC_SRC_CD_4").Single().Value)</td>
                             </tr>
                         </table>
                     </td>
-                    <td style="border-right:1px solid gray;border-bottom:1px solid gray;font-size:x-small;width:25%;">( ICD-9 = B; ICD-10 = AB )</td>
-                    <td style="border-left:1px solid gray;font-size:x-small;border-right:1px solid gray;width:10%;">31a. Other</td>
-                    <td style="border:1px solid gray;font-size:x-small;width:5%;"></td>
+                    <td style="border-right:1px solid gray;border-bottom:1px solid gray;font-size:x-small;width:25%;padding-left:0.5em;">( ICD-9 = B; ICD-10 = AB )</td>
+                    <td style="border-left:1px solid gray;font-size:x-small;border-right:1px solid gray;width:10%;padding-left:0.5em;">31a. Other</td>
+                    <td style="border:1px solid gray;font-size:x-small;width:5%;padding-left:0.5em;" class="hatch"></td>
                 </tr>
                 <tr>
-                    <td style="border:1px solid gray;font-size:x-small;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;11&nbsp;&nbsp;&nbsp;&nbsp;12&nbsp;&nbsp;&nbsp;&nbsp;13&nbsp;&nbsp;&nbsp;&nbsp;14&nbsp;&nbsp;&nbsp;&nbsp;15&nbsp;&nbsp;&nbsp;&nbsp;16</td>
-                    <td style="border-left:1px solid gray;font-size:x-small;">34a. Diagnosis Code(s)</td>
-                    <td colspan="2" style="border-right:1px solid gray;font-size:x-small;">
-                        <table>
+                    <td style="border:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;11&nbsp;&nbsp;&nbsp;&nbsp;12&nbsp;&nbsp;&nbsp;&nbsp;13&nbsp;&nbsp;&nbsp;&nbsp;14&nbsp;&nbsp;&nbsp;&nbsp;15&nbsp;&nbsp;&nbsp;&nbsp;16</td>
+                    <td style="border-left:1px solid gray;font-size:x-small;padding-left:0.5em;">34a. Diagnosis Code(s)</td>
+                    <td colspan="2" style="border-right:1px solid gray;font-size:x-small;padding-left:0.5em;">
+                        <table cellspacing="0">
                             <tr>
                                 <td style="font-size:x-small;width:5%;">A</td>
-                                <td style="border-bottom:1px solid gray;font-size:x-small;width:45%;">@(Model.lsFields.Where(f => f.Name == "STD_FK_DIAGNOSIS_CD_1_ICD10").Single().Value)</td>
+                                <td style="border-bottom:1px solid gray;font-size:x-small;width:45%;padding-left:3em;color:navy;font-weight:bolder;">@(Model.lsFields.Where(f => f.Name == "STD_FK_DIAGNOSIS_CD_1_ICD10").Single().Value)</td>
                                 <td style="font-size:x-small;width:5%;">C</td>
-                                <td style="border-bottom:1px solid gray;font-size:x-small;width:45%;">@(Model.lsFields.Where(f => f.Name == "STD_FK_DIAGNOSIS_CD_3_ICD10").Single().Value)</td>
+                                <td style="border-bottom:1px solid gray;font-size:x-small;width:45%;padding-left:3em;color:navy;font-weight:bolder;">@(Model.lsFields.Where(f => f.Name == "STD_FK_DIAGNOSIS_CD_3_ICD10").Single().Value)</td>
                             </tr>
                         </table>
                     </td>
-                    <td style="border-left:1px solid gray;font-size:x-small;border-right:1px solid gray;border-bottom:1px solid gray">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fee(s)</td>
-                    <td style="border:1px solid gray;font-size:x-small;"></td>
+                    <td style="border-left:1px solid gray;font-size:x-small;border-right:1px solid gray;border-bottom:1px solid gray;padding-left:0.5em;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fee(s)</td>
+                    <td style="border:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch"></td>
                 </tr>
                 <tr>
-                    <td style="border:1px solid gray;font-size:x-small;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;32&nbsp;&nbsp;&nbsp;&nbsp;31&nbsp;&nbsp;&nbsp;&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;29&nbsp;&nbsp;&nbsp;&nbsp;28&nbsp;&nbsp;&nbsp;&nbsp;27&nbsp;&nbsp;&nbsp;&nbsp;26&nbsp;&nbsp;&nbsp;&nbsp;25&nbsp;&nbsp;&nbsp;&nbsp;24&nbsp;&nbsp;&nbsp;&nbsp;23&nbsp;&nbsp;&nbsp;&nbsp;22&nbsp;&nbsp;&nbsp;&nbsp;21&nbsp;&nbsp;&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;19&nbsp;&nbsp;&nbsp;&nbsp;18&nbsp;&nbsp;&nbsp;&nbsp;17</td>
-                    <td style="border-left:1px solid gray;font-size:x-small;">(Primary diagnosis in "<b>A</b>")</td>
-                    <td colspan="2" style="border-right:1px solid gray;font-size:x-small;">
-                        <table>
+                    <td style="border:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;32&nbsp;&nbsp;&nbsp;&nbsp;31&nbsp;&nbsp;&nbsp;&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;29&nbsp;&nbsp;&nbsp;&nbsp;28&nbsp;&nbsp;&nbsp;&nbsp;27&nbsp;&nbsp;&nbsp;&nbsp;26&nbsp;&nbsp;&nbsp;&nbsp;25&nbsp;&nbsp;&nbsp;&nbsp;24&nbsp;&nbsp;&nbsp;&nbsp;23&nbsp;&nbsp;&nbsp;&nbsp;22&nbsp;&nbsp;&nbsp;&nbsp;21&nbsp;&nbsp;&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;19&nbsp;&nbsp;&nbsp;&nbsp;18&nbsp;&nbsp;&nbsp;&nbsp;17</td>
+                    <td style="border-left:1px solid gray;font-size:x-small;padding-left:0.5em;">(Primary diagnosis in "<b>A</b>")</td>
+                    <td colspan="2" style="border-right:1px solid gray;font-size:x-small;padding-left:0.5em;">
+                        <table cellspacing="0">
                             <tr>
                                 <td style="font-size:x-small;width:5%;">B</td>
-                                <td style="border-bottom:1px solid gray;font-size:x-small;width:45%;">@(Model.lsFields.Where(f => f.Name == "STD_FK_DIAGNOSIS_CD_2_ICD10").Single().Value)</td>
+                                <td style="border-bottom:1px solid gray;font-size:x-small;width:45%;padding-left:3em;color:navy;font-weight:bolder;">@(Model.lsFields.Where(f => f.Name == "STD_FK_DIAGNOSIS_CD_2_ICD10").Single().Value)</td>
                                 <td style="font-size:x-small;width:5%;">D</td>
-                                <td style="border-bottom:1px solid gray;font-size:x-small;width:45%;">@(Model.lsFields.Where(f => f.Name == "STD_FK_DIAGNOSIS_CD_4_ICD10").Single().Value)</td>
+                                <td style="border-bottom:1px solid gray;font-size:x-small;width:45%;padding-left:3em;color:navy;font-weight:bolder;">@(Model.lsFields.Where(f => f.Name == "STD_FK_DIAGNOSIS_CD_4_ICD10").Single().Value)</td>
                             </tr>
                         </table>
                     </td>
-                    <td style="border-left:1px solid gray;font-size:x-small;border-right:1px solid gray;border-bottom:1px solid gray">32. Total Fee</td>
-                    <td style="border:1px solid gray;font-size:x-small;text-align:right;">@(string.Format("{0:C}", Convert.ToDouble(Convert.ToInt32(Model.lsFields.Where(f => f.Name == "FIN_TOTAL_CHARGES_HIPAA").Single().Value)) / 100.00))</td>
+                    <td style="border-left:1px solid gray;font-size:x-small;border-right:1px solid gray;border-bottom:1px solid gray;padding-left:0.5em;">32. Total Fee</td>
+                    <td style="border:1px solid gray;font-size:x-small;text-align:right;padding-left:3em;color:navy;font-weight:bolder;">@(string.Format("{0:C}", Convert.ToDouble(Convert.ToInt32(Model.lsFields.Where(f => f.Name == "FIN_TOTAL_CHARGES_HIPAA").Single().Value)) / 100.00))</td>
                 </tr>
                 <tr>
-                    <td colspan="6" style="font-size:x-small;border-top:1px solid gray;">35. Remarks</td>
+                    <td colspan="6" style="font-size:x-small;border-top:1px solid gray;padding-left:0.5em;">35. Remarks</td>
                 </tr>
                 <tr>
-                    <td rowspan="3" colspan="6" style="font-size:x-small;">@(Model.lsFields.Where(f => f.Name == "ICH_SVC_FAC_NPI_API_PROV_ID").Single().Value)&nbsp;</td>
+                    <td rowspan="3" colspan="6" style="font-size:x-small;padding-left:3em;color:navy;font-weight:bolder;">@(Model.lsFields.Where(f => f.Name == "ICH_SVC_FAC_NPI_API_PROV_ID").Single().Value)&nbsp;</td>
                 </tr>
             </table>
         </td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:1px solid black;"><b>AUTHORIZATIONS</b></td>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:1px solid black;"><b>ANCILLARY CLAIM/TREATMENT INFORMATION</b></td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:1px solid black;padding-left:0.5em;"><b>AUTHORIZATIONS</b></td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:1px solid black;padding-left:0.5em;"><b>ANCILLARY CLAIM/TREATMENT INFORMATION</b></td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;">36. I have been informed of the treatment plan and associated fees. I agree to be responsible for all</td>
-        <td colspan="2" style="border-left:2px solid black;border-right:1px solid gray;font-size:x-small;">38. Place of Treatment&nbsp;<input type="text" readonly="readonly" style="border:1px solid gray;width:30px;" value="@(Model.lscd[0].lsFields.Where(x => x.Name == "FK PLACE OF SERVICE").Single().Value)"/>&nbsp;( e.g. 11=office; 22=O/P Hospital)</td>
-        <td colspan="1" style="border-right:2px solid black;border-left:1px solid gray;font-size:x-small;">39. Enclosures (Y or N)</td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:0.5em;" class="hatch">36. I have been informed of the treatment plan and associated fees. I agree to be responsible for all</td>
+        <td colspan="2" style="border-left:2px solid black;border-right:1px solid gray;font-size:x-small;padding-left:0.5em;">38. Place of Treatment&nbsp;<input type="text" readonly="readonly" style="border:1px solid gray;width:30px;color:navy;font-weight:bolder;" value="@(Model.lscd[0].lsFields.Where(x => x.Name == "FK PLACE OF SERVICE").Single().Value)"/>&nbsp;( e.g. 11=office; 22=O/P Hospital)</td>
+        <td colspan="1" style="border-right:2px solid black;border-left:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch">39. Enclosures (Y or N)</td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;charges for dental services and materials not paid by my dental benefit plan, unless prohibited by</td>
-        <td colspan="2" style="border-left:2px solid black;border-right:1px solid gray;font-size:x-small;"></td>
-        <td colspan="1" style="border-right:2px solid black;border-left:1px solid gray;font-size:x-small;"></td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:0.5em;" class="hatch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;charges for dental services and materials not paid by my dental benefit plan, unless prohibited by</td>
+        <td colspan="2" style="border-left:2px solid black;border-right:1px solid gray;font-size:x-small;padding-left:0.5em;"></td>
+        <td colspan="1" style="border-right:2px solid black;border-left:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch"></td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;law, or the treating dentist or dental practice has a contractual agreement with my plan prohibiting all</td>
-        <td colspan="2" style="border-left:2px solid black;border-right:1px solid gray;border-bottom:1px solid gray;font-size:x-small;">(Use "Place of Service Codes for Professional Claims")</td>
-        <td colspan="1" style="border-right:2px solid black;border-left:1px solid gray;border-bottom:1px solid gray;font-size:x-small;align-items:center;padding-left:8em;"><input type="text" readonly="readonly" style="border:1px solid gray;width:10px;" /></td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:0.5em;" class="hatch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;law, or the treating dentist or dental practice has a contractual agreement with my plan prohibiting all</td>
+        <td colspan="2" style="border-left:2px solid black;border-right:1px solid gray;border-bottom:1px solid gray;font-size:x-small;padding-left:0.5em;">(Use "Place of Service Codes for Professional Claims")</td>
+        <td colspan="1" style="border-right:2px solid black;border-left:1px solid gray;border-bottom:1px solid gray;font-size:x-small;align-items:center;padding-left:8em;" class="hatch"><input type="text" readonly="readonly" style="border:1px solid gray;width:10px;" /></td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or a portion of such charges. To the extent permitted by law, I consent to your use and disclosure</td>
-        <td colspan="2" style="border-left:2px solid black;border-right:1px solid gray;font-size:x-small;">40. Is Treatment for Orthodontics?</td>
-        <td colspan="1" style="border-right:2px solid black;border-left:1px solid gray;font-size:x-small;">41. Date Appliance Placed (MM/DD/CCYY)</td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:0.5em;" class="hatch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or a portion of such charges. To the extent permitted by law, I consent to your use and disclosure</td>
+        <td colspan="2" style="border-left:2px solid black;border-right:1px solid gray;font-size:x-small;padding-left:0.5em;">40. Is Treatment for Orthodontics?</td>
+        <td colspan="1" style="border-right:2px solid black;border-left:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch">41. Date Appliance Placed (MM/DD/CCYY)</td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of my protected health information to carry out payment activities in connection with this claim.</td>
-        <td colspan="2" style="border-left:2px solid black;border-right:1px solid gray;font-size:x-small;"></td>
-        <td colspan="1" style="border-right:2px solid black;border-left:1px solid gray;font-size:x-small;"></td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:0.5em;" class="hatch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of my protected health information to carry out payment activities in connection with this claim.</td>
+        <td colspan="2" style="border-left:2px solid black;border-right:1px solid gray;font-size:x-small;padding-left:0.5em;"></td>
+        <td colspan="1" style="border-right:2px solid black;border-left:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch"></td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:2em;"><b>X</b><input type="text" readonly="readonly" style="border-bottom:1px solid gray;border-top:0px;border-left:0px;width:500px;" /></td>
-        <td colspan="2" style="border-left:2px solid black;border-right:1px solid gray;border-bottom:1px solid gray;font-size:x-small;padding-left:4em;"><input type="checkbox" disabled="disabled" id="OrthoNo" @(Model.lsFields.Where(x => x.Name == "DENT ORTHODONTIA SERVICE IND").Single().Value!="N" ? "checked=\"checked\"" : "")/> No (Skip 41-42)  <input type="checkbox" disabled="disabled" id="OrthoYes" @(Model.lsFields.Where(x => x.Name == "DENT ORTHODONTIA SERVICE IND").Single().Value=="Y" ? "checked=\"checked\"" : "") /> Yes (Complete 41-42)</td>
-        <td colspan="1" style="border-right:2px solid black;border-left:1px solid gray;border-bottom:1px solid gray;font-size:x-small;"></td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:2em;" class="hatch"><b>X</b><input type="text" readonly="readonly" style="border-bottom:1px solid gray;border-top:0px;border-left:0px;border-right:0px;width:500px;" /></td>
+        <td colspan="2" style="border-left:2px solid black;border-right:1px solid gray;border-bottom:1px solid gray;font-size:x-small;padding-left:4em;color:navy;font-weight:bolder;"><input type="checkbox" disabled="disabled" id="OrthoNo" @(Model.lsFields.Where(x => x.Name == "DENT ORTHODONTIA SERVICE IND").Single().Value!="N" ? "checked=\"checked\"" : "")/> No (Skip 41-42)  <input type="checkbox" disabled="disabled" id="OrthoYes" @(Model.lsFields.Where(x => x.Name == "DENT ORTHODONTIA SERVICE IND").Single().Value=="Y" ? "checked=\"checked\"" : "") /> Yes (Complete 41-42)</td>
+        <td colspan="1" style="border-right:2px solid black;border-left:1px solid gray;border-bottom:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch"></td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:1px solid gray;font-size:x-small;padding-left:4em;">Paient/Guardian Signature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date</td>
-        <td colspan="1" style="border-left:2px solid black;border-right:1px solid gray;font-size:x-small;">42. Months of Treatment</td>
-        <td colspan="1" style="border-left:1px solid gray;border-right:1px solid gray;font-size:x-small;">43. Replacement of Prosthesis</td>
-        <td colspan="1" style="border-right:2px solid black;border-left:1px solid gray;font-size:x-small;">44. Date of Prior Placement (MM/DD/CCYY)</td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:1px solid gray;font-size:x-small;padding-left:4em;" class="hatch">Paient/Guardian Signature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date</td>
+        <td colspan="1" style="border-left:2px solid black;border-right:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch">42. Months of Treatment</td>
+        <td colspan="1" style="border-left:1px solid gray;border-right:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch">43. Replacement of Prosthesis</td>
+        <td colspan="1" style="border-right:2px solid black;border-left:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch">44. Date of Prior Placement (MM/DD/CCYY)</td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;">37. I hereby authorize and direct payment of the dental benefits otherwise payable to me, directly</td>
-        <td colspan="1" style="border-left:2px solid black;border-right:1px solid gray;border-bottom:1px solid gray;font-size:x-small;"></td>
-        <td colspan="1" style="border-left:1px solid gray;border-right:1px solid gray;border-bottom:1px solid gray;font-size:x-small;padding-left:1em;"><input type="checkbox" disabled="disabled" id="ProsthesisNo" /> No <input type="checkbox" disabled="disabled" id="ProsthesisYes" /> Yes (Complete 44) </td>
-        <td colspan="1" style="border-right:2px solid black;border-left:1px solid gray;border-bottom:1px solid gray;font-size:x-small;"></td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:0.5em;" class="hatch">37. I hereby authorize and direct payment of the dental benefits otherwise payable to me, directly</td>
+        <td colspan="1" style="border-left:2px solid black;border-right:1px solid gray;border-bottom:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch"></td>
+        <td colspan="1" style="border-left:1px solid gray;border-right:1px solid gray;border-bottom:1px solid gray;font-size:x-small;padding-left:1em;" class="hatch"><input type="checkbox" disabled="disabled" id="ProsthesisNo" /> No <input type="checkbox" disabled="disabled" id="ProsthesisYes" /> Yes (Complete 44) </td>
+        <td colspan="1" style="border-right:2px solid black;border-left:1px solid gray;border-bottom:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch"></td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to the below named dentist or dental entity.</td>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;">45. Treatment Resulting from</td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:0.5em;" class="hatch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to the below named dentist or dental entity.</td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:0.5em;">45. Treatment Resulting from</td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:2em;"><b>X</b><input type="text" readonly="readonly" style="border-bottom:1px solid gray;border-top:0px;border-left:0px;width:500px;" /></td>
-        <td colspan="1" style="border-left:2px solid black;border-bottom:1px solid gray;font-size:x-small;padding-left:2em;"><input type="checkbox" disabled="disabled" id="Occupationalillnessinjury" @(Model.lsFields.Where(x => x.Name == "COND RELATED TO EMPL IND").Single().Value=="Y" ? "checked=\"checked\"" : "")/> Occupational illness/injury</td>
-        <td colspan="1" style="border-bottom:1px solid gray;font-size:x-small;padding-left:2em;"><input type="checkbox" disabled="disabled" id="Autoaccident" @(Model.lsFields.Where(x => x.Name == "COND REL TO AUTO ACCID IND").Single().Value=="Y" ? "checked=\"checked\"" : "")/> Auto accident </td>
-        <td colspan="1" style="border-right:2px solid black;border-bottom:1px solid gray;font-size:x-small;padding-left:2em;"><input type="checkbox" disabled="disabled" id="Otheraccident" /> Other accident</td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:2em;" class="hatch"><b>X</b><input type="text" readonly="readonly" style="border-bottom:1px solid gray;border-top:0px;border-left:0px;border-right:0px;width:500px;" /></td>
+        <td colspan="1" style="border-left:2px solid black;border-bottom:1px solid gray;font-size:x-small;padding-left:3em;color:navy;font-weight:bolder;"><input type="checkbox" disabled="disabled" id="Occupationalillnessinjury" @(Model.lsFields.Where(x => x.Name == "COND RELATED TO EMPL IND").Single().Value=="Y" ? "checked=\"checked\"" : "")/> Occupational illness/injury</td>
+        <td colspan="1" style="border-bottom:1px solid gray;font-size:x-small;padding-left:3em;color:navy;font-weight:bolder;"><input type="checkbox" disabled="disabled" id="Autoaccident" @(Model.lsFields.Where(x => x.Name == "COND REL TO AUTO ACCID IND").Single().Value=="Y" ? "checked=\"checked\"" : "")/> Auto accident </td>
+        <td colspan="1" style="border-right:2px solid black;border-bottom:1px solid gray;font-size:x-small;padding-left:3em;color:navy;font-weight:bolder;"><input type="checkbox" disabled="disabled" id="Otheraccident" /> Other accident</td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:2px solid black;font-size:x-small;padding-left:4em;">Subscriber Signature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date</td>
-        <td colspan="2" style="border-left:2px solid black;border-right:1px solid gray;font-size:x-small;border-bottom:2px solid black;">46. Date of Accident (MM/DD/CCYY)</td>
-        <td colspan="1" style="border-left:1px solid gray;border-right:2px solid black;font-size:x-small;border-bottom:2px solid black;">47. Auto Accident State</td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:2px solid black;font-size:x-small;padding-left:4em;" class="hatch">Subscriber Signature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date</td>
+        <td colspan="2" style="border-left:2px solid black;border-right:1px solid gray;font-size:x-small;border-bottom:2px solid black;padding-left:0.5em;" class="hatch">46. Date of Accident (MM/DD/CCYY)</td>
+        <td colspan="1" style="border-left:1px solid gray;border-right:2px solid black;font-size:x-small;border-bottom:2px solid black;padding-left:0.5em;" class="hatch">47. Auto Accident State</td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;"><b>BILLING DENTIST OR DENTAL ENTITY</b> (Leave blank if dentist or dental entity is not</td>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;border-bottom:1px solid gray;"><b>TREATING DENTIST AND TREATMENT LOCATION INFORMATION</b></td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:0.5em;"><b>BILLING DENTIST OR DENTAL ENTITY</b> (Leave blank if dentist or dental entity is not</td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;border-bottom:1px solid gray;padding-left:0.5em;"><b>TREATING DENTIST AND TREATMENT LOCATION INFORMATION</b></td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:2px solid gray;font-size:x-small;">submitting claim on behalf of the patient or insured/subscriber.)</td>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;">53. I hereby certify that the procedures as indicated by date are in progress (for procedures that require</td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:2px solid gray;font-size:x-small;padding-left:0.5em;">submitting claim on behalf of the patient or insured/subscriber.)</td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:0.5em;">53. I hereby certify that the procedures as indicated by date are in progress (for procedures that require</td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;">48. Name, Address, City, State, Zip Code</td>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;multiple visits) or have been completed.</td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:0.5em;">48. Name, Address, City, State, Zip Code</td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:0.5em;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;multiple visits) or have been completed.</td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;">@(Model.lsFields.Where(x => x.Name == "ICH_BILLING_PROV_ADDR_1").Single().Value)&nbsp;</td>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;">&nbsp;</td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:3em;color:navy;font-weight:bolder;">@(Model.lsFields.Where(x => x.Name == "ICH_BILLING_PROV_ADDR_1").Single().Value)&nbsp;</td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:0.5em;">&nbsp;</td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;">@(Model.lsFields.Where(x => x.Name == "ICH_BILLING_PROV_CITY").Single().Value), @(Model.lsFields.Where(x => x.Name == "ICH_BILLING_PROV_STATE").Single().Value) @(Model.lsFields.Where(x => x.Name == "ICH_BILLING_PROV_ZIPCODE").Single().Value)
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:3em;color:navy;font-weight:bolder;">@(Model.lsFields.Where(x => x.Name == "ICH_BILLING_PROV_CITY").Single().Value), @(Model.lsFields.Where(x => x.Name == "ICH_BILLING_PROV_STATE").Single().Value) @(Model.lsFields.Where(x => x.Name == "ICH_BILLING_PROV_ZIPCODE").Single().Value)
     </td>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:2em;"><b>X</b><input type = "text", style = "border-bottom:1px solid gray;border-top:0px;border-left:0px;border-right:0px;width:500px;" readonly="readonly" @(Html.Raw(Model.ph.lsFields.Where(x => x.Name.Trim() == "SIGNATURE INDICATOR").Single().Value == "Y"? " value=\"Signature on File\"":""))/></td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:2em;"><b>X</b><input type = "text", style = "border-bottom:1px solid gray;border-top:0px;border-left:0px;border-right:0px;width:500px;color:navy;font-weight:bolder;" readonly="readonly" @(Html.Raw(Model.ph.lsFields.Where(x => x.Name.Trim() == "SIGNATURE INDICATOR").Single().Value == "Y"? " value=\"Signature on File\"":""))/></td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;"></td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:0.5em;"></td>
         <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:1px solid gray;font-size:x-small;padding-left:4em;">Signed (Treating Dentist)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date</td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;"></td>
-        <td colspan="1" style="border-left:2px solid black;border-right:1px solid gray;border-bottom:1px solid gray;font-size:x-small;">54. NPI &nbsp;@Model.lscd[0].lsFields.Where(f => f.Name == "ICD_PERF_NPI_API_PROV_ID").Single().Value</td>
-        <td colspan="2" style="border-right:2px solid black;border-left:1px solid gray;border-bottom:1px solid gray;font-size:x-small;">55. License Number</td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;font-size:x-small;padding-left:0.5em;"></td>
+        <td colspan="1" style="border-left:2px solid black;border-right:1px solid gray;border-bottom:1px solid gray;font-size:x-small;padding-left:0.5em;">54. NPI &nbsp;<label style="padding-left:3em;color:navy;font-weight:bolder;font-size:x-small;">@Model.lscd[0].lsFields.Where(f => f.Name == "ICD_PERF_NPI_API_PROV_ID").Single().Value</label></td>
+        <td colspan="2" style="border-right:2px solid black;border-left:1px solid gray;border-bottom:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch">55. License Number</td>
     </tr>
     <tr>
-        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:1px solid gray;font-size:x-small;"></td>
-        <td colspan="1" style="border-left:2px solid black;border-right:1px solid gray;font-size:x-small;">56. Address, City, State, Zip Code</td>
-        <td colspan="2" style="border-right:2px solid black;border-left:1px solid gray;border-bottom:1px solid gray;font-size:x-small;">56a. Provider Specialty Code</td>
+        <td colspan="3" style="border-left:2px solid black;border-right:2px solid black;border-bottom:1px solid gray;font-size:x-small;padding-left:0.5em;"></td>
+        <td colspan="1" style="border-left:2px solid black;border-right:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch">56. Address, City, State, Zip Code</td>
+        <td colspan="2" style="border-right:2px solid black;border-left:1px solid gray;border-bottom:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch">56a. Provider Specialty Code</td>
     </tr>
     <tr>
-        <td colspan="1" style="border-left:2px solid black;border-right:1px solid gray;font-size:x-small;">49. NPI</td>
-        <td colspan="1" style="border-left:1px solid gray;border-right:1px solid gray;font-size:x-small;">50. License Number</td>
-        <td colspan="1" style="border-right:2px solid black;border-left:1px solid gray;font-size:x-small;">51. SSN or TIN</td>
-        <td colspan="3" style="border-right:2px solid black;border-left:2px solid black;font-size:x-small;"></td>
+        <td colspan="1" style="border-left:2px solid black;border-right:1px solid gray;font-size:x-small;padding-left:0.5em;">49. NPI</td>
+        <td colspan="1" style="border-left:1px solid gray;border-right:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch">50. License Number</td>
+        <td colspan="1" style="border-right:2px solid black;border-left:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch">51. SSN or TIN</td>
+        <td colspan="3" style="border-right:2px solid black;border-left:2px solid black;font-size:x-small;padding-left:0.5em;" class="hatch"></td>
     </tr>
     <tr>
-        <td colspan="1" style="border-left:2px solid black;border-right:1px solid gray;border-bottom:1px solid gray;font-size:x-small;">&nbsp;@Model.lsFields.Where(f => f.Name == "ICH_BILLING_NPI_API_PROV_ID").Single().Value</td>
-        <td colspan="1" style="border-left:1px solid gray;border-right:1px solid gray;border-bottom:1px solid gray;font-size:x-small;">&nbsp;</td>
-        <td colspan="1" style="border-right:2px solid black;border-left:1px solid gray;border-bottom:1px solid gray;font-size:x-small;">&nbsp;</td>
-        <td colspan="3" style="border-right:2px solid black;border-left:2px solid black;border-bottom:1px solid gray;font-size:x-small;">&nbsp;</td>
+        <td colspan="1" style="border-left:2px solid black;border-right:1px solid gray;border-bottom:1px solid gray;font-size:x-small;padding-left:3em;color:navy;font-weight:bolder;">&nbsp;@Model.lsFields.Where(f => f.Name == "ICH_BILLING_NPI_API_PROV_ID").Single().Value</td>
+        <td colspan="1" style="border-left:1px solid gray;border-right:1px solid gray;border-bottom:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch">&nbsp;</td>
+        <td colspan="1" style="border-right:2px solid black;border-left:1px solid gray;border-bottom:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch">&nbsp;</td>
+        <td colspan="3" style="border-right:2px solid black;border-left:2px solid black;border-bottom:1px solid gray;font-size:x-small;padding-left:0.5em;" class="hatch">&nbsp;</td>
     </tr>
     <tr>
-        <td colspan="2" style="border-left:2px solid black;border-right:1px solid gray;border-bottom:2px solid black;font-size:x-small;">52. Phone Number</td>
-        <td colspan="1" style="border-left:1px solid gray;border-right:2px solid black;border-bottom:2px solid black;font-size:x-small;">52a. Additional Provider ID&nbsp;@Model.lsFields.Where(f => f.Name == "BPD ALTERNATE ID").Single().Value</td>
-        <td colspan="2" style="border-left:2px solid black;border-right:1px solid gray;border-bottom:2px solid black;font-size:x-small;">57. Phone Number</td>
-        <td colspan="1" style="border-left:1px solid gray;border-right:2px solid black;border-bottom:2px solid black;font-size:x-small;">58. Additional Provider &nbsp;@Model.lscd[0].lsFields.Where(f => f.Name == "PPD ALTERNATE ID").Single().Value</td>
+        <td colspan="2" style="border-left:2px solid black;border-right:1px solid gray;border-bottom:2px solid black;font-size:x-small;padding-left:0.5em;" class="hatch">52. Phone Number</td>
+        <td colspan="1" style="border-left:1px solid gray;border-right:2px solid black;border-bottom:2px solid black;font-size:x-small;padding-left:0.5em;">52a. Additional Provider ID&nbsp;<label style="padding-left:3em;color:navy;font-weight:bolder;font-size:x-small;">@Model.lsFields.Where(f => f.Name == "BPD ALTERNATE ID").Single().Value</label></td>
+        <td colspan="2" style="border-left:2px solid black;border-right:1px solid gray;border-bottom:2px solid black;font-size:x-small;padding-left:0.5em;" class="hatch">57. Phone Number</td>
+        <td colspan="1" style="border-left:1px solid gray;border-right:2px solid black;border-bottom:2px solid black;font-size:x-small;padding-left:0.5em;">58. Additional Provider &nbsp;<label style="padding-left:3em;color:navy;font-weight:bolder;font-size:x-small;">@Model.lscd[0].lsFields.Where(f => f.Name == "PPD ALTERNATE ID").Single().Value</label></td>
     </tr>
 </table>

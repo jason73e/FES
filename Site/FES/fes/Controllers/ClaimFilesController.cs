@@ -8,10 +8,15 @@ using System.Web;
 using System.Web.Mvc;
 using fes.Models;
 using System.IO;
+using fes.Hubs;
+using Microsoft.AspNet.SignalR;
+using System.Threading;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace fes.Controllers
 {
-    [Authorize]
+    [System.Web.Mvc.Authorize]
     public class ClaimFilesController : Controller
     {
         private FESContext db = new FESContext();
@@ -43,34 +48,48 @@ namespace fes.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(HttpPostedFileBase file)
+        public JsonResult CreatePost()
         {
             ClaimFile claimFile = new ClaimFile();
-            try
+            if (Request.Files.Count == 1)
             {
-                if (file.ContentLength > 0)
+                HttpFileCollectionBase files = Request.Files;
+                HttpPostedFileBase file = files[0];
+                try
                 {
-                    string _FileName = Path.GetFileName(file.FileName);
-                    string _path = Path.Combine(Server.MapPath("~/UploadedFiles"), _FileName);
-                    file.SaveAs(_path);
-                    FileInfo f = new FileInfo(_path);
-                    ClaimFile c = new ClaimFile();
-                    c.Parsed = false;
-                    c.Filename = f.Name;
-                    c.FileSize = f.Length.ToString();
-                    db.ClaimFiles.Add(c);
-                    db.SaveChanges();
-                }
-                ViewBag.Message = "File Uploaded Successfully!!";
-                return View();
-            }
-            catch
-            {
-                ViewBag.Message = "File upload failed!!";
-                return View();
-            }
+                    if (file.ContentLength > 0)
+                    {
+                        Utility.SendProgress("Uploading File " + Path.GetFileName(file.FileName), 1, 2);
+                        string _FileName = Path.GetFileName(file.FileName);
+                        string _path = Path.Combine(Server.MapPath("~/UploadedFiles"), _FileName);
+                        file.SaveAs(_path);
+                        Utility.SendProgress("Uploading File " + Path.GetFileName(file.FileName), 2, 2);
+                        FileInfo f = new FileInfo(_path);
+                        ClaimFile c = new ClaimFile();
+                        c.Parsed = false;
+                        c.Filename = f.Name;
+                        c.FileSize = f.Length.ToString();
+                        c.ts = DateTime.Now;
+                        db.ClaimFiles.Add(c);
+                        db.SaveChanges();
+                        c = db.ClaimFiles.Where(x => x.Filename == f.Name).Single();
+                        Thread.Sleep(1000);
+                        Parse(c.FileID);
+                        f.Delete();
 
+                    }
+                    return Json(Url.Action("Index", "ClaimFiles"));
+                }
+                catch(Exception e)
+                {
+                    Utility.SendProgress("Uploading File " + Path.GetFileName(file.FileName), 2, 2);
+                    throw e;
+                }
+            }
+            else
+            {
+                return Json("You must select 1 file.");
+            }
         }
 
         // ClaimInfo: ClaimFiles/ClaimInfo
@@ -182,10 +201,12 @@ namespace fes.Controllers
                 string sSource = System.IO.File.ReadAllText(_path);
                 pvm.cf = claimFile;
                 pvm.cf.fh = claimFile.Parse(sSource);
+                Thread.Sleep(1000);
                 SavePVMToDB(pvm);
                 db = new FESContext();
                 claimFile = db.ClaimFiles.Find(id);
                 claimFile.Parsed = true;
+                claimFile.DocType = pvm.cf.fh.lsdch[0].ClaimType;
                 if (claimFile != null)
                 {
                     try
@@ -287,17 +308,31 @@ namespace fes.Controllers
 
                 for (int i = 0; i < iRecordSeq; i++)
                 {
-                    db = new FESContext();
-                    db.FileFieldValues.AddRange(ls.Where(x => x.recordSequence == i));
-                    db.SaveChanges();
+                    Utility.SendProgress("Saving Claims to DB...", i, iRecordSeq);
+                    using (SqlConnection sc = new SqlConnection(ConfigurationManager.ConnectionStrings["FESSiteContext"].ConnectionString))
+                    {
+                        sc.Open();
+                        InsertFileFieldValues(sc, ls.Where(x => x.recordSequence == i));
+                        sc.Close();
+                    }
                 }
+                Utility.SendProgress("Saving Claims to DB...", iRecordSeq, iRecordSeq);
             }
             catch (Exception e)
             {
+                Utility.SendProgress("Saving Claims to DB...", 1, 1);
                 throw e;
             }
         }
 
+
+        public void InsertFileFieldValues(SqlConnection sqlConnection, IEnumerable<FileFieldValue> values)
+        {
+            var tableName = "FileFieldValues";
+            var bufferSize = 5000;
+            var inserter = new BulkInserter<FileFieldValue>(sqlConnection, tableName, bufferSize);
+            inserter.Insert(values);
+        }
 
         // GET: ClaimFiles/Delete/5
         public ActionResult Delete(int? id)
@@ -322,13 +357,11 @@ namespace fes.Controllers
             try
             {
                 ClaimFile claimFile = db.ClaimFiles.Find(id);
-                string _FileName = claimFile.Filename;
-                string _path = Path.Combine(Server.MapPath("~/UploadedFiles"), _FileName);
-                System.IO.File.Delete(_path);
-                List<FileFieldValue> lsValues = db.FileFieldValues.Where(x => x.FileID == id).ToList();
-                db.FileFieldValues.RemoveRange(lsValues);
-                db.ClaimFiles.Remove(claimFile);
-                db.SaveChanges();
+                //string _FileName = claimFile.Filename;
+                //string _path = Path.Combine(Server.MapPath("~/UploadedFiles"), _FileName);
+                //System.IO.File.Delete(_path);
+                db.Database.ExecuteSqlCommand("Delete FileFieldValues where FileID =" + claimFile.FileID.ToString());
+                db.Database.ExecuteSqlCommand("Delete ClaimFiles where FileID =" + claimFile.FileID.ToString());
                 return RedirectToAction("Index");
             }
             catch (Exception ex)

@@ -5,6 +5,13 @@
 @{
     ViewBag.Title = "Field Listing";
 }
+<div id="divLoading" style="margin: 0px; padding: 0px; position: fixed; right: 0px;
+    top: 0px; width: 100%; height: 100%; background-color: #666666; z-index: 30001;
+    opacity: .8; filter: alpha(opacity=70);display:none">
+    <p style="position: absolute; top: 30%; left: 45%; color: White;">
+        Loading, please wait...<img src="../../Content/themes/base/images/ajax-loading.gif">
+    </p>
+</div>
 
 <h2>Field Listing</h2>
 
@@ -13,9 +20,12 @@
 </p>
 
 
-@using (Html.BeginForm("Index", "Fields", FormMethod.Get))
-{
     <table class="table">
+        <tr>
+            <td><label class="form-control-static">Field Name:</label></td>
+            <td>@Html.TextBoxFor(model => model.SearchName, new { @class = "form-control" }) </td>
+            <td colspan="2">This will match text in Name or DisplayName.</td>
+        </tr>
         <tr>
             <td>
                 <label class="form-control-static">File Version:</label>
@@ -27,7 +37,7 @@
             <td>
                 <label class="form-control-static">Claim Type:</label>
             </td>
-            <td>@Html.EnumDropDownListFor(model => model.SearchClaimLayout,"- Select a Claim Type -", htmlAttributes: new { @class = "form-control" })</td>
+            <td>@Html.EnumDropDownListFor(model => model.SearchClaimLayout, "- Select a Claim Type -", htmlAttributes: new { @class = "form-control" })</td>
             <td></td>
             </tr>
         <tr>
@@ -36,91 +46,248 @@
             <td><label class="form-control-static">Grouping:</label></td>
             <td>@Html.EnumDropDownListFor(model => model.SearchFormGrouping, "- Select a Form Group -", htmlAttributes: new { @class = "form-control" })</td>
             <td>
-                <input type="submit" value="Search" class="btn btn-primary" />
+                <input type="submit" id="process" value="Search" class="btn btn-primary" />
             </td>
         </tr>
     </table>
-    <label class="form-control-static">Page @(Model.lsFields.PageCount < Model.lsFields.PageNumber ? 0 : Model.lsFields.PageNumber) of @Model.lsFields.PageCount</label>
-    <p>
-        <label class="form-control-static">Records Per Page: </label>@Html.DropDownList("PageSize", new SelectList(new Dictionary<string, int> { { "10", 10 }, { "20", 20 }, { "50", 50 }, { "100", 100 } }, "Key", "Value", Model.lsFields.PageSize), new { @class = "pro_pag_tf1", id = "pagesizelist", @onchange = "this.form.submit();" })
-    </p>
 
-}
-@Html.PagedListPager(Model.lsFields, page => Url.Action("Index", new { page, sCurrentFileVersion = ViewBag.FileVersion,sCurrentClaimLayout = ViewBag.ClaimLayout, sCurrentRecordType = ViewBag.RecordType, sCurrentFormGrouping=ViewBag.FormGrouping, PageSize = ViewBag.PageSize }))
+<div id="FieldList">
+    @Html.Partial("FieldList", Model.lsFields)
+</div>
 
 
-<table class="table-striped table-bordered">
-    <tbody>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().DisplayName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().PseudoCode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().FileVersion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().RecordType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().ClaimType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.lsFields.FirstOrDefault().FormGroup)
-            </th>
-            <th></th>
-        </tr>
-        @if (Model.lsFields.Count > 0)
-        {
-            foreach (var item in Model.lsFields)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Description)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DisplayName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PseudoCode)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FileVersion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.RecordType)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ClaimType)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FormGroup)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.FieldID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.FieldID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.FieldID })
-                    </td>
-                </tr>
+@section Scripts {
+
+<script type="text/javascript">
+        // Adding popstate event listener to handle browser back button
+        window.addEventListener("popstate", function (e) {
+            $.ajax({
+                url: location.href,
+                success: function (result) {
+                    $('#FieldList').html(result);
+                }
+            });
+        });
+
+        function ChangeUrl(page, url) {
+            if (typeof (history.pushState) != "undefined") {
+                var obj = { Page: page, Url: url };
+                history.pushState(null, obj.Page, obj.Url);
+            } else {
+                alert("Browser does not support HTML5.");
             }
         }
-        else
-        {
-            <tr>
-                <td colspan="9">There are no Fields matching this search.</td>
-            </tr>
 
+        function getUrlVars() {
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars;
         }
-    </tbody>
-</table>
+
+        function BuildQS() {
+            var qs = "SearchName=" + $('#SearchName').val() + "&SearchFileVersion=" + $('#SearchFileVersion').val() + "&SearchClaimLayout=" + $('#SearchClaimLayout').val() + "&SearchRecordType=" + $('#SearchRecordType').val() + "&SearchFormGrouping=" + $('#SearchFormGrouping').val() + "&PageSize=" + $('#pagesizelist').val() + "&sortOption=" + $('#sortOption').val();
+            return qs;
+        }
+
+
+        function search() {
+            $("#divLoading").show();
+            var url = '/Fields/Index?' + BuildQS();
+            $.ajax({
+                url: url,
+                success: function (result) {                    
+                    ChangeUrl("index", url);
+                    $('#FieldList').html(result);
+                    $("#divLoading").hide();
+                },
+                error: function (err) {
+                    $("#divLoading").hide();
+                }
+            });
+        }
+
+        $(function() {
+            $("#process").click(function () {
+                search();
+            });
+
+            $("#SearchString").keypress(function(e) {
+                if (e.keyCode == 13) {
+                    search();
+                }
+            });
+            $('body').on('click', '#FieldList .pagination a', function (event) {
+                $("#divLoading").show();
+                event.preventDefault();
+                console.log('page');
+                var url = $(this).attr('href')
+                console.log(url);
+                $.ajax({
+                    url: url,
+                    success: function(result) {
+                        ChangeUrl('index', url);
+                        $('#FieldList').html(result);
+                        $("#divLoading").hide();
+                    },
+                    error: function (err) {
+                        $("#divLoading").hide();
+                    }
+                });
+            });
+
+
+            $('body').on('change', '#pagesizelist', function (event) {
+                $("#divLoading").show();
+                event.preventDefault();
+                console.log('page');
+                var url = '/Fields/Index?' + BuildQS();
+                console.log(url);
+                $.ajax({
+                    url: url,
+                    success: function (result) {
+                        ChangeUrl('index', url);
+                        $('#FieldList').html(result);
+                        $("#divLoading").hide();
+                    },
+                    error: function (err) {
+                        $("#divLoading").hide();
+                    }
+                });
+            });
+            
+
+
+            $('body').on('click', '#FieldList .table-striped th a', function (event) {
+                $("#divLoading").show();
+                event.preventDefault();
+                
+                var columnToSort = $(this).text();
+                var currentSortOption = getUrlVars()['sortOption'];
+                console.log(currentSortOption);
+                var sort;
+                switch (currentSortOption) {
+                    case "name_acs":
+                        sort = 'name_desc';
+                        break;
+                    case "name_desc":
+                        sort = 'name_acs';
+                        break;
+                    case "description_acs":
+                        sort = 'description_desc';
+                        break;
+                    case "description_desc":
+                        sort = 'description_acs';
+                        break;
+                    case "displayname_acs":
+                        sort = 'displayname_desc';
+                        break;
+                    case "displayname_desc":
+                        sort = 'displayname_acs';
+                        break;
+                    case "pseudocode_acs":
+                        sort = 'pseudocode_desc';
+                        break;
+                    case "pseudocode_desc":
+                        sort = 'pseudocode_acs';
+                        break;
+                    case "fileversion_acs":
+                        sort = 'fileversion_desc';
+                        break;
+                    case "fileversion_desc":
+                        sort = 'fileversion_acs';
+                        break;
+                    case "recordtype_acs":
+                        sort = 'recordtype_desc';
+                        break;
+                    case "recordtype_desc":
+                        sort = 'recordtype_acs';
+                        break;
+                    case "claimtype_acs":
+                        sort = 'claimtype_desc';
+                        break;
+                    case "claimtype_desc":
+                        sort = 'claimtype_acs';
+                        break;
+                    case "formgroup_acs":
+                        sort = 'formgroup_desc';
+                        break;
+                    case "formgroup_desc":
+                        sort = 'formgroup_acs';
+                        break;
+                    default:
+                        sort = '';
+                        break;
+                }
+
+
+                switch (columnToSort) {
+                    case 'Name':
+                        if (currentSortOption != 'name_acs' && currentSortOption != 'name_desc') {
+                            sort = 'name_acs';
+                        }
+                        break;
+                    case 'Description':
+                        if (currentSortOption != 'description_acs' && currentSortOption != 'description_desc') {
+                            sort = 'description_acs';
+                        }
+                        break;
+                    case 'DisplayName':
+                        if (currentSortOption != 'displayname_acs' && currentSortOption != 'displayname_decs') {
+                            sort = 'displayname_acs';
+                        }
+                        break;
+                    case 'PseudoCode':
+                        if (currentSortOption != 'pseudocode_acs' && currentSortOption != 'pseudocode_decs') {
+                            sort = 'pseudocode_acs';
+                        }
+                        break;
+                    case 'FileVersion':
+                        if (currentSortOption != 'fileversion_acs' && currentSortOption != 'fileversion_decs') {
+                            sort = 'fileversion_acs';
+                        }
+                        break;
+                    case 'RecordType':
+                        if (currentSortOption != 'recordtype_acs' && currentSortOption != 'recordtype_decs') {
+                            sort = 'recordtype_acs';
+                        }
+                        break;
+                    case 'ClaimType':
+                        if (currentSortOption != 'claimtype_acs' && currentSortOption != 'claimtype_decs') {
+                            sort = 'claimtype_acs';
+                        }
+                        break;
+                    case 'FormGroup':
+                        if (currentSortOption != 'formgroup_acs' && currentSortOption != 'formgroup_decs') {
+                            sort = 'formgroup_acs';
+                        }
+                        break;
+                    default:
+                        sort = '';
+                        break;
+
+                }
+                $('#sortOption').val(sort);
+                var url = '/Fields/Index?' + BuildQS();
+                $.ajax({
+                    url: url,
+                    success: function(result) {
+                        ChangeUrl('index', url);
+                        $('#FieldList').html(result);
+                        $("#divLoading").hide();
+                    },
+                    error: function (err) {
+                        $("#divLoading").hide();
+                    }
+                });
+            });
+
+        });
+
+</script>
+
+}

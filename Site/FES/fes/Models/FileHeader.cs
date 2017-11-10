@@ -118,11 +118,12 @@ namespace fes.Models
             string sWorkingSource = Source.Substring(iClaimStartPos);
             for (int x = 0; x < iClaimsCount; x++)
             {
+                Utility.SendProgress("Parsing Claims...", x, iClaimsCount);
                 ClaimHeader ch = new ClaimHeader(sWorkingSource, FileVersion);
                 sWorkingSource = ch.ParseSource();
                 AddClaimHeader(ch);
             }
-
+            Utility.SendProgress("Parsing Claims...", iClaimsCount, iClaimsCount);
         }
 
         public int GetMaxPosition()

@@ -3,13 +3,6 @@
 @{
     ViewBag.Title = "File Listing";
 }
-<div id="divLoading" style="margin: 0px; padding: 0px; position: fixed; right: 0px;
-    top: 0px; width: 100%; height: 100%; background-color: #666666; z-index: 30001;
-    opacity: .8; filter: alpha(opacity=70);display:none">
-    <p style="position: absolute; top: 30%; left: 45%; color: White;">
-        Loading, please wait...<img src="../../Content/themes/base/images/ajax-loading.gif">
-    </p>
-</div>
 
 <h2>File Listing</h2>
 
@@ -59,7 +52,6 @@
 
         $(function() {
             $('body').on('click', '#FileList .table .parse', function (event) {
-                $("#divLoading").show();
                 event.preventDefault();
                 var url = $(this).attr('href')
                 console.log(url);
@@ -67,10 +59,8 @@
                     url: url,
                     success: function(result) {
                         $('#FileList').html(result);
-                        $("#divLoading").hide();
                     },
                     error: function (err) {
-                        $("#divLoading").hide();
                     }
                 });
             });

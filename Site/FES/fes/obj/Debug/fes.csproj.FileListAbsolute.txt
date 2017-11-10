@@ -152,3 +152,7 @@ C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FES\fes\bin\Microsoft.Asp
 C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FES\fes\obj\Debug\fes.csprojResolveAssemblyReference.cache
 C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FES\fes\obj\Debug\fes.dll
 C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FES\fes\obj\Debug\fes.pdb
+C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FES\fes\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FES\fes\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FES\fes\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\jengel\Documents\Codelines\FES.git\trunk\Site\FES\fes\bin\Microsoft.AspNet.SignalR.SystemWeb.xml

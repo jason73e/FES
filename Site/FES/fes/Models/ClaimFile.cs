@@ -17,6 +17,10 @@ namespace fes.Models
         [Required]
         public bool Parsed { get; set; }
 
+        public string DocType { get; set; }
+
+        public DateTime ts { get; set; }
+
         public FileHeader fh;
         public ClaimFile()
         {

@@ -1,0 +1,647 @@
+﻿@model fes.Models.ClaimHeader
+<table style="table-layout:fixed;" cellspacing="0" cellpadding="0">
+    <tr>
+        <td style="width:0.8%;">&nbsp;</td>
+        <td style="width:4.1%">&nbsp;</td>
+        <td style="width:4.1%">&nbsp;</td>
+        <td style="width:4.1%">&nbsp;</td>
+        <td style="width:4.1%">&nbsp;</td>
+        <td style="width:4.1%">&nbsp;</td>
+        <td style="width:4.1%">&nbsp;</td>
+        <td style="width:4.1%">&nbsp;</td>
+        <td style="width:4.1%">&nbsp;</td>
+        <td style="width:4.1%">&nbsp;</td>
+        <td style="width:4.1%">&nbsp;</td>
+        <td style="width:4.1%">&nbsp;</td>
+        <td style="width:4.1%">&nbsp;</td>
+        <td style="width:4.1%">&nbsp;</td>
+        <td style="width:4.1%">&nbsp;</td>
+        <td style="width:4.1%">&nbsp;</td>
+        <td style="width:4.1%">&nbsp;</td>
+        <td style="width:4.1%">&nbsp;</td>
+        <td style="width:4.1%">&nbsp;</td>
+        <td style="width:4.1%">&nbsp;</td>
+        <td style="width:4.1%">&nbsp;</td>
+        <td style="width:4.1%">&nbsp;</td>
+        <td style="width:4.1%">&nbsp;</td>
+        <td style="width:4.1%">&nbsp;</td>
+        <td style="width:4.1%">&nbsp;</td>
+        <td style="width:0.8%;">&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td colspan="1" style="font-size:8px;border-top:1px solid black;border-left:1px solid black;border-bottom:1px dotted gray;vertical-align:top;padding-left:0.5em;">1</td>
+        <td colspan="6" style="font-size:x-small;border-top:1px solid black;border-bottom:1px dotted gray;padding-left:0.5em;text-align:center;color:navy;font-weight:bolder;"></td>
+        <td colspan="1" style="font-size:8px;border-top:1px solid black;border-left:1px solid black;border-bottom:1px dotted gray;vertical-align:top;padding-left:0.5em;">2</td>
+        <td colspan="6" style="font-size:x-small;border-top:1px solid black;border-bottom:1px dotted gray;padding-left:0.5em;text-align:center;"></td>
+        <td colspan="1" style="font-size:8px;border:1px solid black;padding-left:0.5em;text-align:center;">3a PAT. CNTL #</td>
+        <td colspan="7" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;color:navy;font-weight:bolder;">@Model.lsFields.Where(f => f.Name == "STD_PROV_ASGN_CLIENT_ACCT_NO_HIPAA").Single().Value</td>
+        <td colspan="1" style="font-size:8px;border:1px solid black;background-color:black;color:white;padding-left:0.5em;text-align:left;vertical-align:top;">4</td>
+        <td colspan="1" style="font-size:8px;border:1px solid black;background-color:black;color:white;padding-left:0.5em;text-align:center;">TYPE<BR />OF BILL</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td colspan="7" style="font-size:x-small;border-bottom:1px dotted gray;border-left:1px solid black;padding-left:0.5em;text-align:center;color:navy;font-weight:bolder;">@Model.lsFields.Where(f => f.Name == "ICH_BILLING_PROV_ADDR_1").Single().Value</td>
+        <td colspan="7" style="font-size:x-small;border-bottom:1px dotted gray;border-left:1px solid black;padding-left:0.5em;text-align:center;"></td>
+        <td colspan="1" style="font-size:8px;border:1px solid black;padding-left:0.5em;text-align:center;background-color:lightgrey;">b MED. REC #</td>
+        <td colspan="7" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;background-color:lightgrey;color:navy;font-weight:bolder;">@Model.lsFields.Where(f => f.Name == "UB92 MEDICAL RECORD NUMBER").Single().Value  @Model.lsFields.Where(f => f.Name == "UB92 MED REC TEXT HIPAA").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;color:navy;font-weight:bolder;">@Model.lsFields.Where(f => f.Name == "UB92 FK TYPE OF BILL CODE").Single().Value</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td colspan="4" style="font-size:x-small;border-left:1px solid black;border-bottom:1px dotted gray;padding-left:0.5em;color:navy;font-weight:bolder;">@Model.lsFields.Where(f => f.Name == "ICH_BILLING_PROV_CITY").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border-bottom:1px dotted gray;padding-left:0.5em;text-align:center;border-left:1px dotted gray;border-right:1px dotted gray;color:navy;font-weight:bolder;">@Model.lsFields.Where(f => f.Name == "ICH_BILLING_PROV_STATE").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border-bottom:1px dotted gray;padding-left:0.5em;text-align:center;color:navy;font-weight:bolder;">@Model.lsFields.Where(f => f.Name == "ICH_BILLING_PROV_ZIPCODE").Single().Value</td>
+        <td colspan="4" style="font-size:8px;border-left:1px solid black;border-bottom:1px dotted gray;vertical-align:top;padding-left:0.5em;"></td>
+        <td colspan="1" style="font-size:x-small;border-bottom:1px dotted gray;padding-left:0.5em;text-align:center;border-left:1px dotted gray;border-right:1px dotted gray;"></td>
+        <td colspan="2" style="font-size:x-small;border-bottom:1px dotted gray;padding-left:0.5em;text-align:center;"></td>
+        <td colspan="3" style="font-size:8px;border:1px solid black;padding-left:0.5em;text-align:left;">5 FED TAX NO.</td>
+        <td colspan="2" style="font-size:8px;padding-left:0.5em;text-align:left;background-color:lightgrey;vertical-align:top;">6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STATEMENT FROM</td>
+        <td colspan="2" style="font-size:8px;padding-left:0.5em;text-align:left;background-color:lightgrey;vertical-align:top;">COVERS PERIOD THROUGH</td>
+        <td colspan="3" style="font-size:8px;border-top:1px solid black;padding-left:0.5em;text-align:left;vertical-align:top;border-left:1px solid black;border-right:1px solid black;">7</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td colspan="3" style="font-size:8px;border-left:1px solid black;border-bottom:1px solid black;vertical-align:top;padding-left:0.5em;"></td>
+        <td colspan="3" style="font-size:x-small;border-bottom:1px solid black;padding-left:0.5em;text-align:center;border-left:1px dotted gray;border-right:1px dotted gray;"></td>
+        <td colspan="1" style="font-size:x-small;border-bottom:1px solid black;padding-left:0.5em;text-align:center;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;border-bottom:1px solid black;vertical-align:top;padding-left:0.5em;"></td>
+        <td colspan="6" style="font-size:x-small;border-bottom:1px solid black;padding-left:0.5em;text-align:center;border-left:1px dotted gray;border-right:1px dotted gray;"></td>
+        <td colspan="3" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;"></td>
+        <td colspan="2" style="font-size:x-small;padding-left:0.5em;text-align:center;border:1px solid black;color:navy;font-weight:bolder;">@(Model.lsFields.Where(f => f.Name == "FROM DATE OF SERVICE").Single().Value.Substring(4, 2) + "/" + Model.lsFields.Where(f => f.Name == "FROM DATE OF SERVICE").Single().Value.Substring(6, 2) + "/" + Model.lsFields.Where(f => f.Name == "FROM DATE OF SERVICE").Single().Value.Substring(0, 4))</td>
+        <td colspan="2" style="font-size:x-small;padding-left:0.5em;text-align:center;border:1px solid black;color:navy;font-weight:bolder;">@(Model.lsFields.Where(f => f.Name == "THROUGH DATE OF SERVICE").Single().Value.Substring(4, 2) + "/" + Model.lsFields.Where(f => f.Name == "THROUGH DATE OF SERVICE").Single().Value.Substring(6, 2) + "/" + Model.lsFields.Where(f => f.Name == "THROUGH DATE OF SERVICE").Single().Value.Substring(0, 4))</td>
+        <td colspan="3" style="font-size:x-small;border-bottom:1px solid black;padding-left:0.5em;text-align:left;vertical-align:top;border-left:1px solid black;border-right:1px solid black;"></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td colspan="3" style="font-size:8px;border:1px solid black;padding-left:0.5em;background-color:lightgrey;">8 PATIENT NAME</td>
+        <td colspan="1" style="font-size:8px;border:1px solid black;padding-left:0.5em;text-align:center;background-color:lightgrey;">a</td>
+        <td colspan="5" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;"></td>
+        <td colspan="3" style="font-size:8px;border:1px solid black;padding-left:0.5em;background-color:lightgrey;">9 PATIENT ADDRESS</td>
+        <td colspan="1" style="font-size:8px;border:1px solid black;padding-left:0.5em;text-align:center;background-color:lightgrey;">a</td>
+        <td colspan="11" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;"></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td colspan="1" style="font-size:8px;border:1px solid black;padding-left:0.5em;background-color:lightgrey;">b</td>
+        <td colspan="8" style="font-size:x-small;border:1px solid black;padding-left:0.5em;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "CLIENT LAST NAME").Single().Value, @Model.lsFields.Where(x => x.Name == "CLIENT FIRST NAME").Single().Value</td>
+        <td colspan="1" style="font-size:8px;border:1px solid black;padding-left:0.5em;text-align:center;background-color:lightgrey;">b</td>
+        <td colspan="8" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;"></td>
+        <td colspan="1" style="font-size:8px;border:1px solid black;padding-left:0.5em;text-align:center;background-color:lightgrey;">c</td>
+        <td colspan="1" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;"></td>
+        <td colspan="1" style="font-size:8px;border:1px solid black;padding-left:0.5em;text-align:center;background-color:lightgrey;">d</td>
+        <td colspan="1" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;"></td>
+        <td colspan="1" style="font-size:8px;border:1px solid black;padding-left:0.5em;text-align:center;background-color:lightgrey;">e</td>
+        <td colspan="1" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;"></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td colspan="2" style="font-size:8px;border:1px solid black;padding-left:0.5em;">10 BIRTHDATE</td>
+        <td colspan="1" style="font-size:8px;border:1px solid black;padding-left:0.5em;">11 SEX</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;text-align:left;vertical-align:bottom;background-color:lightgrey;">12</td>
+        <td colspan="1" style="font-size:8px;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;text-align:left;vertical-align:bottom;background-color:lightgrey;">DATE</td>
+        <td colspan="1" style="font-size:8px;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;text-align:left;vertical-align:bottom;background-color:lightgrey;">ADMISSION 13 HR</td>
+        <td colspan="1" style="font-size:8px;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;text-align:left;vertical-align:bottom;background-color:lightgrey;">14 TYPE</td>
+        <td colspan="1" style="font-size:8px;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;text-align:left;vertical-align:bottom;background-color:lightgrey;border-right:1px solid black;">15 SRC</td>
+        <td colspan="1" style="font-size:8px;border:1px solid black;padding-left:0.5em;text-align:center;vertical-align:middle;">16 DHR</td>
+        <td colspan="1" style="font-size:8px;border:1px solid black;padding-left:0.5em;text-align:center;vertical-align:middle;">17 STAT</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;text-align:center;vertical-align:bottom;background-color:lightgrey;">18</td>
+        <td colspan="1" style="font-size:8px;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;text-align:center;vertical-align:bottom;background-color:lightgrey;">19</td>
+        <td colspan="1" style="font-size:8px;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;text-align:center;vertical-align:bottom;background-color:lightgrey;">20</td>
+        <td colspan="1" style="font-size:8px;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;text-align:center;vertical-align:bottom;background-color:lightgrey;">21</td>
+        <td colspan="1" style="font-size:8px;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;text-align:center;vertical-align:bottom;background-color:lightgrey;">CONDITION 22</td>
+        <td colspan="1" style="font-size:8px;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;text-align:center;vertical-align:bottom;background-color:lightgrey;">CODES&nbsp;&nbsp;&nbsp; 23</td>
+        <td colspan="1" style="font-size:8px;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;text-align:center;vertical-align:bottom;background-color:lightgrey;">24</td>
+        <td colspan="1" style="font-size:8px;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;text-align:center;vertical-align:bottom;background-color:lightgrey;">25</td>
+        <td colspan="1" style="font-size:8px;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;text-align:center;vertical-align:bottom;background-color:lightgrey;">26</td>
+        <td colspan="1" style="font-size:8px;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;text-align:center;vertical-align:bottom;background-color:lightgrey;">27</td>
+        <td colspan="1" style="font-size:8px;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;text-align:center;vertical-align:bottom;background-color:lightgrey;border-right:1px solid black;">28</td>
+        <td colspan="1" style="font-size:8px;border:1px solid black;padding-left:0.5em;text-align:center;vertical-align:bottom;background-color:lightgrey;">29 ACDT STATE</td>
+        <td colspan="2" style="font-size:8px;border:1px solid black;padding-left:0.5em;text-align:left;vertical-align:top;background-color:lightgrey;">30</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td colspan="2" style="font-size:x-small;border:1px solid black;padding-left:0.5em;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "CLIENT DATE OF BIRTH").Single().Value.Substring(4, 2)/@Model.lsFields.Where(x => x.Name == "CLIENT DATE OF BIRTH").Single().Value.Substring(6, 2)/@Model.lsFields.Where(x => x.Name == "CLIENT DATE OF BIRTH").Single().Value.Substring(0, 4)</td>
+        <td colspan="1" style="font-size:x-small;border:1px solid black;padding-left:0.5em;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "CLIENT SEX CODE").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;color:navy;font-weight:bolder;">@(Model.lsFields.Where(f => f.Name == "UB92 ADMISSION DATE").Single().Value.Substring(4, 2) + "/" + Model.lsFields.Where(f => f.Name == "UB92 ADMISSION DATE").Single().Value.Substring(6, 2) + "/" + Model.lsFields.Where(f => f.Name == "UB92 ADMISSION DATE").Single().Value.Substring(0, 4))</td>
+        <td colspan="1" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 ADMISSION HOUR").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 FK ADMISSION TYPE CODE").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 FK ADMISSION SOURCE CODE").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 DISCHARGE HOUR").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 FK CLIENT DISCHARGE STAT CDE").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 FK CLAIM CONDITION CODE 1").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 FK CLAIM CONDITION CODE 2").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 FK CLAIM CONDITION CODE 3").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 FK CLAIM CONDITION CODE 4").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 FK CLAIM CONDITION CODE 5").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 FK CLAIM CONDITION CODE 6").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 FK CLAIM CONDITION CODE 7").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92_FK_CLM_CONDITION_CD_8_HIPAA").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92_FK_CLM_CONDITION_CD_9_HIPAA").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92_FK_CLM_CONDITION_CD_10_HIPAA").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92_FK_CLM_CONDITION_CD_11_HIPAA").Single().Value</td>
+        <td colspan="1" style="font-size:8px;border:1px solid black;padding-left:0.5em;text-align:center;"></td>
+        <td colspan="2" style="font-size:8px;border:1px solid black;padding-left:0.5em;text-align:center;"></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;">31<br />CODE</td>
+        <td colspan="2" style="font-size:8px;border-right:1px solid black;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;">OCCURRENCE<br />DATE</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;background-color:black;color:white;">32<br />CODE</td>
+        <td colspan="2" style="font-size:8px;border-right:1px solid black;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;background-color:black;color:white;">OCCURRENCE<br />DATE</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;">33<br />CODE</td>
+        <td colspan="2" style="font-size:8px;border-right:1px solid black;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;">OCCURRENCE<br />DATE</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;background-color:black;color:white;">34<br />CODE</td>
+        <td colspan="2" style="font-size:8px;border-right:1px solid black;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;background-color:black;color:white;">OCCURRENCE<br />DATE</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;background-color:lightgrey;">35<br />CODE</td>
+        <td colspan="2" style="font-size:8px;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;background-color:lightgrey;">OCCURRENCE<br />FROM</td>
+        <td colspan="2" style="font-size:8px;border-right:1px solid black;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;background-color:lightgrey;">SPAN<br />THROUGH</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;background-color:lightgrey;">36<br />CODE</td>
+        <td colspan="2" style="font-size:8px;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;background-color:lightgrey;">OCCURRENCE<br />FROM</td>
+        <td colspan="2" style="font-size:8px;border-right:1px solid black;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;background-color:lightgrey;">SPAN<br />THROUGH</td>
+        <td colspan="2" style="font-size:8px;border-right:1px solid black;border-top:1px solid black;border-bottom:1px solid black;padding-left:0.5em;background-color:lightgrey;vertical-align:top;text-align:left;">37</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 FK UB92 OCCURRENCE CODE 1").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 OCCURRENCE DATE 1").Single().Value.Substring(4, 2)/@Model.lsFields.Where(x => x.Name == "UB92 OCCURRENCE DATE 1").Single().Value.Substring(6, 2)/@Model.lsFields.Where(x => x.Name == "UB92 OCCURRENCE DATE 1").Single().Value.Substring(0, 4)</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 FK UB92 OCCURRENCE CODE 2").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 OCCURRENCE DATE 2").Single().Value.Substring(4, 2)/@Model.lsFields.Where(x => x.Name == "UB92 OCCURRENCE DATE 2").Single().Value.Substring(6, 2)/@Model.lsFields.Where(x => x.Name == "UB92 OCCURRENCE DATE 2").Single().Value.Substring(0, 4)</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 FK UB92 OCCURRENCE CODE 3").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 OCCURRENCE DATE 3").Single().Value.Substring(4, 2)/@Model.lsFields.Where(x => x.Name == "UB92 OCCURRENCE DATE 3").Single().Value.Substring(6, 2)/@Model.lsFields.Where(x => x.Name == "UB92 OCCURRENCE DATE 3").Single().Value.Substring(0, 4)</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 FK UB92 OCCURRENCE CODE 4").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 OCCURRENCE DATE 4").Single().Value.Substring(4, 2)/@Model.lsFields.Where(x => x.Name == "UB92 OCCURRENCE DATE 4").Single().Value.Substring(6, 2)/@Model.lsFields.Where(x => x.Name == "UB92 OCCURRENCE DATE 4").Single().Value.Substring(0, 4)</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 OCCURRENCE SPAN CODE").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 OCCURRENCE SPAN FROM DATE").Single().Value.Substring(4, 2)/@Model.lsFields.Where(x => x.Name == "UB92 OCCURRENCE SPAN FROM DATE").Single().Value.Substring(6, 2)/@Model.lsFields.Where(x => x.Name == "UB92 OCCURRENCE SPAN FROM DATE").Single().Value.Substring(0, 4)</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 OCCURRENCE SPAN THROUG DATE").Single().Value.Substring(4, 2)/@Model.lsFields.Where(x => x.Name == "UB92 OCCURRENCE SPAN THROUG DATE").Single().Value.Substring(6, 2)/@Model.lsFields.Where(x => x.Name == "UB92 OCCURRENCE SPAN THROUG DATE").Single().Value.Substring(0, 4)</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;"></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;"></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;vertical-align:top;text-align:left;">38</td>
+        <td colspan="10" style="font-size:8px;border-top:1px solid black;padding-left:0.5em;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;border-right:1px solid black;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;border-bottom:1px solid black;vertical-align:top;text-align:left;background-color:lightgrey;">39<br />CODE</td>
+        <td colspan="2" style="font-size:8px;border-top:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;vertical-align:top;text-align:center;">VALUE CODES <br />AMOUNT</td>
+        <td colspan="1" style="font-size:8px;border-right:1px solid black;padding-left:0.5em;border-bottom:1px solid black;border-top:1px solid black;background-color:lightgrey;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;border-bottom:1px solid black;vertical-align:top;text-align:left;background-color:black;color:white;">40<br />CODE</td>
+        <td colspan="2" style="font-size:8px;border-top:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:black;vertical-align:top;text-align:center;color:white;">VALUE CODES <br />AMOUNT</td>
+        <td colspan="1" style="font-size:8px;border-right:1px solid black;padding-left:0.5em;border-bottom:1px solid black;border-top:1px solid black;background-color:black;color:white"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;border-bottom:1px solid black;vertical-align:top;text-align:left;background-color:lightgrey;">41<br />CODE</td>
+        <td colspan="2" style="font-size:8px;border-top:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;vertical-align:top;text-align:center;">VALUE CODES <br />AMOUNT</td>
+        <td colspan="1" style="font-size:8px;border-right:1px solid black;padding-left:0.5em;border-bottom:1px solid black;border-top:1px solid black;background-color:lightgrey;"></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td colspan="11" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-right:1px solid black;text-align:center;">a</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-right:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "VALUE_CODE_1").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-right:0.2em;border-right:1px dotted black;color:navy;font-weight:bolder;text-align:right;">@(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_1").Single().Value.Trim().Length>0 ? Convert.ToInt32(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_1").Single().Value.Substring(0, Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_1").Single().Value.Length-2)).ToString() : string.Empty)</td>
+        <td colspan="1" style="font-size:x-small;border-right:1px solid black;padding-left:0.3em;color:navy;font-weight:bolder;">@(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_1").Single().Value.Trim().Length > 0 ? Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_1").Single().Value.Substring(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_1").Single().Value.Length - 2, 2).ToString(): string.Empty)</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-right:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "VALUE_CODE_5").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-right:0.2em;border-right:1px dotted black;color:navy;font-weight:bolder;text-align:right;">@(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_5").Single().Value.Trim().Length > 0 ? Convert.ToInt32(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_5").Single().Value.Substring(0, Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_5").Single().Value.Length - 2)).ToString() : string.Empty)</td>
+        <td colspan="1" style="font-size:x-small;border-right:1px solid black;padding-left:0.3em;color:navy;font-weight:bolder;">@(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_5").Single().Value.Trim().Length > 0 ? Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_5").Single().Value.Substring(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_5").Single().Value.Length - 2, 2).ToString() : string.Empty)</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-right:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "VALUE_CODE_9").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-right:0.2em;border-right:1px dotted black;color:navy;font-weight:bolder;text-align:right;">@(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_9").Single().Value.Trim().Length > 0 ? Convert.ToInt32(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_9").Single().Value.Substring(0, Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_9").Single().Value.Length - 2)).ToString() : string.Empty)</td>
+        <td colspan="1" style="font-size:x-small;border-right:1px solid black;padding-left:0.3em;color:navy;font-weight:bolder;">@(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_9").Single().Value.Trim().Length > 0 ? Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_9").Single().Value.Substring(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_9").Single().Value.Length - 2, 2).ToString() : string.Empty)</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td colspan="11" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-right:1px solid black;text-align:center;">b</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-right:1px solid black;background-color:lightgrey;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "VALUE_CODE_2").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-right:0.2em;border-right:1px dotted black;background-color:lightgrey;color:navy;font-weight:bolder;text-align:right;">@(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_2").Single().Value.Trim().Length > 0 ? Convert.ToInt32(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_2").Single().Value.Substring(0, Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_2").Single().Value.Length - 2)).ToString() : string.Empty)</td>
+        <td colspan="1" style="font-size:x-small;border-right:1px solid black;padding-left:0.3em;color:navy;font-weight:bolder;background-color:lightgrey;">@(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_2").Single().Value.Trim().Length > 0 ? Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_2").Single().Value.Substring(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_2").Single().Value.Length - 2, 2).ToString() : string.Empty)</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-right:1px solid black;background-color:lightgrey;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "VALUE_CODE_6").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-right:0.2em;border-right:1px dotted black;background-color:lightgrey;color:navy;font-weight:bolder;text-align:right;">@(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_6").Single().Value.Trim().Length > 0 ? Convert.ToInt32(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_6").Single().Value.Substring(0, Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_6").Single().Value.Length - 2)).ToString() : string.Empty)</td>
+        <td colspan="1" style="font-size:x-small;border-right:1px solid black;padding-left:0.3em;color:navy;font-weight:bolder;background-color:lightgrey;">@(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_6").Single().Value.Trim().Length > 0 ? Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_6").Single().Value.Substring(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_6").Single().Value.Length - 2, 2).ToString() : string.Empty)</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-right:1px solid black;background-color:lightgrey;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "VALUE_CODE_10").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-right:0.2em;border-right:1px dotted black;background-color:lightgrey;color:navy;font-weight:bolder;text-align:right;">@(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_10").Single().Value.Trim().Length > 0 ? Convert.ToInt32(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_10").Single().Value.Substring(0, Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_10").Single().Value.Length - 2)).ToString() : string.Empty)</td>
+        <td colspan="1" style="font-size:x-small;border-right:1px solid black;padding-left:0.3em;color:navy;font-weight:bolder;background-color:lightgrey;">@(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_10").Single().Value.Trim().Length > 0 ? Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_10").Single().Value.Substring(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_10").Single().Value.Length - 2, 2).ToString() : string.Empty)</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td colspan="11" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-right:1px solid black;text-align:center;">c</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-right:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "VALUE_CODE_3").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-right:0.2em;border-right:1px dotted black;color:navy;font-weight:bolder;text-align:right;">@(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_3").Single().Value.Trim().Length > 0 ? Convert.ToInt32(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_3").Single().Value.Substring(0, Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_3").Single().Value.Length - 2)).ToString() : string.Empty)</td>
+        <td colspan="1" style="font-size:x-small;border-right:1px solid black;padding-left:0.3em;color:navy;font-weight:bolder;">@(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_3").Single().Value.Trim().Length > 0 ? Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_3").Single().Value.Substring(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_3").Single().Value.Length - 2, 2).ToString() : string.Empty)</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-right:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "VALUE_CODE_7").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-right:0.2em;border-right:1px dotted black;color:navy;font-weight:bolder;text-align:right;">@(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_7").Single().Value.Trim().Length > 0 ? Convert.ToInt32(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_7").Single().Value.Substring(0, Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_7").Single().Value.Length - 2)).ToString() : string.Empty)</td>
+        <td colspan="1" style="font-size:x-small;border-right:1px solid black;padding-left:0.3em;color:navy;font-weight:bolder;">@(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_7").Single().Value.Trim().Length > 0 ? Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_7").Single().Value.Substring(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_7").Single().Value.Length - 2, 2).ToString() : string.Empty)</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-right:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "VALUE_CODE_11").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-right:0.2em;border-right:1px dotted black;color:navy;font-weight:bolder;text-align:right;">@(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_11").Single().Value.Trim().Length > 0 ? Convert.ToInt32(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_11").Single().Value.Substring(0, Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_11").Single().Value.Length - 2)).ToString() : string.Empty)</td>
+        <td colspan="1" style="font-size:x-small;border-right:1px solid black;padding-left:0.3em;color:navy;font-weight:bolder;">@(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_11").Single().Value.Trim().Length > 0 ? Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_11").Single().Value.Substring(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_11").Single().Value.Length - 2, 2).ToString() : string.Empty)</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td colspan="11" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-right:1px solid black;text-align:center;">d</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-right:1px solid black;background-color:lightgrey;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "VALUE_CODE_4").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-right:0.2em;border-right:1px dotted black;background-color:lightgrey;color:navy;font-weight:bolder;text-align:right;">@(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_4").Single().Value.Trim().Length > 0 ? Convert.ToInt32(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_4").Single().Value.Substring(0, Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_4").Single().Value.Length - 2)).ToString() : string.Empty)</td>
+        <td colspan="1" style="font-size:x-small;border-right:1px solid black;padding-left:0.3em;color:navy;font-weight:bolder;background-color:lightgrey;">@(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_4").Single().Value.Trim().Length > 0 ? Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_4").Single().Value.Substring(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_4").Single().Value.Length - 2, 2).ToString() : string.Empty)</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-right:1px solid black;background-color:lightgrey;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "VALUE_CODE_8").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-right:0.2em;border-right:1px dotted black;background-color:lightgrey;color:navy;font-weight:bolder;text-align:right;">@(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_8").Single().Value.Trim().Length > 0 ? Convert.ToInt32(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_8").Single().Value.Substring(0, Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_8").Single().Value.Length - 2)).ToString() : string.Empty)</td>
+        <td colspan="1" style="font-size:x-small;border-right:1px solid black;padding-left:0.3em;color:navy;font-weight:bolder;background-color:lightgrey;">@(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_8").Single().Value.Trim().Length > 0 ? Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_8").Single().Value.Substring(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_8").Single().Value.Length - 2, 2).ToString() : string.Empty)</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-right:1px solid black;background-color:lightgrey;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "VALUE_CODE_12").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-right:0.2em;border-right:1px dotted black;background-color:lightgrey;color:navy;font-weight:bolder;text-align:right;">@(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_12").Single().Value.Trim().Length > 0 ? Convert.ToInt32(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_12").Single().Value.Substring(0, Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_12").Single().Value.Length - 2)).ToString() : string.Empty)</td>
+        <td colspan="1" style="font-size:x-small;border-right:1px solid black;padding-left:0.3em;color:navy;font-weight:bolder;background-color:lightgrey;">@(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_12").Single().Value.Trim().Length > 0 ? Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_12").Single().Value.Substring(Model.lsFields.Where(x => x.Name == "VALUE_CODE_AMOUNT_12").Single().Value.Length - 2, 2).ToString() : string.Empty)</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td colspan="1" style="font-size:8px;border:1px solid black;padding-left:0.3em;">42&nbsp;REV.&nbsp;CD.</td>
+        <td colspan="7" style="font-size:8px;border:1px solid black;padding-left:0.5em;">43 DESCRIPTION</td>
+        <td colspan="5" style="font-size:8px;border:1px solid black;padding-left:0.5em;">44 HCPCS /RATE / HIPPS CODE</td>
+        <td colspan="2" style="font-size:8px;border:1px solid black;padding-left:0.5em;">45 SERV. DATE</td>
+        <td colspan="2" style="font-size:8px;border:1px solid black;padding-left:0.5em;">46 SERV. UNITS</td>
+        <td colspan="3" style="font-size:8px;border:1px solid black;padding-left:0.5em;">47 TOTAL CHARGES</td>
+        <td colspan="3" style="font-size:8px;border:1px solid black;padding-left:0.5em;">48 NON-COVERED CHARAGES</td>
+        <td colspan="1" style="font-size:8px;border:1px solid black;padding-left:0.5em;">49</td>
+        <td>&nbsp;</td>
+    </tr>
+    <!--Claim Detail Record Loop-->
+    <tr>
+        <td style="font-size:6px;">1</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;">&nbsp;</td>
+        <td colspan="7" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
+        <td colspan="5" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px dotted black;padding-left:0.5em;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px dotted black;padding-left:0.5em;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;"></td>
+        <td style="font-size:6px;">1</td>
+    </tr>
+    <tr>
+        <td style="font-size:6px;">2</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;background-color:lightgrey;">&nbsp;</td>
+        <td colspan="7" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+        <td colspan="5" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px dotted black;padding-left:0.5em;background-color:lightgrey;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px dotted black;padding-left:0.5em;background-color:lightgrey;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+        <td style="font-size:6px;">2</td>
+    </tr>
+    <!--End Claim Detail Record Loop-->
+    <tr>
+        <td style="font-size:6px;">23</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;border-top:1px solid black;border-bottom:1px solid black;">&nbsp;</td>
+        <td colspan="7" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;border-bottom:1px solid black;"><b>PAGE____ OF ____</b></td>
+        <td colspan="5" style="font-size:x-small;border-top:1px solid black;padding-left:0.5em;border-top:1px solid black;text-align:right;border-bottom:1px solid black;"><b>CREATION DATE</b></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;border-bottom:1px solid black;"></td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;background-color:black;color:white;border-bottom:1px solid black;text-align:right;"><b>TOTALS &#8680</b></td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-right:0.3em;border-top:2px solid black;border-bottom:2px solid black;color:navy;font-weight:bolder;text-align:right;">@(Convert.ToInt32(Model.lsFields.Where(x => x.Name == "FIN_TOTAL_CHARGES_HIPAA").Single().Value).ToString().Substring(0, Convert.ToInt32(Model.lsFields.Where(x => x.Name == "FIN_TOTAL_CHARGES_HIPAA").Single().Value).ToString().Length-2))</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px dotted black;padding-left:0.3em;border-top:2px solid black;border-bottom:2px solid black;color:navy;font-weight:bolder;text-align:left;">@(Convert.ToInt32(Model.lsFields.Where(x => x.Name == "FIN_TOTAL_CHARGES_HIPAA").Single().Value).ToString().Substring(Convert.ToInt32(Model.lsFields.Where(x => x.Name == "FIN_TOTAL_CHARGES_HIPAA").Single().Value).ToString().Length - 2,2))</td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-top:2px solid black;border-bottom:2px solid black;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px dotted black;padding-left:0.5em;border-top:2px solid black;border-bottom:2px solid black;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td style="font-size:6px;">23</td>
+    </tr>
+    <tr>
+        <td style="font-size:6px;"></td>
+        <td colspan="6" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;border-top:1px solid black;border-bottom:1px solid black;background-color:lightgrey;">50 PAYER NAME</td>
+        <td colspan="3" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;border-bottom:1px solid black;background-color:lightgrey;">51 HEALTH PLAN ID</td>
+        <td colspan="1" style="font-size:6px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;border-bottom:1px solid black;background-color:lightgrey;text-align:center;">52 REL INFO</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;border-bottom:1px solid black;background-color:lightgrey;"></td>
+        <td colspan="1" style="font-size:6px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;background-color:lightgrey;border-bottom:1px solid black;text-align:center;">53 ASG BEN.</td>
+        <td colspan="3" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;border-bottom:1px solid black;background-color:lightgrey;">54 PRIOR PAYMENTS</td>
+        <td colspan="3" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;border-bottom:1px solid black;background-color:lightgrey;">55 EST. AMOUNT DUE</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;border-bottom:1px solid black;background-color:lightgrey;">56 NPI</td>
+        <td colspan="5" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;border-top:1px solid black;border-bottom:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "ICH_BILLING_NPI_API_PROV_ID").Single().Value</td>
+        <td style="font-size:6px;"></td>
+    </tr>
+    <tr>
+        <td style="font-size:6px;">A</td>
+        <td colspan="6" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;border-top:1px solid black;"></td>
+        <td colspan="3" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;"></td>
+        <td colspan="1" style="font-size:6px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;text-align:center;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;background-color:lightgrey;"></td>
+        <td colspan="1" style="font-size:6px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;text-align:center;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px dotted black;padding-left:0.5em;border-top:1px solid black;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px dotted black;padding-left:0.5em;border-top:1px solid black;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;">57</td>
+        <td colspan="5" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;border-top:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "BPD ALTERNATE ID").Single().Value</td>
+        <td style="font-size:6px;">A</td>
+    </tr>
+    <tr>
+        <td style="font-size:6px;">B</td>
+        <td colspan="6" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;background-color:lightgrey;"></td>
+        <td colspan="3" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+        <td colspan="1" style="font-size:6px;border-left:1px solid black;padding-left:0.5em;text-align:center;background-color:lightgrey;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+        <td colspan="1" style="font-size:6px;border-left:1px solid black;padding-left:0.5em;text-align:center;background-color:lightgrey;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px dotted black;padding-left:0.5em;background-color:lightgrey;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px dotted black;padding-left:0.5em;background-color:lightgrey;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;">OTHER</td>
+        <td colspan="5" style="font-size:8px;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+        <td style="font-size:6px;">B</td>
+    </tr>
+    <tr>
+        <td style="font-size:6px;">C</td>
+        <td colspan="6" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;"></td>
+        <td colspan="3" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td colspan="1" style="font-size:6px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;text-align:center;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;"></td>
+        <td colspan="1" style="font-size:6px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;text-align:center;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px dotted black;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px dotted black;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;">PRV ID</td>
+        <td colspan="5" style="font-size:8px;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td style="font-size:6px;">C</td>
+    </tr>
+    <tr>
+        <td style="font-size:6px;"></td>
+        <td colspan="7" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;border-top:1px solid black;border-bottom:1px solid black;background-color:lightgrey;">58 INSURED'S NAME</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;border-bottom:1px solid black;background-color:lightgrey;">59 P. REL</td>
+        <td colspan="6" style="font-size:6px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;border-bottom:1px solid black;background-color:lightgrey;">60 INSURED'S UNIQUE ID</td>
+        <td colspan="5" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;border-bottom:1px solid black;background-color:lightgrey;">61 GROUP NAME</td>
+        <td colspan="5" style="font-size:8px;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;border-top:1px solid black;border-bottom:1px solid black;background-color:lightgrey;">62 INSURANCE GROUP NO.</td>
+        <td style="font-size:6px;"></td>
+    </tr>
+    <tr>
+        <td style="font-size:6px;">A</td>
+        <td colspan="7" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;border-top:1px solid black;">&nbsp;</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;"></td>
+        <td colspan="6" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "FK CLIENT PCN").Single().Value</td>
+        <td colspan="5" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;"></td>
+        <td colspan="5" style="font-size:8px;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;border-top:1px solid black;"></td>
+        <td style="font-size:6px;">A</td>
+    </tr>
+    <tr>
+        <td style="font-size:6px;">B</td>
+        <td colspan="7" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;background-color:lightgrey;">&nbsp;</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+        <td colspan="6" style="font-size:6px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+        <td colspan="5" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+        <td colspan="5" style="font-size:8px;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+        <td style="font-size:6px;">B</td>
+    </tr>
+    <tr>
+        <td style="font-size:6px;">C</td>
+        <td colspan="7" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;">&nbsp;</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td colspan="6" style="font-size:6px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td colspan="5" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td colspan="5" style="font-size:8px;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td style="font-size:6px;">C</td>
+    </tr>
+    <tr>
+        <td style="font-size:6px;"></td>
+        <td colspan="8" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;border-top:1px solid black;border-bottom:1px solid black;background-color:lightgrey;">63 TREATMENT AUTHORIZATION CODES</td>
+        <td colspan="8" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;border-bottom:1px solid black;background-color:lightgrey;">64 DOCUMENT CONTROL NUMBER</td>
+        <td colspan="8" style="font-size:8px;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;border-top:1px solid black;border-bottom:1px solid black;background-color:lightgrey;">65 EMPLOYER NAME</td>
+        <td style="font-size:6px;"></td>
+    </tr>
+    <tr>
+        <td style="font-size:6px;">A</td>
+        <td colspan="8" style="font-size:x-small;border-left:1px solid black;padding-left:0.3em;border-top:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "FK AUTHORIZATION NUMBER").Single().Value</td>
+        <td colspan="8" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-top:1px solid black;"></td>
+        <td colspan="8" style="font-size:8px;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;border-top:1px solid black;"></td>
+        <td style="font-size:6px;">A</td>
+    </tr>
+    <tr>
+        <td style="font-size:6px;">B</td>
+        <td colspan="8" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;background-color:lightgrey;">&nbsp;</td>
+        <td colspan="8" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+        <td colspan="8" style="font-size:8px;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+        <td style="font-size:6px;">B</td>
+    </tr>
+    <tr>
+        <td style="font-size:6px;">C</td>
+        <td colspan="8" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;">&nbsp;</td>
+        <td colspan="8" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td colspan="8" style="font-size:8px;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td style="font-size:6px;">C</td>
+    </tr>
+    <tr>
+        <td style="font-size:6px;"></td>
+        <td colspan="1" style="font-size:6px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;background-color:lightgrey;">66<br />DX</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;color:navy;font-weight:bolder;text-align:left;">@Model.lsFields.Where(x => x.Name == "STD_FK_DIAGNOSIS_CD_1_ICD10").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;padding-right:0.5em;text-align:right;border-bottom:1px solid black;background-size:30% 100%;background-position:100% 100%;background-image: linear-gradient(to left, lightgrey, white);background-repeat:no-repeat;color:navy;font-weight:bolder;"><div style="color:lightgray;font-size:small;position:relative;float:left;left:0%;top:50%;transform:translate(-50% -50%);"><b>67</b></div>@Model.lsFields.Where(x => x.Name == "PRESENT_ON_ADMISSION_1").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;color:navy;font-weight:bolder;text-align:left;">@Model.lsFields.Where(x => x.Name == "STD_FK_DIAGNOSIS_CD_2_ICD10").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;padding-right:0.5em;text-align:right;border-bottom:1px solid black;background-size:30% 100%;background-position:100% 100%;background-image: linear-gradient(to left, lightgrey, white);background-repeat:no-repeat;color:navy;font-weight:bolder;"><div style="color:lightgray;font-size:small;position:relative;float:left;left:0%;top:50%;transform:translate(-50% -50%);"><b>A</b></div>@Model.lsFields.Where(x => x.Name == "PRESENT_ON_ADMISSION_2").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;color:navy;font-weight:bolder;text-align:left;">@Model.lsFields.Where(x => x.Name == "STD_FK_DIAGNOSIS_CD_3_ICD10").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;padding-right:0.5em;text-align:right;border-bottom:1px solid black;background-size:30% 100%;background-position:100% 100%;background-image: linear-gradient(to left, lightgrey, white);background-repeat:no-repeat;color:navy;font-weight:bolder;"><div style="color:lightgray;font-size:small;position:relative;float:left;left:0%;top:50%;transform:translate(-50% -50%);"><b>B</b></div>@Model.lsFields.Where(x => x.Name == "PRESENT_ON_ADMISSION_3").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;color:navy;font-weight:bolder;text-align:left;">@Model.lsFields.Where(x => x.Name == "STD_FK_DIAGNOSIS_CD_4_ICD10").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;padding-right:0.5em;text-align:right;border-bottom:1px solid black;background-size:30% 100%;background-position:100% 100%;background-image: linear-gradient(to left, lightgrey, white);background-repeat:no-repeat;color:navy;font-weight:bolder;"><div style="color:lightgray;font-size:small;position:relative;float:left;left:0%;top:50%;transform:translate(-50% -50%);"><b>C</b></div>@Model.lsFields.Where(x => x.Name == "PRESENT_ON_ADMISSION_4").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;color:navy;font-weight:bolder;text-align:left;">@Model.lsFields.Where(x => x.Name == "STD_FK_DIAGNOSIS_CD_5_ICD10").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;padding-right:0.5em;text-align:right;border-bottom:1px solid black;background-size:30% 100%;background-position:100% 100%;background-image: linear-gradient(to left, lightgrey, white);background-repeat:no-repeat;color:navy;font-weight:bolder;"><div style="color:lightgray;font-size:small;position:relative;float:left;left:0%;top:50%;transform:translate(-50% -50%);"><b>D</b></div>@Model.lsFields.Where(x => x.Name == "PRESENT_ON_ADMISSION_5").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;color:navy;font-weight:bolder;text-align:left;">@Model.lsFields.Where(x => x.Name == "STD_FK_DIAGNOSIS_CD_6_ICD10").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;padding-right:0.5em;text-align:right;border-bottom:1px solid black;background-size:30% 100%;background-position:100% 100%;background-image: linear-gradient(to left, lightgrey, white);background-repeat:no-repeat;color:navy;font-weight:bolder;"><div style="color:lightgray;font-size:small;position:relative;float:left;left:0%;top:50%;transform:translate(-50% -50%);"><b>E</b></div>@Model.lsFields.Where(x => x.Name == "PRESENT_ON_ADMISSION_6").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;color:navy;font-weight:bolder;text-align:left;">@Model.lsFields.Where(x => x.Name == "STD_FK_DIAGNOSIS_CD_7_ICD10").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;padding-right:0.5em;text-align:right;border-bottom:1px solid black;background-size:30% 100%;background-position:100% 100%;background-image: linear-gradient(to left, lightgrey, white);background-repeat:no-repeat;color:navy;font-weight:bolder;"><div style="color:lightgray;font-size:small;position:relative;float:left;left:0%;top:50%;transform:translate(-50% -50%);"><b>F</b></div>@Model.lsFields.Where(x => x.Name == "PRESENT_ON_ADMISSION_7").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;color:navy;font-weight:bolder;text-align:left;">@Model.lsFields.Where(x => x.Name == "STD_FK_DIAGNOSIS_CD_8_ICD10").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;padding-right:0.5em;text-align:right;border-bottom:1px solid black;background-size:30% 100%;background-position:100% 100%;background-image: linear-gradient(to left, lightgrey, white);background-repeat:no-repeat;color:navy;font-weight:bolder;"><div style="color:lightgray;font-size:small;position:relative;float:left;left:0%;top:50%;transform:translate(-50% -50%);"><b>G</b></div>@Model.lsFields.Where(x => x.Name == "PRESENT_ON_ADMISSION_8").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;color:navy;font-weight:bolder;text-align:left;">@Model.lsFields.Where(x => x.Name == "STD_FK_DIAGNOSIS_CD_9_ICD10").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;padding-right:0.5em;text-align:right;border-bottom:1px solid black;background-size:30% 100%;background-position:100% 100%;background-image: linear-gradient(to left, lightgrey, white);background-repeat:no-repeat;color:navy;font-weight:bolder;"><div style="color:lightgray;font-size:small;position:relative;float:left;left:0%;top:50%;transform:translate(-50% -50%);"><b>H</b></div>@Model.lsFields.Where(x => x.Name == "PRESENT_ON_ADMISSION_9").Single().Value</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;text-align:left;vertical-align:top;">68</td>
+        <td colspan="4" style="font-size:8px;border-right:1px solid black;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td style="font-size:6px;"></td>
+    </tr>
+    <tr>
+        <td style="font-size:6px;"></td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "FK_ADMIT_DIAG_SRC_CD_1").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;color:navy;font-weight:bolder;text-align:left;">@Model.lsFields.Where(x => x.Name == "STD_FK_DIAGNOSIS_CD_10_ICD10").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;padding-right:0.5em;text-align:right;border-bottom:1px solid black;background-size:30% 100%;background-position:100% 100%;background-image: linear-gradient(to left, lightgrey, white);background-repeat:no-repeat;color:navy;font-weight:bolder;"><div style="color:lightgray;font-size:small;position:relative;float:left;left:0%;top:50%;transform:translate(-50% -50%);"><b>I</b></div>@Model.lsFields.Where(x => x.Name == "PRESENT_ON_ADMISSION_10").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;color:navy;font-weight:bolder;text-align:left;">@Model.lsFields.Where(x => x.Name == "STD_FK_DIAGNOSIS_CD_11_ICD10").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;padding-right:0.5em;text-align:right;border-bottom:1px solid black;background-size:30% 100%;background-position:100% 100%;background-image: linear-gradient(to left, lightgrey, white);background-repeat:no-repeat;color:navy;font-weight:bolder;"><div style="color:lightgray;font-size:small;position:relative;float:left;left:0%;top:50%;transform:translate(-50% -50%);"><b>J</b></div>@Model.lsFields.Where(x => x.Name == "PRESENT_ON_ADMISSION_11").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;color:navy;font-weight:bolder;text-align:left;">@Model.lsFields.Where(x => x.Name == "STD_FK_DIAGNOSIS_CD_12_ICD10").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;padding-right:0.5em;text-align:right;border-bottom:1px solid black;background-size:30% 100%;background-position:100% 100%;background-image: linear-gradient(to left, lightgrey, white);background-repeat:no-repeat;color:navy;font-weight:bolder;"><div style="color:lightgray;font-size:small;position:relative;float:left;left:0%;top:50%;transform:translate(-50% -50%);"><b>K</b></div>@Model.lsFields.Where(x => x.Name == "PRESENT_ON_ADMISSION_12").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;color:navy;font-weight:bolder;text-align:left;">@Model.lsFields.Where(x => x.Name == "STD_FK_DIAGNOSIS_CD_13_ICD10").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;padding-right:0.5em;text-align:right;border-bottom:1px solid black;background-size:30% 100%;background-position:100% 100%;background-image: linear-gradient(to left, lightgrey, white);background-repeat:no-repeat;color:navy;font-weight:bolder;"><div style="color:lightgray;font-size:small;position:relative;float:left;left:0%;top:50%;transform:translate(-50% -50%);"><b>L</b></div>@Model.lsFields.Where(x => x.Name == "PRESENT_ON_ADMISSION_13").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;color:navy;font-weight:bolder;text-align:left;">@Model.lsFields.Where(x => x.Name == "STD_FK_DIAGNOSIS_CD_14_ICD10").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;padding-right:0.5em;text-align:right;border-bottom:1px solid black;background-size:30% 100%;background-position:100% 100%;background-image: linear-gradient(to left, lightgrey, white);background-repeat:no-repeat;color:navy;font-weight:bolder;"><div style="color:lightgray;font-size:small;position:relative;float:left;left:0%;top:50%;transform:translate(-50% -50%);"><b>M</b></div>@Model.lsFields.Where(x => x.Name == "PRESENT_ON_ADMISSION_14").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;color:navy;font-weight:bolder;text-align:left;">@Model.lsFields.Where(x => x.Name == "STD_FK_DIAGNOSIS_CD_15_ICD10").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;padding-right:0.5em;text-align:right;border-bottom:1px solid black;background-size:30% 100%;background-position:100% 100%;background-image: linear-gradient(to left, lightgrey, white);background-repeat:no-repeat;color:navy;font-weight:bolder;"><div style="color:lightgray;font-size:small;position:relative;float:left;left:0%;top:50%;transform:translate(-50% -50%);"><b>N</b></div>@Model.lsFields.Where(x => x.Name == "PRESENT_ON_ADMISSION_15").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;color:navy;font-weight:bolder;text-align:left;">@Model.lsFields.Where(x => x.Name == "STD_FK_DIAGNOSIS_CD_16_ICD10").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;padding-right:0.5em;text-align:right;border-bottom:1px solid black;background-size:30% 100%;background-position:100% 100%;background-image: linear-gradient(to left, lightgrey, white);background-repeat:no-repeat;color:navy;font-weight:bolder;"><div style="color:lightgray;font-size:small;position:relative;float:left;left:0%;top:50%;transform:translate(-50% -50%);"><b>O</b></div>@Model.lsFields.Where(x => x.Name == "PRESENT_ON_ADMISSION_16").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;color:navy;font-weight:bolder;text-align:left;">@Model.lsFields.Where(x => x.Name == "STD_FK_DIAGNOSIS_CD_17_ICD10").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;padding-right:0.5em;text-align:right;border-bottom:1px solid black;background-size:30% 100%;background-position:100% 100%;background-image: linear-gradient(to left, lightgrey, white);background-repeat:no-repeat;color:navy;font-weight:bolder;"><div style="color:lightgray;font-size:small;position:relative;float:left;left:0%;top:50%;transform:translate(-50% -50%);"><b>P</b></div>@Model.lsFields.Where(x => x.Name == "PRESENT_ON_ADMISSION_17").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;color:navy;font-weight:bolder;text-align:left;">@Model.lsFields.Where(x => x.Name == "STD_FK_DIAGNOSIS_CD_18_ICD10").Single().Value</td>
+        <td colspan="1" style="font-size:x-small;padding-right:0.5em;text-align:right;border-bottom:1px solid black;background-size:30% 100%;background-position:100% 100%;background-image: linear-gradient(to left, lightgrey, white);background-repeat:no-repeat;color:navy;font-weight:bolder;"><div style="color:lightgray;font-size:small;position:relative;float:left;left:0%;top:50%;transform:translate(-50% -50%);"><b>Q</b></div>@Model.lsFields.Where(x => x.Name == "PRESENT_ON_ADMISSION_18").Single().Value</td>
+        <td colspan="5" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;border-right:1px solid black;"></td>
+        <td style="font-size:6px;"></td>
+    </tr>
+    <tr>
+        <td style="font-size:6px;"></td>
+        <td colspan="2" style="font-size:6px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;background-color:lightgrey;text-align:center;">69 ADMIT<br />DX</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "STD_FK_ADMIT_DIAG_CD_1_ICD10").Single().Value</td>
+        <td colspan="2" style="font-size:6px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;text-align:center;">70 PATIENT<br />REASON DX</td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;"><div style="color:lightgray;font-size:small;position:relative;float:left;left:40%;top:50%;transform:translate(-50% -50%);"><b>a</b></div></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;"><div style="color:lightgray;font-size:small;position:relative;float:left;left:40%;top:50%;transform:translate(-50% -50%);"><b>b</b></div></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;"><div style="color:lightgray;font-size:small;position:relative;float:left;left:40%;top:50%;transform:translate(-50% -50%);"><b>c</b></div></td>
+        <td colspan="1" style="font-size:6px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;text-align:center;">71 PPS<br />CODE</td>
+        <td colspan="1" style="font-size:6px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td colspan="1" style="font-size:6px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;text-align:center;">72<br />ECI</td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-size:30% 100%;background-position:100% 100%;background-image: linear-gradient(to left, lightgrey, white);background-repeat:no-repeat;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-size:30% 100%;background-position:100% 100%;background-image: linear-gradient(to left, lightgrey, white);background-repeat:no-repeat;"></td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-size:30% 100%;background-position:100% 100%;background-image: linear-gradient(to left, lightgrey, white);background-repeat:no-repeat;"></td>
+        <td colspan="1" style="font-size:6px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;text-align:left;vertical-align:top;">73</td>
+        <td colspan="2" style="font-size:8px;padding-left:0.5em;border-bottom:1px solid black;border-right:1px solid black;"></td>
+        <td style="font-size:6px;"></td>
+    </tr>
+    <tr>
+        <td style="font-size:6px;"></td>
+        <td colspan="4" style="font-size:6px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;background-color:lightgrey;">74&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRINCIPAL PROCEDURE<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CODE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATE</td>
+        <td colspan="4" style="font-size:6px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;background-color:black;color:white;">a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OTHER PROCEDURE<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CODE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATE</td>
+        <td colspan="4" style="font-size:6px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;background-color:lightgrey;">b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OTHER PROCEDURE<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CODE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATE</td>
+        <td colspan="2" style="font-size:6px;border-left:1px solid black;padding-left:0.5em;text-align:left;vertical-align:top;">75</td>
+        <td colspan="2" style="font-size:6px;border-left:double black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;">76 ATTENDING</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;">NPI</td>
+        <td colspan="2" style="font-size:x-small;padding-left:0.5em;border-bottom:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "ICH_ATT_NPI_API_PROV_ID").Single().Value</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;">QUAL</td>
+        <td colspan="1" style="font-size:6px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td colspan="3" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;border-right:1px solid black;"></td>
+        <td style="font-size:6px;"></td>
+    </tr>
+    <tr>
+        <td style="font-size:6px;"></td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92_FK_SURG_PROC_CDE_1_ICD10").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 SURGICAL PROCEDURE DATE 1").Single().Value.Substring(4, 2)/@Model.lsFields.Where(x => x.Name == "UB92 SURGICAL PROCEDURE DATE 1").Single().Value.Substring(6, 2)/@Model.lsFields.Where(x => x.Name == "UB92 SURGICAL PROCEDURE DATE 1").Single().Value.Substring(0, 4)</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92_FK_SURG_PROC_CDE_2_ICD10").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 SURGICAL PROCEDURE DATE 2").Single().Value.Substring(4, 2)/@Model.lsFields.Where(x => x.Name == "UB92 SURGICAL PROCEDURE DATE 2").Single().Value.Substring(6, 2)/@Model.lsFields.Where(x => x.Name == "UB92 SURGICAL PROCEDURE DATE 2").Single().Value.Substring(0, 4)</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92_FK_SURG_PROC_CDE_3_ICD10").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 SURGICAL PROCEDURE DATE 3").Single().Value.Substring(4, 2)/@Model.lsFields.Where(x => x.Name == "UB92 SURGICAL PROCEDURE DATE 3").Single().Value.Substring(6, 2)/@Model.lsFields.Where(x => x.Name == "UB92 SURGICAL PROCEDURE DATE 3").Single().Value.Substring(0, 4)</td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
+        <td colspan="1" style="font-size:8px;border-left:double black;padding-left:0.5em;border-bottom:1px solid black;">LAST</td>
+        <td colspan="4" style="font-size:8px;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td colspan="1" style="font-size:8px;padding-left:0.5em;border-left:1px solid black;border-bottom:1px solid black;">FIRST</td>
+        <td colspan="4" style="font-size:8px;padding-left:0.5em;border-bottom:1px solid black;border-right:1px solid black;"></td>
+        <td style="font-size:6px;"></td>
+    </tr>
+    <tr>
+        <td style="font-size:6px;"></td>
+        <td colspan="4" style="font-size:6px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;background-color:black;color:white;">c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OTHER PROCEDURE<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CODE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATE</td>
+        <td colspan="4" style="font-size:6px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;background-color:lightgrey;">d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OTHER PROCEDURE<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CODE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATE</td>
+        <td colspan="4" style="font-size:6px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;background-color:black;color:white;">e&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OTHER PROCEDURE<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CODE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATE</td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;text-align:left;vertical-align:top;"></td>
+        <td colspan="2" style="font-size:6px;border-left:double black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;">77 OPERATING</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;">NPI</td>
+        <td colspan="2" style="font-size:x-small;padding-left:0.5em;border-bottom:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "ICH_OTHERA_NPI_API_PROV_ID").Single().Value</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;">QUAL</td>
+        <td colspan="1" style="font-size:6px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td colspan="3" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;border-right:1px solid black;"></td>
+        <td style="font-size:6px;"></td>
+    </tr>
+    <tr>
+        <td style="font-size:6px;"></td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92_FK_SURG_PROC_CDE_4_ICD10").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 SURGICAL PROCEDURE DATE 4").Single().Value.Substring(4, 2)/@Model.lsFields.Where(x => x.Name == "UB92 SURGICAL PROCEDURE DATE 4").Single().Value.Substring(6, 2)/@Model.lsFields.Where(x => x.Name == "UB92 SURGICAL PROCEDURE DATE 4").Single().Value.Substring(0, 4)</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92_FK_SURG_PROC_CDE_6_ICD10").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 SURGICAL PROCEDURE DATE 5").Single().Value.Substring(4, 2)/@Model.lsFields.Where(x => x.Name == "UB92 SURGICAL PROCEDURE DATE 5").Single().Value.Substring(6, 2)/@Model.lsFields.Where(x => x.Name == "UB92 SURGICAL PROCEDURE DATE 5").Single().Value.Substring(0, 4)</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92_FK_SURG_PROC_CDE_6_ICD10").Single().Value</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "UB92 SURGICAL PROCEDURE DATE 6").Single().Value.Substring(4, 2)/@Model.lsFields.Where(x => x.Name == "UB92 SURGICAL PROCEDURE DATE 6").Single().Value.Substring(6, 2)/@Model.lsFields.Where(x => x.Name == "UB92 SURGICAL PROCEDURE DATE 6").Single().Value.Substring(0, 4)</td>
+        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td colspan="1" style="font-size:8px;border-left:double black;padding-left:0.5em;border-bottom:1px solid black;">LAST</td>
+        <td colspan="4" style="font-size:8px;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td colspan="1" style="font-size:8px;padding-left:0.5em;border-left:1px solid black;border-bottom:1px solid black;">FIRST</td>
+        <td colspan="4" style="font-size:8px;padding-left:0.5em;border-bottom:1px solid black;border-right:1px solid black;"></td>
+        <td style="font-size:6px;"></td>
+    </tr>
+    <tr>
+        <td style="font-size:6px;"></td>
+        <td colspan="6" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;">80 REMARKS</td>
+        <td colspan="1" style="font-size:6px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;text-align:right;">81CC<br />a</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;"></td>
+        <td colspan="3" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;"></td>
+        <td colspan="3" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;"></td>
+        <td colspan="2" style="font-size:6px;border-left:double black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;">78 OTHER</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;">NPI</td>
+        <td colspan="2" style="font-size:x-small;padding-left:0.5em;border-bottom:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "ICH_OTHERB_NPI_API_PROV_ID").Single().Value</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;">QUAL</td>
+        <td colspan="1" style="font-size:6px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td colspan="3" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;border-right:1px solid black;"></td>
+        <td style="font-size:6px;"></td>
+    </tr>
+    <tr>
+        <td style="font-size:6px;"></td>
+        <td colspan="6" style="font-size:x-small;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "CLIENT DATE OF DEATH").Single().Value.Substring(4, 2)/@Model.lsFields.Where(x => x.Name == "CLIENT DATE OF DEATH").Single().Value.Substring(6, 2)/@Model.lsFields.Where(x => x.Name == "CLIENT DATE OF DEATH").Single().Value.Substring(0, 4)</td>
+        <td colspan="1" style="font-size:6px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;text-align:right;background-color:lightgrey;">b</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;background-color:lightgrey;"></td>
+        <td colspan="3" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;background-color:lightgrey;"></td>
+        <td colspan="3" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;background-color:lightgrey;"></td>
+        <td colspan="1" style="font-size:8px;border-left:double black;padding-left:0.5em;border-bottom:1px solid black;">LAST</td>
+        <td colspan="4" style="font-size:8px;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td colspan="1" style="font-size:8px;padding-left:0.5em;border-left:1px solid black;border-bottom:1px solid black;">FIRST</td>
+        <td colspan="4" style="font-size:8px;padding-left:0.5em;border-bottom:1px solid black;border-right:1px solid black;"></td>
+        <td style="font-size:6px;"></td>
+    </tr>
+    <tr>
+        <td style="font-size:6px;"></td>
+        <td colspan="6" style="font-size:x-small;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;color:navy;font-weight:bolder;">@Model.lsFields.Where(x => x.Name == "FPD ALTERNATE ID").Single().Value</td>
+        <td colspan="1" style="font-size:6px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;text-align:right;">c</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;"></td>
+        <td colspan="3" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;"></td>
+        <td colspan="3" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;"></td>
+        <td colspan="2" style="font-size:6px;border-left:double black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;">79 OTHER</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;">NPI</td>
+        <td colspan="2" style="font-size:8px;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;background-color:lightgrey;">QUAL</td>
+        <td colspan="1" style="font-size:6px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td colspan="3" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;border-bottom:1px solid black;border-right:1px solid black;"></td>
+        <td style="font-size:6px;"></td>
+    </tr>
+    <tr>
+        <td style="font-size:6px;"></td>
+        <td colspan="6" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;"></td>
+        <td colspan="1" style="font-size:6px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;text-align:right;background-color:lightgrey;">d</td>
+        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;background-color:lightgrey;"></td>
+        <td colspan="3" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;background-color:lightgrey;"></td>
+        <td colspan="3" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;border-bottom:1px solid black;background-color:lightgrey;"></td>
+        <td colspan="1" style="font-size:8px;border-left:double black;padding-left:0.5em;border-bottom:1px solid black;">LAST</td>
+        <td colspan="4" style="font-size:8px;padding-left:0.5em;border-bottom:1px solid black;"></td>
+        <td colspan="1" style="font-size:8px;padding-left:0.5em;border-left:1px solid black;border-bottom:1px solid black;">FIRST</td>
+        <td colspan="4" style="font-size:8px;padding-left:0.5em;border-bottom:1px solid black;border-right:1px solid black;"></td>
+        <td style="font-size:6px;"></td>
+    </tr>
+</table>
+

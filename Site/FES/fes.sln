@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fes", "fes\fes.csproj", "{265FAE65-8504-4E4C-BE14-BAC901824BF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FESBulkLoader", "FESBulkLoader\FESBulkLoader.csproj", "{61C5CC95-A5DD-4D63-A1B5-EEB53D854B2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{265FAE65-8504-4E4C-BE14-BAC901824BF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{265FAE65-8504-4E4C-BE14-BAC901824BF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{265FAE65-8504-4E4C-BE14-BAC901824BF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61C5CC95-A5DD-4D63-A1B5-EEB53D854B2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61C5CC95-A5DD-4D63-A1B5-EEB53D854B2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61C5CC95-A5DD-4D63-A1B5-EEB53D854B2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61C5CC95-A5DD-4D63-A1B5-EEB53D854B2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
