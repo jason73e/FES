@@ -45,7 +45,7 @@
         <td colspan="7" style="font-size:x-small;border-bottom:1px dotted gray;border-left:1px solid black;padding-left:0.5em;text-align:center;color:navy;font-weight:bolder;">@Model.lsFields.Where(f => f.Name == "ICH_BILLING_PROV_ADDR_1").Single().Value</td>
         <td colspan="7" style="font-size:x-small;border-bottom:1px dotted gray;border-left:1px solid black;padding-left:0.5em;text-align:center;"></td>
         <td colspan="1" style="font-size:8px;border:1px solid black;padding-left:0.5em;text-align:center;background-color:lightgrey;">b MED. REC #</td>
-        <td colspan="7" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;background-color:lightgrey;color:navy;font-weight:bolder;">@Model.lsFields.Where(f => f.Name == "UB92 MEDICAL RECORD NUMBER").Single().Value  @Model.lsFields.Where(f => f.Name == "UB92 MED REC TEXT HIPAA").Single().Value</td>
+        <td colspan="7" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;background-color:lightgrey;color:navy;font-weight:bolder;">@Model.lsFields.Where(f => f.Name == "UB92 MEDICAL RECORD NUMBER").Single().Value</td>
         <td colspan="2" style="font-size:x-small;border:1px solid black;padding-left:0.5em;text-align:center;color:navy;font-weight:bolder;">@Model.lsFields.Where(f => f.Name == "UB92 FK TYPE OF BILL CODE").Single().Value</td>
         <td>&nbsp;</td>
     </tr>
@@ -297,34 +297,92 @@
         <td>&nbsp;</td>
     </tr>
     <!--Claim Detail Record Loop-->
-    <tr>
-        <td style="font-size:6px;">1</td>
-        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;">&nbsp;</td>
-        <td colspan="7" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
-        <td colspan="5" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
-        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
-        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
-        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
-        <td colspan="1" style="font-size:8px;border-left:1px dotted black;padding-left:0.5em;"></td>
-        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
-        <td colspan="1" style="font-size:8px;border-left:1px dotted black;padding-left:0.5em;"></td>
-        <td colspan="1" style="font-size:8px;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;"></td>
-        <td style="font-size:6px;">1</td>
-    </tr>
-    <tr>
-        <td style="font-size:6px;">2</td>
-        <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;background-color:lightgrey;">&nbsp;</td>
-        <td colspan="7" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
-        <td colspan="5" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
-        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
-        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
-        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
-        <td colspan="1" style="font-size:8px;border-left:1px dotted black;padding-left:0.5em;background-color:lightgrey;"></td>
-        <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
-        <td colspan="1" style="font-size:8px;border-left:1px dotted black;padding-left:0.5em;background-color:lightgrey;"></td>
-        <td colspan="1" style="font-size:8px;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
-        <td style="font-size:6px;">2</td>
-    </tr>
+    @for (int x = 0; x < 21; x+=2)
+    {
+        if(x >= Model.lscd.Count)
+        {
+        <tr>
+            <td style="font-size:6px;">@(x + 1)</td>
+            <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;">&nbsp;</td>
+            <td colspan="7" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
+            <td colspan="5" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
+            <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
+            <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
+            <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
+            <td colspan="1" style="font-size:8px;border-left:1px dotted black;padding-left:0.5em;"></td>
+            <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;"></td>
+            <td colspan="1" style="font-size:8px;border-left:1px dotted black;padding-left:0.5em;"></td>
+            <td colspan="1" style="font-size:8px;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;"></td>
+            <td style="font-size:6px;">@(x + 1)</td>
+        </tr>
+        <tr>
+            <td style="font-size:6px;">@(x + 2)</td>
+            <td colspan="1" style="font-size:8px;border-left:1px solid black;padding-left:0.3em;background-color:lightgrey;">&nbsp;</td>
+            <td colspan="7" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+            <td colspan="5" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+            <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+            <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+            <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+            <td colspan="1" style="font-size:8px;border-left:1px dotted black;padding-left:0.5em;background-color:lightgrey;"></td>
+            <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+            <td colspan="1" style="font-size:8px;border-left:1px dotted black;padding-left:0.5em;background-color:lightgrey;"></td>
+            <td colspan="1" style="font-size:8px;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+            <td style="font-size:6px;">@(x + 2)</td>
+        </tr>
+        }
+        else
+        {
+            <tr>
+                <td style="font-size:6px;">@(x + 1)</td>
+                <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.3em;color:navy;font-weight:bolder;">@Model.lscd[x].lsFields.Where(a => a.Name == "STD_UFK_PROC_REV_CD").Single().Value</td>
+                <td colspan="7" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;color:navy;font-weight:bolder;">@Model.lscd[x].lsFields.Where(a => a.Name == "STD_UFK_NDC_CD").Single().Value @Model.lscd[x].lsFields.Where(a => a.Name == "STD_NDC_QUANTITY").Single().Value</td>
+                <td colspan="5" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;color:navy;font-weight:bolder;">@Model.lscd[x].lsFields.Where(a => a.Name == "FK PROCEDURE CODE").Single().Value</td>
+                <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;color:navy;font-weight:bolder;">@Model.lscd[x].lsFields.Where(a => a.Name == "FROM DATE OF SERVICE").Single().Value.Substring(4, 2)/@Model.lscd[x].lsFields.Where(a => a.Name == "FROM DATE OF SERVICE").Single().Value.Substring(6, 2)/@Model.lscd[x].lsFields.Where(a => a.Name == "FROM DATE OF SERVICE").Single().Value.Substring(0, 4)  - @Model.lscd[x].lsFields.Where(a => a.Name == "THROUGH DATE OF SERVICE").Single().Value.Substring(4, 2)/@Model.lscd[x].lsFields.Where(a => a.Name == "THROUGH DATE OF SERVICE").Single().Value.Substring(6, 2)/@Model.lscd[x].lsFields.Where(a => a.Name == "THROUGH DATE OF SERVICE").Single().Value.Substring(0, 4)</td>
+                <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-right:0.3em;text-align:right;color:navy;font-weight:bolder;">@((Convert.ToDecimal(Model.lscd[x].lsFields.Where(f => f.Name == "BILLED_QUANTITY_HIPAA").Single().Value)/10).ToString())</td>
+                <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-right:0.3em;text-align:right;color:navy;font-weight:bolder;">@(Convert.ToInt32(Model.lscd[x].lsFields.Where(a => a.Name == "BILLED_AMT_HIPAA").Single().Value.Substring(0, Model.lscd[x].lsFields.Where(a => a.Name == "BILLED_AMT_HIPAA").Single().Value.Length - 2)))</td>
+                <td colspan="1" style="font-size:x-small;border-left:1px dotted black;padding-left:0.5em;color:navy;font-weight:bolder;">@(Model.lscd[x].lsFields.Where(a => a.Name == "BILLED_AMT_HIPAA").Single().Value.Substring(Model.lscd[x].lsFields.Where(a => a.Name == "BILLED_AMT_HIPAA").Single().Value.Length - 2, 2))</td>
+                <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-right:0.3em;text-align:right;color:navy;font-weight:bolder;">@(Convert.ToInt32(Model.lscd[x].lsFields.Where(a => a.Name == "UB92_CHARGES_NOT_COVERED_HIPAA").Single().Value.ToString().Substring(0, Model.lscd[x].lsFields.Where(a => a.Name == "UB92_CHARGES_NOT_COVERED_HIPAA").Single().Value.Length - 2)))</td>
+                <td colspan="1" style="font-size:x-small;border-left:1px dotted black;padding-left:0.5em;color:navy;font-weight:bolder;">@(Model.lscd[x].lsFields.Where(a => a.Name == "UB92_CHARGES_NOT_COVERED_HIPAA").Single().Value.Substring(Model.lscd[x].lsFields.Where(a => a.Name == "UB92_CHARGES_NOT_COVERED_HIPAA").Single().Value.Length-2,2))</td>
+                <td colspan="1" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;"></td>
+                <td style="font-size:6px;">@(x + 1)</td>
+            </tr>
+            if (x + 1 >= Model.lscd.Count)
+            {
+            <tr>
+                <td style="font-size:6px;">@(x + 2)</td>
+                <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.3em;background-color:lightgrey;color:navy;font-weight:bolder;">&nbsp;</td>
+                <td colspan="7" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;color:navy;font-weight:bolder;"></td>
+                <td colspan="5" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;color:navy;font-weight:bolder;"></td>
+                <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;color:navy;font-weight:bolder;"></td>
+                <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;color:navy;font-weight:bolder;"></td>
+                <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;color:navy;font-weight:bolder;"></td>
+                <td colspan="1" style="font-size:x-small;border-left:1px dotted black;padding-left:0.5em;background-color:lightgrey;color:navy;font-weight:bolder;"></td>
+                <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;color:navy;font-weight:bolder;"></td>
+                <td colspan="1" style="font-size:x-small;border-left:1px dotted black;padding-left:0.5em;background-color:lightgrey;color:navy;font-weight:bolder;"></td>
+                <td colspan="1" style="font-size:8px;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+                <td style="font-size:6px;">@(x + 2)</td>
+            </tr>
+            }
+            else
+            {
+                <tr>
+                    <td style="font-size:6px;">@(x + 2)</td>
+                    <td colspan="1" style="font-size:x-small;border-left:1px solid black;padding-left:0.3em;background-color:lightgrey;color:navy;font-weight:bolder;">@Model.lscd[x+1].lsFields.Where(a => a.Name == "STD_UFK_PROC_REV_CD").Single().Value</td>
+                    <td colspan="7" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;color:navy;font-weight:bolder;">@Model.lscd[x+1].lsFields.Where(a => a.Name == "STD_UFK_NDC_CD").Single().Value @Model.lscd[x+1].lsFields.Where(a => a.Name == "STD_NDC_QUANTITY").Single().Value</td>
+                    <td colspan="5" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;color:navy;font-weight:bolder;">@Model.lscd[x+1].lsFields.Where(a => a.Name == "FK PROCEDURE CODE").Single().Value</td>
+                    <td colspan="2" style="font-size:8px;border-left:1px solid black;padding-left:0.5em;background-color:lightgrey;color:navy;font-weight:bolder;">@Model.lscd[x+1].lsFields.Where(a => a.Name == "FROM DATE OF SERVICE").Single().Value.Substring(4, 2)/@Model.lscd[x+1].lsFields.Where(a => a.Name == "FROM DATE OF SERVICE").Single().Value.Substring(6, 2)/@Model.lscd[x+1].lsFields.Where(a => a.Name == "FROM DATE OF SERVICE").Single().Value.Substring(0, 4)  - @Model.lscd[x+1].lsFields.Where(a => a.Name == "THROUGH DATE OF SERVICE").Single().Value.Substring(4, 2)/@Model.lscd[x+1].lsFields.Where(a => a.Name == "THROUGH DATE OF SERVICE").Single().Value.Substring(6, 2)/@Model.lscd[x+1].lsFields.Where(a => a.Name == "THROUGH DATE OF SERVICE").Single().Value.Substring(0, 4)</td>
+                    <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-right:0.3em;background-color:lightgrey;color:navy;font-weight:bolder;text-align:right;">@((Convert.ToDecimal(Model.lscd[x+1].lsFields.Where(f => f.Name == "BILLED_QUANTITY_HIPAA").Single().Value) / 10).ToString())</td>
+                    <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-right:0.3em;background-color:lightgrey;color:navy;font-weight:bolder;text-align:right;">@(Convert.ToInt32(Model.lscd[x+1].lsFields.Where(a => a.Name == "BILLED_AMT_HIPAA").Single().Value.Substring(0, Model.lscd[x+1].lsFields.Where(a => a.Name == "BILLED_AMT_HIPAA").Single().Value.Length - 2)))</td>
+                    <td colspan="1" style="font-size:x-small;border-left:1px dotted black;padding-left:0.5em;background-color:lightgrey;color:navy;font-weight:bolder;">@(Model.lscd[x+1].lsFields.Where(a => a.Name == "BILLED_AMT_HIPAA").Single().Value.Substring(Model.lscd[x+1].lsFields.Where(a => a.Name == "BILLED_AMT_HIPAA").Single().Value.Length - 2, 2))</td>
+                    <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-right:0.3em;background-color:lightgrey;color:navy;font-weight:bolder;text-align:right;">@(Convert.ToInt32(Model.lscd[x+1].lsFields.Where(a => a.Name == "UB92_CHARGES_NOT_COVERED_HIPAA").Single().Value.ToString().Substring(0, Model.lscd[x+1].lsFields.Where(a => a.Name == "UB92_CHARGES_NOT_COVERED_HIPAA").Single().Value.Length - 2)))</td>
+                    <td colspan="1" style="font-size:x-small;border-left:1px dotted black;padding-left:0.5em;background-color:lightgrey;color:navy;font-weight:bolder;">@(Model.lscd[x+1].lsFields.Where(a => a.Name == "UB92_CHARGES_NOT_COVERED_HIPAA").Single().Value.Substring(Model.lscd[x+1].lsFields.Where(a => a.Name == "UB92_CHARGES_NOT_COVERED_HIPAA").Single().Value.Length - 2, 2))</td>
+                    <td colspan="1" style="font-size:8px;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;background-color:lightgrey;"></td>
+                    <td style="font-size:6px;">@(x + 2)</td>
+                </tr>
+
+            }
+        }
+    }
     <!--End Claim Detail Record Loop-->
     <tr>
         <td style="font-size:6px;">23</td>

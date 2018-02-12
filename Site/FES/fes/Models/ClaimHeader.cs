@@ -218,6 +218,12 @@ namespace fes.Models
             lsFields.AddRange(vfields);
         }
 
+        public String Number2String(int number, bool isCaps)
+        {
+            Char c = (Char)((isCaps ? 65 : 97) + (number - 1));
+            return c.ToString();
+        }
+
 
     }
 }

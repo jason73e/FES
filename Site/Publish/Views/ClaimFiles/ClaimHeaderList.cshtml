@@ -1,0 +1,30 @@
+﻿@model fes.Models.ParsedViewModel
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.lsCHTVM.FirstOrDefault().ClaimType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lsCHTVM.FirstOrDefault().DCN)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.lsCHTVM)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClaimType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DCN)
+            </td>
+            <td>
+                @Html.ActionLink("ClaimInfo", "ClaimInfo", new { FileID = item.FileID, recordsequence = item.RecordSequence, FileVersion = item.FileVersion, ClaimLayout = item.cltLayout, DCN = item.DCN })
+            </td>
+        </tr>
+    }
+
+</table>
+

@@ -1,0 +1,83 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<fes.Models.Field>
+<table class="table-striped table-bordered">
+    <tbody>
+        <tr>
+            <th>
+                @Html.ActionLink(Html.DisplayNameFor(model => model.FirstOrDefault().Name).ToString(),"Index")
+            </th>
+            <th>
+                @Html.ActionLink(Html.DisplayNameFor(model => model.FirstOrDefault().Description).ToString(), "Index")
+            </th>
+            <th>
+                @Html.ActionLink(Html.DisplayNameFor(model => model.FirstOrDefault().DisplayName).ToString(), "Index")
+            </th>
+            <th>
+                @Html.ActionLink(Html.DisplayNameFor(model => model.FirstOrDefault().PseudoCode).ToString(), "Index")
+            </th>
+            <th>
+                @Html.ActionLink(Html.DisplayNameFor(model => model.FirstOrDefault().FileVersion).ToString(), "Index")
+            </th>
+            <th>
+                @Html.ActionLink(Html.DisplayNameFor(model => model.FirstOrDefault().RecordType).ToString(), "Index")
+            </th>
+            <th>
+                @Html.ActionLink(Html.DisplayNameFor(model => model.FirstOrDefault().ClaimType).ToString(), "Index")
+            </th>
+            <th>
+                @Html.ActionLink(Html.DisplayNameFor(model => model.FirstOrDefault().FormGroup).ToString(), "Index")
+            </th>
+            <th></th>
+        </tr>
+        @if (Model.Count > 0)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DisplayName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PseudoCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FileVersion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RecordType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClaimType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FormGroup)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.FieldID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.FieldID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.FieldID })
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="9">There are no Fields matching this search.</td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+<label class="form-control-static">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</label>
+<p>
+    <label class="form-control-static">Records Per Page: </label>@Html.DropDownList("PageSize", new SelectList(new Dictionary<string, int> { { "10", 10 }, { "20", 20 }, { "50", 50 }, { "100", 100 } }, "Key", "Value", Model.PageSize), new { @class = "pro_pag_tf1", id = "pagesizelist" })
+</p>
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, SearchFileVersion = ViewBag.FileVersion, SearchClaimLayout = ViewBag.ClaimLayout, SearchRecordType = ViewBag.RecordType, SearchFormGrouping = ViewBag.FormGrouping, PageSize = ViewBag.PageSize, sortOption=ViewBag.sortOption }))
+<input type="hidden" id="sortOption" value="@ViewBag.sortOption" />

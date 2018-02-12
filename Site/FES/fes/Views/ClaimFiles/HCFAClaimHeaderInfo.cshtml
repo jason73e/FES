@@ -28,7 +28,7 @@
     </tr>
     <tr>
         <td>&nbsp;</td>
-        <td colspan="4" style="font-size:x-small;">APPROVED BY NATIONAL UNIFORM CLAIM COMMITTEE 08/05</td>
+        <td colspan="4" style="font-size:x-small;"></td>
         <td colspan="8"></td>
     </tr>
     <tr>
@@ -174,7 +174,7 @@
     </tr>
     <tr>
         <td>&nbsp;</td>
-        <td colspan="4" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;border-bottom:1px solid black;border-right:1px solid black;"><table align="center"><tr><td style="width:33%;">MM</td><td style="width:33%;">DD</td><td style="width:33%;">YY</td></tr><tr><td style="color:navy;font-weight:bolder;">&nbsp;&nbsp;@Model.lsFields.Where(x => x.Name == "CLIENT DATE OF DEATH").Single().Value.Substring(4, 2)&nbsp;</td><td style="border-left:1px dashed;border-right:1px dashed;color:navy;font-weight:bolder;">&nbsp;&nbsp;&nbsp;@Model.lsFields.Where(x => x.Name == "CLIENT DATE OF DEATH").Single().Value.Substring(6, 2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="color:navy;font-weight:bolder;">&nbsp;&nbsp;@Model.lsFields.Where(x => x.Name == "CLIENT DATE OF DEATH").Single().Value.Substring(0, 4)&nbsp;</td></tr></table></td>
+        <td colspan="4" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;border-bottom:1px solid black;border-right:1px solid black;"><table align="center"><tr style="width:50%;"><td></td><td style="width:16%;">MM</td><td style="width:16%;">DD</td><td style="width:16%;">YY</td></tr><tr><td style="color:navy;font-weight:bolder;">Dath of Detath: </td><td style="color:navy;font-weight:bolder;">&nbsp;&nbsp;@Model.lsFields.Where(x => x.Name == "CLIENT DATE OF DEATH").Single().Value.Substring(4, 2)&nbsp;</td><td style="border-left:1px dashed;border-right:1px dashed;color:navy;font-weight:bolder;">&nbsp;&nbsp;&nbsp;@Model.lsFields.Where(x => x.Name == "CLIENT DATE OF DEATH").Single().Value.Substring(6, 2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="color:navy;font-weight:bolder;">&nbsp;&nbsp;@Model.lsFields.Where(x => x.Name == "CLIENT DATE OF DEATH").Single().Value.Substring(0, 4)&nbsp;</td></tr></table></td>
         <td colspan="1" style="font-size:x-small;"></td>
         <td colspan="1" style="font-size:x-small;color:navy;font-weight:bolder;">&nbsp;&nbsp;<input type="checkbox" disabled="disabled" @(Model.lsFields.Where(x => x.Name == "COND REL TO AUTO ACCID IND").Single().Value=="Y" ? "checked=\"checked\"" : "")/>&nbsp;YES&nbsp;&nbsp;&nbsp;<input type="checkbox" disabled="disabled" @(Model.lsFields.Where(x => x.Name == "COND REL TO AUTO ACCID IND").Single().Value=="N" ? "checked=\"checked\"" : "")/>&nbsp;NO&nbsp;</td>
         <td colspan="1" style="font-size:x-small;"><input type="text" readonly="readonly" style="width:75px;border-top:0px;border-bottom:1px solid;border-left:1px solid;border-right:1px solid;" /></td>
@@ -229,9 +229,9 @@
     </tr>
     <tr>
         <td>&nbsp;</td>
-        <td colspan="4" style="font-size:x-small;border-left:1px solid black;border-bottom:2px solid black;padding-left:0.5em;" class="hatch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SIGNED<input type="text" readonly="readonly" style="width:100%;border-top:0px;border-bottom:1px solid;border-left:0px;border-right:0px;" /></td>
-        <td colspan="3" style="font-size:x-small;border-right:1px solid black;border-bottom:2px solid black;" class="hatch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATE<input type="text" readonly="readonly" style="width:75%;border-top:0px;border-bottom:1px solid;border-left:0px;border-right:0px;" /></td>
-        <td colspan="5" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;border-bottom:2px solid black;padding-left:0.5em;" class="hatch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SIGNED<input type="text" readonly="readonly" style="width:100%;border-top:0px;border-bottom:1px solid;border-left:0px;border-right:0px;" /></td>
+        <td colspan="4" style="font-size:x-small;border-left:1px solid black;border-bottom:2px solid black;padding-left:0.5em;" class="hatch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SIGNED<input type="text" class="hatch" readonly="readonly" style="width:100%;border-top:0px;border-bottom:1px solid;border-left:0px;border-right:0px;" /></td>
+        <td colspan="3" style="font-size:x-small;border-right:1px solid black;border-bottom:2px solid black;" class="hatch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATE<input type="text" class="hatch" readonly="readonly" style="width:75%;border-top:0px;border-bottom:1px solid;border-left:0px;border-right:0px;" /></td>
+        <td colspan="5" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;border-bottom:2px solid black;padding-left:0.5em;" class="hatch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SIGNED<input type="text" class="hatch" readonly="readonly" style="width:100%;border-top:0px;border-bottom:1px solid;border-left:0px;border-right:0px;" /></td>
     </tr>
     <tr>
         <td>&nbsp;</td>
@@ -396,7 +396,7 @@
             <td style="font-size:x-small;text-align:center;border-left:1px solid black;border-right:1px solid black;border-bottom:1px solid black;column-rule-color:lightgray;color:navy;font-weight:bolder;">&nbsp;@Model.lscd[x].lsFields.Where(f => f.Name == "STD_FK_DTL_CONDITION_CD_1_HIPAA").Single().Value</td>
             <td style="font-size:x-small;text-align:center;border-left:1px solid black;border-right:1px solid black;border-bottom:1px solid black;color:navy;font-weight:bolder;">&nbsp;@Model.lscd[x].lsFields.Where(f => f.Name == "FK PROCEDURE CODE").Single().Value</td>
             <td style="font-size:x-small;text-align:center;border-left:1px solid black;border-right:1px solid black;border-bottom:1px solid black;"><table align="center" style="table-layout:fixed;"><tr><td style="width:20%;padding:0.5em;color:navy;font-weight:bolder;">@Html.Raw(Model.lscd[x].lsFields.Where(f => f.Name == "FK MODIFIER CODE 1").Single().Value.Trim().Length>0 ? Model.lscd[x].lsFields.Where(f => f.Name == "FK MODIFIER CODE 1").Single().Value : "&nbsp;&nbsp;&nbsp;")</td><td style="border-left:1px dashed;border-right:1px dashed;width:20%;padding:0.5em;color:navy;font-weight:bolder;">@Html.Raw(Model.lscd[x].lsFields.Where(f => f.Name == "FK MODIFIER CODE 2").Single().Value.Trim().Length > 0 ? Model.lscd[x].lsFields.Where(f => f.Name == "FK MODIFIER CODE 2").Single().Value : "&nbsp;&nbsp;&nbsp;")</td><td style="border-left:1px dashed;border-right:1px dashed;width:20%;padding:0.5em;color:navy;font-weight:bolder;">@Html.Raw(Model.lscd[x].lsFields.Where(f => f.Name == "FK MODIFIER CODE 3").Single().Value.Trim().Length > 0 ? Model.lscd[x].lsFields.Where(f => f.Name == "FK MODIFIER CODE 3").Single().Value : "&nbsp;&nbsp;&nbsp;")</td><td style="border-left:1px dashed;border-right:1px dashed;width:20%;padding:0.5em;color:navy;font-weight:bolder;">@Html.Raw(Model.lscd[x].lsFields.Where(f => f.Name == "FK MODIFIER CODE 4").Single().Value.Trim().Length > 0 ? Model.lscd[x].lsFields.Where(f => f.Name == "FK MODIFIER CODE 4").Single().Value : "&nbsp;&nbsp;&nbsp;")</td><td style="width:20%;padding:0.5em;color:navy;font-weight:bolder;">@Html.Raw(Model.lscd[x].lsFields.Where(f => f.Name == "FK MODIFIER CODE 5").Single().Value.Trim().Length > 0 ? Model.lscd[x].lsFields.Where(f => f.Name == "FK MODIFIER CODE 5").Single().Value : "&nbsp;&nbsp;&nbsp;")</td></tr></table></td>
-            <td style="font-size:x-small;text-align:center;border-left:1px solid black;border-right:1px solid black;border-bottom:1px solid black;" class="hatch">&nbsp;</td>
+            <td style="font-size:x-small;text-align:center;border-left:1px solid black;border-right:1px solid black;border-bottom:1px solid black;color:navy;font-weight:bolder;">@(Model.Number2String(Convert.ToInt32(Model.lscd[x].lsFields.Where(f => f.Name == "DIAGNOSIS POINTER").Single().Value),true))</td>
             <td style="font-size:x-small;text-align:center;border-left:1px solid black;border-right:1px solid black;border-bottom:1px solid black;"><table align="center"><tr><td style="width:85%;border-right:1px dashed;text-align:right;padding-right:0.5em;color:navy;font-weight:bolder;">&nbsp;&nbsp;&nbsp;@(string.Format("{0:C}", Convert.ToDouble(Convert.ToInt32(Model.lscd[x].lsFields.Where(f => f.Name == "BILLED_AMT_HIPAA").Single().Value)) / 100.00).Substring(0, string.Format("{0:C}", Convert.ToDouble(Convert.ToInt32(Model.lscd[x].lsFields.Where(f => f.Name == "BILLED_AMT_HIPAA").Single().Value)) / 100.00).Length - 3))</td><td style="width:15%;color:navy;font-weight:bolder;">&nbsp;@(string.Format("{0:C}", Convert.ToDouble(Convert.ToInt32(Model.lscd[x].lsFields.Where(f => f.Name == "BILLED_AMT_HIPAA").Single().Value)) / 100.00).Substring(string.Format("{0:C}", Convert.ToDouble(Convert.ToInt32(Model.lscd[x].lsFields.Where(f => f.Name == "BILLED_AMT_HIPAA").Single().Value)) / 100.00).LastIndexOf(".") + 1, 2))&nbsp;&nbsp;</td></tr></table></td>
             <td style="font-size:x-small;text-align:center;border-left:1px solid black;border-right:1px solid black;border-bottom:1px solid black;color:navy;font-weight:bolder;">&nbsp;@(Convert.ToInt32(Model.lscd[x].lsFields.Where(f => f.Name == "ANESTHESIA_MINUTES_HIPAA").Single().Value)>0 ? Convert.ToInt32(Model.lscd[x].lsFields.Where(f => f.Name == "ANESTHESIA_MINUTES_HIPAA").Single().Value).ToString() + " Minutes" : (Convert.ToDecimal(Model.lscd[x].lsFields.Where(f => f.Name == "BILLED_QUANTITY_HIPAA").Single().Value)/10).ToString())</td>
             <td style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;border-bottom:1px solid black;text-align:center;" class="hatch">&nbsp;</td>
@@ -410,7 +410,7 @@
         <td colspan="2" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;" class="hatch">25. FEDERAL TAX I.D. NUMBER</td>
         <td colspan="1" style="font-size:x-small;border-right:1px solid black;" class="hatch">SSN EIN</td>
         <td colspan="2" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;">26. PATIENT’S ACCOUNT NO.</td>
-        <td colspan="2" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;" class="hatch">27. ACCEPT ASSIGNMENT?</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;">27. ACCEPT ASSIGNMENT?</td>
         <td colspan="2" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;">28. TOTAL CHARGE</td>
         <td colspan="2" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;" class="hatch">29. AMOUNT PAID</td>
         <td colspan="1" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;" class="hatch">30. BALANCE DUE</td>
@@ -420,7 +420,7 @@
         <td colspan="2" style="font-size:x-small;border-left:1px solid black;border-bottom:1px solid black;" class="hatch">&nbsp;</td>
         <td colspan="1" style="font-size:x-small;border-right:1px solid black;border-bottom:1px solid black;" class="hatch">&nbsp;&nbsp;<input type="checkbox" disabled="disabled" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" disabled="disabled" />&nbsp;&nbsp;</td>
         <td colspan="2" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;border-bottom:1px solid black;padding-left:2em;color:navy;font-weight:bolder;">&nbsp;@Model.lsFields.Where(x => x.Name == "STD_PROV_ASGN_CLIENT_ACCT_NO_HIPAA").Single().Value</td>
-        <td colspan="2" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;border-bottom:1px solid black;" class="hatch">&nbsp;&nbsp;<input type="checkbox" disabled="disabled" />&nbsp;YES&nbsp;&nbsp;&nbsp;<input type="checkbox" disabled="disabled" />&nbsp;NO&nbsp;</td>
+        <td colspan="2" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;border-bottom:1px solid black;">&nbsp;&nbsp;<input type="checkbox" disabled="disabled" @(Model.lsFields.Where(x => x.Name == "ASSIGN OF BENEFITS INDICATOR").Single().Value=="Y" ? "checked=\"checked\"" : "")/>&nbsp;YES&nbsp;&nbsp;&nbsp;<input type="checkbox" disabled="disabled" @(Model.lsFields.Where(x => x.Name == "ASSIGN OF BENEFITS INDICATOR").Single().Value=="N" ? "checked=\"checked\"" : "")/>&nbsp;NO&nbsp;</td>
         <td colspan="2" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;border-bottom:1px solid black;"><table align="center"><tr><td style="width:85%;border-right:1px dashed;padding-right:0.5em;text-align:right;color:navy;font-weight:bolder;">&nbsp;&nbsp;&nbsp;@(string.Format("{0:C}", Convert.ToDouble(Convert.ToInt32(Model.lsFields.Where(f => f.Name == "FIN_TOTAL_CHARGES_HIPAA").Single().Value)) / 100.00).Substring(0, string.Format("{0:C}", Convert.ToDouble(Convert.ToInt32(Model.lsFields.Where(f => f.Name == "FIN_TOTAL_CHARGES_HIPAA").Single().Value)) / 100.00).Length - 3))</td><td style="width:15%;color:navy;font-weight:bolder;">&nbsp;@(string.Format("{0:C}", Convert.ToDouble(Convert.ToInt32(Model.lsFields.Where(f => f.Name == "FIN_TOTAL_CHARGES_HIPAA").Single().Value)) / 100.00).Substring(string.Format("{0:C}", Convert.ToDouble(Convert.ToInt32(Model.lsFields.Where(f => f.Name == "FIN_TOTAL_CHARGES_HIPAA").Single().Value)) / 100.00).LastIndexOf(".") + 1, 2))&nbsp;&nbsp;</td></tr></table></td>
         <td colspan="2" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;border-bottom:1px solid black;" class="hatch"><table align="center"><tr><td style="width:85%;border-right:1px dashed;padding-right:0.5em;text-align:right;">&nbsp;&nbsp;&nbsp;</td><td style="width:15%;">&nbsp;&nbsp;&nbsp;</td></tr></table></td>
         <td colspan="1" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;border-bottom:1px solid black;" class="hatch"><table align="center"><tr><td style="width:85%;border-right:1px dashed;padding-right:0.5em;text-align:right;">&nbsp;&nbsp;&nbsp;</td><td style="width:15%;">&nbsp;&nbsp;&nbsp;</td></tr></table></td>
@@ -428,32 +428,32 @@
     <tr>
         <td>&nbsp;</td>
         <td colspan="3" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;" class="hatch">31. SIGNATURE OF PHYSICIAN OR SUPPLIER</td>
-        <td colspan="4" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;" class="hatch">32. SERVICE FACILITY LOCATION INFORMATION</td>
+        <td colspan="4" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;">32. SERVICE FACILITY LOCATION INFORMATION</td>
         <td colspan="4" style="font-size:x-small;border-left:1px solid black;padding-left:0.5em;">33. BILLING PROVIDER INFO & PH #</td>
         <td colspan="1" style="font-size:x-small;border-right:1px solid black;">&nbsp;</td>
     </tr>
     <tr>
         <td>&nbsp;</td>
         <td colspan="3" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;" class="hatch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INCLUDING DEGREES OR CREDENTIALS</td>
-        <td colspan="4" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;" class="hatch">&nbsp;</td>
+        <td colspan="4" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;color:navy;font-weight:bolder;padding-left:0.5em;">@Model.lsFields.Where(x => x.Name == "FPD GROUP ORG NAME").Single().Value</td>
         <td colspan="5" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;padding-left:2em;color:navy;font-weight:bolder;">&nbsp;@Model.lsFields.Where(x => x.Name == "ICH_BILLING_PROV_ADDR_1").Single().Value</td>
     </tr>
     <tr>
         <td>&nbsp;</td>
         <td colspan="3" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;" class="hatch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(I certify that the statements on the reverse</td>
-        <td colspan="4" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;" class="hatch">&nbsp;</td>
+        <td colspan="4" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;">&nbsp;</td>
         <td colspan="5" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;padding-left:2em;color:navy;font-weight:bolder;">&nbsp;@Model.lsFields.Where(x => x.Name == "ICH_BILLING_PROV_CITY").Single().Value @Model.lsFields.Where(x => x.Name == "ICH_BILLING_PROV_STATE").Single().Value @Model.lsFields.Where(x => x.Name == "ICH_BILLING_PROV_ZIPCODE").Single().Value</td>
     </tr>
     <tr>
         <td>&nbsp;</td>
         <td colspan="3" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;padding-left:0.5em;" class="hatch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;apply to this bill and are made a part thereof.)</td>
-        <td colspan="4" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;" class="hatch">&nbsp;</td>
+        <td colspan="4" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;">&nbsp;</td>
         <td colspan="5" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;">&nbsp;</td>
     </tr>
     <tr>
         <td>&nbsp;</td>
         <td colspan="3" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;" class="hatch">&nbsp;</td>
-        <td colspan="4" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;border-bottom:1px solid black;" class="hatch">&nbsp;</td>
+        <td colspan="4" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;border-bottom:1px solid black;">&nbsp;</td>
         <td colspan="5" style="font-size:x-small;border-left:1px solid black;border-right:1px solid black;border-bottom:1px solid black;">&nbsp;</td>
     </tr>
     <tr>
